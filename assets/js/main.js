@@ -4,8 +4,7 @@
    ========================================= */
 
 // ── 出發日期（請修改為實際日期）──
-const TRIP_DATE = new Date('2026-08-01T07:30:00');
-
+const TRIP_DATE = new Date('2026-09-26T07:30:00');
 // ── AOS 初始化 ──
 AOS.init({ duration: 650, once: true, offset: 50 });
 
