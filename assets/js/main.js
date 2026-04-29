@@ -90,6 +90,17 @@ function switchDay(day) {
 }
 
 // ══════════════════════════════════════════
+//  MEAL TABS (食)
+// ══════════════════════════════════════════
+function switchMeal(key) {
+  document.querySelectorAll('.meal-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.meal-content').forEach(c => c.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+  const target = document.getElementById('food-' + key);
+  if (target) target.classList.add('active');
+}
+
+// ══════════════════════════════════════════
 //  WEATHER (Open-Meteo · 冬山鄉)
 // ══════════════════════════════════════════
 const WMO = {
@@ -260,71 +271,187 @@ function resetChecklist() {
 loadChecklist();
 
 // ══════════════════════════════════════════
-//  PHOTO GALLERY
+//  PHOTO GALLERY — Cloudinary + JSONBin
 // ══════════════════════════════════════════
-const GALLERY_KEY = 'fruittour2026_gallery';
 
-function loadGallery() {
-  const photos = JSON.parse(localStorage.getItem(GALLERY_KEY) || '[]');
-  photos.forEach(p => renderPhoto(p));
+const isConfigured = () =>
+  typeof GALLERY_CONFIG !== 'undefined' &&
+  GALLERY_CONFIG.cloudinary.cloudName    !== 'YOUR_CLOUD_NAME' &&
+  GALLERY_CONFIG.cloudinary.uploadPreset !== 'YOUR_UPLOAD_PRESET' &&
+  GALLERY_CONFIG.jsonbin.binId           !== 'YOUR_BIN_ID' &&
+  GALLERY_CONFIG.jsonbin.apiKey          !== 'YOUR_API_KEY';
+
+function setCloudStatus(state, text) {
+  const dot  = document.getElementById('cloud-dot');
+  const span = document.getElementById('cloud-status-text');
+  dot.className  = 'cloud-dot ' + state;
+  span.textContent = text;
+}
+
+async function loadGallery() {
+  if (!isConfigured()) {
+    setCloudStatus('no-config', '尚未設定雲端 — 照片暫存於此裝置');
+    document.getElementById('cloud-setup-guide').style.display = 'block';
+    loadLocalGallery();
+    return;
+  }
+  setCloudStatus('', '連線中…');
+  try {
+    const photos = await fetchPhotosFromCloud();
+    photos.forEach(p => renderPhoto(p, false));
+    updateGalleryEmpty();
+    setCloudStatus('online', `雲端相簿已連線 · ${photos.length} 張照片`);
+  } catch {
+    setCloudStatus('offline', '雲端連線失敗，顯示本機照片');
+    loadLocalGallery();
+  }
+}
+
+function loadLocalGallery() {
+  const photos = JSON.parse(localStorage.getItem('fruittour2026_gallery') || '[]');
+  photos.slice().reverse().forEach(p => renderPhoto(p, false));
   updateGalleryEmpty();
 }
 
-function handlePhotoUpload(event) {
+// ── Cloudinary upload ──
+async function uploadToCloudinary(file) {
+  const fd = new FormData();
+  fd.append('file', file);
+  fd.append('upload_preset', GALLERY_CONFIG.cloudinary.uploadPreset);
+  fd.append('folder', GALLERY_CONFIG.folder);
+  const res  = await fetch(
+    `https://api.cloudinary.com/v1_1/${GALLERY_CONFIG.cloudinary.cloudName}/image/upload`,
+    { method: 'POST', body: fd }
+  );
+  if (!res.ok) throw new Error('Cloudinary upload failed');
+  const data = await res.json();
+  return {
+    id:        data.public_id,
+    src:       data.secure_url,
+    thumb:     data.secure_url.replace('/upload/', '/upload/w_600,q_70/'),
+    name:      file.name,
+    time:      new Date().toLocaleString('zh-TW'),
+  };
+}
+
+// ── JSONBin read/write ──
+const jsonbinHeaders = () => ({
+  'Content-Type': 'application/json',
+  'X-Master-Key':  GALLERY_CONFIG.jsonbin.apiKey,
+});
+
+async function fetchPhotosFromCloud() {
+  const res  = await fetch(
+    `https://api.jsonbin.io/v3/b/${GALLERY_CONFIG.jsonbin.binId}/latest`,
+    { headers: jsonbinHeaders() }
+  );
+  const data = await res.json();
+  return Array.isArray(data.record) ? data.record : [];
+}
+
+async function savePhotosToCloud(photos) {
+  await fetch(
+    `https://api.jsonbin.io/v3/b/${GALLERY_CONFIG.jsonbin.binId}`,
+    { method: 'PUT', headers: jsonbinHeaders(), body: JSON.stringify(photos) }
+  );
+}
+
+// ── Upload handler ──
+async function handlePhotoUpload(event) {
   const files = Array.from(event.target.files);
-  files.forEach(file => {
+  event.target.value = '';
+  if (!files.length) return;
+
+  const useCloud = isConfigured();
+  const progress = document.getElementById('upload-progress');
+  const statusTx = document.getElementById('upload-status-text');
+  progress.style.display = 'block';
+
+  for (let i = 0; i < files.length; i++) {
+    statusTx.textContent = `上傳中 ${i + 1} / ${files.length}…`;
+    try {
+      let photo;
+      if (useCloud) {
+        photo = await uploadToCloudinary(files[i]);
+        const existing = await fetchPhotosFromCloud();
+        existing.push(photo);
+        await savePhotosToCloud(existing);
+        setCloudStatus('online', `雲端相簿已連線 · ${existing.length} 張照片`);
+      } else {
+        photo = await compressToLocal(files[i]);
+        const local = JSON.parse(localStorage.getItem('fruittour2026_gallery') || '[]');
+        local.push(photo);
+        try { localStorage.setItem('fruittour2026_gallery', JSON.stringify(local)); }
+        catch { showToast('⚠️ 本機空間已滿'); break; }
+      }
+      renderPhoto(photo, true);
+      updateGalleryEmpty();
+    } catch {
+      showToast(`⚠️ 第 ${i + 1} 張上傳失敗，請重試`);
+    }
+  }
+  progress.style.display = 'none';
+  showToast('✅ 照片上傳完成！');
+}
+
+// ── Local compress fallback ──
+function compressToLocal(file) {
+  return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onload = e => {
-      compressImage(e.target.result, 800, dataUrl => {
-        const photo = { id: Date.now() + Math.random(), src: dataUrl, name: file.name, time: new Date().toLocaleString('zh-TW') };
-        const stored = JSON.parse(localStorage.getItem(GALLERY_KEY) || '[]');
-        stored.push(photo);
-        try {
-          localStorage.setItem(GALLERY_KEY, JSON.stringify(stored));
-        } catch (err) {
-          showToast('⚠️ 儲存空間已滿，請刪除部分照片');
-        }
-        renderPhoto(photo);
-        updateGalleryEmpty();
-      });
+      const img = new Image();
+      img.onload = () => {
+        const ratio  = Math.min(800 / img.width, 800 / img.height, 1);
+        const canvas = document.createElement('canvas');
+        canvas.width  = img.width  * ratio;
+        canvas.height = img.height * ratio;
+        canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+        resolve({
+          id:    Date.now() + Math.random(),
+          src:   canvas.toDataURL('image/jpeg', 0.72),
+          thumb: canvas.toDataURL('image/jpeg', 0.72),
+          name:  file.name,
+          time:  new Date().toLocaleString('zh-TW'),
+        });
+      };
+      img.onerror = reject;
+      img.src = e.target.result;
     };
+    reader.onerror = reject;
     reader.readAsDataURL(file);
   });
-  event.target.value = '';
 }
 
-function compressImage(src, maxSize, callback) {
-  const img = new Image();
-  img.onload = () => {
-    const ratio = Math.min(maxSize / img.width, maxSize / img.height, 1);
-    const canvas = document.createElement('canvas');
-    canvas.width  = img.width  * ratio;
-    canvas.height = img.height * ratio;
-    canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
-    callback(canvas.toDataURL('image/jpeg', 0.75));
-  };
-  img.src = src;
-}
-
-function renderPhoto(photo) {
+function renderPhoto(photo, prepend = true) {
   const grid = document.getElementById('gallery-grid');
   const item = document.createElement('div');
-  item.className = 'gallery-item';
-  item.dataset.id = photo.id;
+  item.className  = 'gallery-item';
+  item.dataset.id = String(photo.id);
+  const src = photo.thumb || photo.src;
   item.innerHTML = `
-    <img src="${photo.src}" alt="${photo.name}" onclick="openLightbox('${photo.src}','${photo.name}')"/>
-    <button class="gallery-item-del" onclick="deletePhoto(event,'${photo.id}')">✕</button>
+    <img src="${src}" alt="${escapeHtml(photo.name)}" loading="lazy"
+         onclick="openLightbox('${photo.src}','${escapeHtml(photo.name)} · ${photo.time}')"/>
+    <button class="gallery-item-del" onclick="deletePhoto(event,'${String(photo.id)}')">✕</button>
   `;
-  grid.insertBefore(item, grid.firstChild);
+  if (prepend) grid.insertBefore(item, grid.firstChild);
+  else grid.appendChild(item);
 }
 
-function deletePhoto(e, id) {
+async function deletePhoto(e, id) {
   e.stopPropagation();
   if (!confirm('確定刪除這張照片？')) return;
   document.querySelector(`.gallery-item[data-id="${id}"]`)?.remove();
-  const stored = JSON.parse(localStorage.getItem(GALLERY_KEY) || '[]').filter(p => String(p.id) !== String(id));
-  localStorage.setItem(GALLERY_KEY, JSON.stringify(stored));
   updateGalleryEmpty();
+  if (isConfigured()) {
+    try {
+      const photos = (await fetchPhotosFromCloud()).filter(p => String(p.id) !== String(id));
+      await savePhotosToCloud(photos);
+      setCloudStatus('online', `雲端相簿已連線 · ${photos.length} 張照片`);
+    } catch { showToast('⚠️ 雲端刪除失敗'); }
+  } else {
+    const local = JSON.parse(localStorage.getItem('fruittour2026_gallery') || '[]').filter(p => String(p.id) !== String(id));
+    localStorage.setItem('fruittour2026_gallery', JSON.stringify(local));
+  }
 }
 
 function updateGalleryEmpty() {
