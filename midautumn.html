@@ -369,6 +369,7 @@
             </a>
             <ul class="nav-links">
                 <li><a href="#gallery"><i class="fa-solid fa-images"></i> 景點美食寫真</a></li>
+                <li><a href="#routemap"><i class="fa-solid fa-map-location-dot"></i> 路線地圖</a></li>
                 <li><a href="#itinerary"><i class="fa-solid fa-route"></i> 行程時間表</a></li>
                 <li><a href="#geothermal"><i class="fa-solid fa-hot-tub-person"></i> 清水地熱</a></li>
                 <li><a href="#accommodation"><i class="fa-solid fa-house-chimney-window"></i> 6家庭分房</a></li>
@@ -581,6 +582,65 @@
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- Route Map Section -->
+        <section id="routemap">
+            <div class="section-header">
+                <span class="section-subtitle">Route Map</span>
+                <h2 class="section-title">兩天一夜・Google 路線地圖</h2>
+                <p class="section-desc">點擊切換 Day 1 / Day 2，查看實際行車路徑與停靠地點。</p>
+            </div>
+
+            <div class="day-switch-container">
+                <button class="day-switch-btn active" id="map-btn-d1" onclick="switchMapTab(1)">
+                    <i class="fa-solid fa-sun"></i> Day 1：永和 → 甲鳥園 → 八甲魚場 → 幾米廣場 → 三富農場
+                </button>
+                <button class="day-switch-btn" id="map-btn-d2" onclick="switchMapTab(2)">
+                    <i class="fa-solid fa-hot-tub-person"></i> Day 2：三富農場 → 清水地熱 → 三星蔥油餅 → 田媽媽 → 返回永和
+                </button>
+            </div>
+
+            <!-- Stop Legend -->
+            <div id="map-legend-d1" style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; justify-content:center;">
+                <span style="background:#1e6b3c;color:white;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;">① 永和出發</span>
+                <span style="background:#1e6b3c;color:white;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;">② 礁溪・甲鳥園</span>
+                <span style="background:#1e6b3c;color:white;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;">③ 員山・八甲魚場</span>
+                <span style="background:#1e6b3c;color:white;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;">④ 宜蘭市・幾米廣場</span>
+                <span style="background:#1e6b3c;color:white;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;">⑤ 冬山・三富農場</span>
+            </div>
+            <div id="map-legend-d2" style="display:none; flex-wrap:wrap; gap:8px; margin-bottom:14px; justify-content:center;">
+                <span style="background:#b45309;color:white;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;">① 冬山・三富農場</span>
+                <span style="background:#b45309;color:white;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;">② 大同・清水地熱</span>
+                <span style="background:#b45309;color:white;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;">③ 三星・阿婆蔥油餅</span>
+                <span style="background:#b45309;color:white;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;">④ 大同・田媽媽風味館</span>
+                <span style="background:#b45309;color:white;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;">⑤ 返回永和</span>
+            </div>
+
+            <!-- Day 1 Map -->
+            <div id="map-d1" style="border-radius:16px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,.15); border:2px solid #1e6b3c;">
+                <iframe
+                    src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY&origin=永和區,新北市,台灣&destination=三富休閒農場,冬山鄉,宜蘭縣,台灣&waypoints=甲鳥園,礁溪鄉,宜蘭縣,台灣|八甲休閒魚場,員山鄉,宜蘭縣,台灣|幾米廣場,宜蘭市,宜蘭縣,台灣&language=zh-TW&region=tw"
+                    width="100%" height="480" style="border:0; display:block;"
+                    allowfullscreen loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    onerror="this.parentElement.innerHTML=mapFallback('d1')">
+                </iframe>
+            </div>
+
+            <!-- Day 2 Map -->
+            <div id="map-d2" style="display:none; border-radius:16px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,.15); border:2px solid #b45309;">
+                <iframe
+                    src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY&origin=三富休閒農場,冬山鄉,宜蘭縣,台灣&destination=永和區,新北市,台灣&waypoints=清水地熱公園,大同鄉,宜蘭縣,台灣|三星阿婆蔥油餅,三星鄉,宜蘭縣,台灣|田媽媽泰雅風味館,大同鄉,宜蘭縣,台灣&language=zh-TW&region=tw"
+                    width="100%" height="480" style="border:0; display:block;"
+                    allowfullscreen loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+            <p style="text-align:center; margin-top:12px; font-size:12.5px; color:#94a3b8;">
+                <i class="fa-solid fa-circle-info"></i> 點擊地圖內「在 Google 地圖中開啟」可在手機導航使用
+            </p>
         </section>
 
         <!-- Itinerary Timeline Section -->
@@ -1061,6 +1121,21 @@
             }
         }
         setInterval(updateCountdown, 1000); updateCountdown();
+
+        function switchMapTab(day) {
+            const m1 = document.getElementById('map-d1'), m2 = document.getElementById('map-d2');
+            const l1 = document.getElementById('map-legend-d1'), l2 = document.getElementById('map-legend-d2');
+            const b1 = document.getElementById('map-btn-d1'), b2 = document.getElementById('map-btn-d2');
+            if (day === 1) {
+                m1.style.display = 'block'; m2.style.display = 'none';
+                l1.style.display = 'flex'; l2.style.display = 'none';
+                b1.classList.add('active'); b2.classList.remove('active');
+            } else {
+                m1.style.display = 'none'; m2.style.display = 'block';
+                l1.style.display = 'none'; l2.style.display = 'flex';
+                b1.classList.remove('active'); b2.classList.add('active');
+            }
+        }
 
         function switchDayTab(day) {
             const t1 = document.getElementById('tl-d1'), t2 = document.getElementById('tl-d2');
