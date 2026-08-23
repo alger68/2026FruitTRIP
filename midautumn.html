@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 中秋・廿載聚首 漫遊紫森林｜宜蘭三富農場包棟 × 清水地熱 6家庭22-23人專屬度假企劃</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@600;900&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1e451b;
+            --primary-light: #356b2f;
+            --primary-dark: #10260e;
+            --accent: #d97724;
+            --accent-hover: #b85e16;
+            --accent-light: #fff4ea;
+            --accent-gold: #cba135;
+            --bg-body: #f8faf7;
+            --surface: #ffffff;
+            --surface-card: #f3f7f2;
+            --text-main: #1f2a1e;
+            --text-muted: #586956;
+            --text-light: #899a87;
+            --border: #e0e9de;
+            --shadow-sm: 0 4px 12px rgba(0,0,0,0.04);
+            --shadow-md: 0 8px 24px rgba(27,56,23,0.08);
+            --shadow-lg: 0 16px 40px rgba(27,56,23,0.14);
+            --radius-sm: 10px;
+            --radius-md: 18px;
+            --radius-lg: 28px;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        #scroll-progress {
+            position: fixed; top: 0; left: 0; height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-gold));
+            z-index: 2000; width: 0%; transition: width 0.1s ease;
+        }
+
+        .top-agency-bar {
+            background-color: var(--primary-dark);
+            color: rgba(255,255,255,0.88);
+            padding: 10px 24px; font-size: 13px;
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .badge-agent {
+            background: linear-gradient(135deg, var(--accent), #e68e3c);
+            color: white; padding: 3px 10px; border-radius: 6px;
+            font-weight: 800; font-size: 11px; letter-spacing: 1px;
+        }
+
+        nav {
+            position: sticky; top: 0; z-index: 1500;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+        }
+        .nav-container {
+            max-width: 1240px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 12px 24px;
+        }
+        .nav-logo {
+            font-family: 'Noto Serif TC', serif; font-size: 21px; font-weight: 900;
+            color: var(--primary); display: flex; align-items: center; gap: 10px;
+            text-decoration: none;
+        }
+        .nav-logo i { color: var(--accent); font-size: 24px; }
+        .nav-links { display: flex; gap: 20px; list-style: none; }
+        .nav-links a {
+            text-decoration: none; color: var(--text-main); font-weight: 600; font-size: 14.5px;
+            transition: var(--transition); display: flex; align-items: center; gap: 6px;
+            padding: 6px 10px; border-radius: 8px;
+        }
+        .nav-links a:hover { color: var(--accent); background: var(--accent-light); }
+        .nav-actions { display: flex; align-items: center; gap: 12px; }
+        .btn-nav-action {
+            background: var(--primary); color: white; padding: 8px 18px; border-radius: 30px;
+            font-size: 13.5px; font-weight: 600; border: none; cursor: pointer;
+            display: flex; align-items: center; gap: 6px; transition: var(--transition);
+        }
+        .btn-nav-action:hover { background: var(--primary-light); transform: translateY(-2px); }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, rgba(16, 38, 14, 0.93) 0%, rgba(30, 69, 27, 0.88) 100%), url('https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=1800&q=85') center/cover no-repeat;
+            color: white; padding: 65px 24px 80px; text-align: center; position: relative;
+        }
+        .hero-badge-tag {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(217, 119, 36, 0.25); border: 1px solid var(--accent);
+            color: #ffd8b3; padding: 6px 18px; border-radius: 30px;
+            font-size: 13.5px; font-weight: 700; letter-spacing: 2px; margin-bottom: 20px;
+        }
+        .hero h1 {
+            font-family: 'Noto Serif TC', serif; font-size: 42px; font-weight: 900;
+            line-height: 1.35; margin-bottom: 16px; letter-spacing: 1.5px;
+        }
+        .hero-sub {
+            font-size: 18px; color: #d8e5d6; max-width: 920px; margin: 0 auto 30px;
+            font-weight: 300; line-height: 1.8;
+        }
+
+        /* Countdown */
+        .countdown-container {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: var(--radius-md); padding: 18px 26px;
+            max-width: 640px; margin: 0 auto 34px;
+        }
+        .countdown-title {
+            font-size: 13.5px; font-weight: 600; color: #ffdeb8; margin-bottom: 10px;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+        }
+        .countdown-timer { display: flex; justify-content: center; gap: 16px; }
+        .time-block {
+            background: rgba(0, 0, 0, 0.35); border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 12px; padding: 8px 14px; min-width: 72px; text-align: center;
+        }
+        .time-val { font-family: 'Cinzel', serif; font-size: 30px; font-weight: 900; color: white; line-height: 1.1; }
+        .time-label { font-size: 11px; color: #bfd0bd; font-weight: 600; margin-top: 3px; }
+
+        .hero-meta-grid {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; max-width: 1100px; margin: 0 auto;
+        }
+        .meta-pill {
+            background: rgba(255, 255, 255, 0.12); backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2); padding: 9px 18px;
+            border-radius: 12px; display: flex; align-items: center; gap: 8px; font-size: 13.5px;
+        }
+        .meta-pill i { color: #f7b733; }
+
+        /* Container */
+        .container { max-width: 1240px; margin: 0 auto; padding: 60px 24px; }
+        .section-header { text-align: center; margin-bottom: 45px; }
+        .section-subtitle {
+            color: var(--accent); font-weight: 800; font-size: 13px;
+            letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; display: block;
+        }
+        .section-title {
+            font-family: 'Noto Serif TC', serif; font-size: 32px; color: var(--primary-dark);
+            font-weight: 900; margin-bottom: 12px;
+        }
+        .section-desc { color: var(--text-muted); max-width: 760px; margin: 0 auto; font-size: 15px; }
+
+        /* Weather Widget Card */
+        .weather-card {
+            background: linear-gradient(135deg, #2b5329 0%, #477c44 100%);
+            color: white; border-radius: var(--radius-lg); padding: 28px 36px;
+            margin-bottom: 50px; box-shadow: var(--shadow-md);
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;
+        }
+        .weather-info-main { display: flex; align-items: center; gap: 20px; }
+        .weather-icon-large { font-size: 48px; color: #ffd659; }
+        .weather-temp { font-family: 'Cinzel', serif; font-size: 40px; font-weight: 900; }
+        .weather-days-grid { display: flex; gap: 24px; flex-wrap: wrap; }
+        .w-day-box {
+            background: rgba(0,0,0,0.18); border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px; padding: 12px 18px; text-align: center; min-width: 140px;
+        }
+
+        /* Photo Gallery Grid */
+        .gallery-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 22px; margin-bottom: 60px;
+        }
+        .gallery-card {
+            background: white; border-radius: var(--radius-md); overflow: hidden;
+            border: 1px solid var(--border); box-shadow: var(--shadow-sm); transition: var(--transition);
+            display: flex; flex-direction: column;
+        }
+        .gallery-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+        .gallery-img-wrap {
+            height: 200px; overflow: hidden; position: relative;
+        }
+        .gallery-img {
+            width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;
+        }
+        .gallery-card:hover .gallery-img { transform: scale(1.06); }
+        .gallery-tag-float {
+            position: absolute; top: 12px; left: 12px; background: rgba(0,0,0,0.65);
+            backdrop-filter: blur(6px); color: white; font-size: 11.5px; font-weight: 700;
+            padding: 4px 10px; border-radius: 20px;
+        }
+        .gallery-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+        .gallery-title { font-size: 18px; font-weight: 800; color: var(--primary-dark); margin-bottom: 6px; }
+        .gallery-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; margin-bottom: 14px; }
+        .gallery-link-btn {
+            margin-top: auto; display: inline-flex; align-items: center; gap: 6px;
+            color: var(--accent); font-weight: 700; font-size: 13.5px; text-decoration: none;
+            transition: var(--transition);
+        }
+        .gallery-link-btn:hover { color: var(--accent-hover); transform: translateX(4px); }
+
+        /* Timeline */
+        .day-switch-container { display: flex; justify-content: center; gap: 16px; margin-bottom: 35px; }
+        .day-switch-btn {
+            background: var(--surface); border: 2px solid var(--border); padding: 12px 28px;
+            border-radius: 40px; font-size: 15.5px; font-weight: 800; color: var(--text-muted);
+            cursor: pointer; transition: var(--transition); display: flex; align-items: center; gap: 10px;
+        }
+        .day-switch-btn.active {
+            background: var(--primary); color: white; border-color: var(--primary); box-shadow: var(--shadow-md);
+        }
+
+        .timeline { position: relative; max-width: 960px; margin: 0 auto; padding: 20px 0; }
+        .timeline::before {
+            content: ''; position: absolute; top: 0; bottom: 0; left: 32px; width: 3px; background: #d5e5d3;
+        }
+        .timeline-item { position: relative; padding-left: 80px; margin-bottom: 36px; }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-icon {
+            position: absolute; left: 16px; top: 6px; width: 36px; height: 36px; border-radius: 50%;
+            background: var(--surface); border: 3px solid var(--primary); display: flex; align-items: center;
+            justify-content: center; color: var(--primary); font-size: 14px; z-index: 2;
+        }
+        .timeline-card {
+            background: var(--surface); border-radius: var(--radius-md); padding: 26px;
+            border: 1px solid var(--border); box-shadow: var(--shadow-sm); transition: var(--transition);
+        }
+        .timeline-card:hover { box-shadow: var(--shadow-md); }
+        .timeline-header {
+            display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;
+            flex-wrap: wrap; gap: 8px;
+        }
+        .timeline-time {
+            display: inline-flex; align-items: center; gap: 6px; background: #eef6ec;
+            color: var(--primary-light); font-weight: 800; font-size: 13px; padding: 4px 10px; border-radius: 6px;
+        }
+        .timeline-badge {
+            background: var(--accent-light); color: var(--accent); font-weight: 800;
+            font-size: 12px; padding: 4px 10px; border-radius: 6px;
+        }
+        .timeline-title { font-size: 19px; font-weight: 800; color: var(--primary-dark); margin-top: 4px; }
+        .timeline-desc { font-size: 14px; color: var(--text-muted); line-height: 1.65; margin-bottom: 12px; }
+        .timeline-actions-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+        .btn-map-link {
+            background: #edf5ea; color: var(--primary); padding: 4px 12px; border-radius: 6px;
+            font-size: 12.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;
+        }
+        .btn-map-link:hover { background: #dcecd7; }
+
+        /* Geothermal Interactive Box */
+        .interactive-geo-box {
+            background: linear-gradient(135deg, #fffcf8 0%, #fff6ed 100%);
+            border: 2px solid var(--accent); border-radius: var(--radius-lg);
+            padding: 36px; margin: 50px 0; box-shadow: var(--shadow-md);
+        }
+        .geo-food-selector { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 24px 0; }
+        .geo-food-btn {
+            background: white; border: 2px solid #ecd9c7; padding: 12px 18px; border-radius: 14px;
+            cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 5px; min-width: 130px;
+            transition: var(--transition);
+        }
+        .geo-food-btn.active {
+            background: var(--accent); border-color: var(--accent); color: white;
+            box-shadow: 0 4px 14px rgba(217,119,36,0.3);
+        }
+        .geo-timer-display-card {
+            background: white; border-radius: var(--radius-md); padding: 24px; max-width: 500px;
+            margin: 0 auto; text-align: center; border: 1px solid #ebd8c8;
+        }
+        .geo-clock { font-family: 'Cinzel', serif; font-size: 46px; font-weight: 900; color: var(--primary-dark); margin: 8px 0; }
+        .geo-controls { display: flex; justify-content: center; gap: 12px; }
+        .btn-geo-action {
+            padding: 9px 22px; border-radius: 30px; font-weight: 700; font-size: 14px; cursor: pointer; border: none;
+        }
+        .btn-geo-start { background: var(--accent); color: white; }
+        .btn-geo-reset { background: #e8eee6; color: var(--text-muted); }
+
+        /* 6 Families Villa Allocation */
+        .villa-box {
+            background: var(--surface); border-radius: var(--radius-lg); border: 1px solid var(--border);
+            padding: 36px; box-shadow: var(--shadow-md); margin-bottom: 50px;
+        }
+        .room-interactive-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px; margin-bottom: 24px;
+        }
+        .room-interactive-card {
+            background: #f8faf7; border: 2px solid #e1ebe0; border-radius: var(--radius-sm);
+            padding: 18px; cursor: pointer; transition: var(--transition);
+        }
+        .room-interactive-card.selected { border-color: var(--accent); background: #fffcf8; }
+        .room-card-head {
+            font-weight: 800; font-size: 15.5px; color: var(--primary-dark); margin-bottom: 6px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .room-badge-type {
+            font-size: 11px; padding: 2px 7px; background: #eaf3e8; color: var(--primary-light);
+            border-radius: 4px; font-weight: 700;
+        }
+
+        /* Dynamic Calculator */
+        .calculator-card {
+            background: var(--surface); border-radius: var(--radius-lg); border: 1px solid var(--border);
+            padding: 36px; box-shadow: var(--shadow-md); margin-bottom: 50px;
+        }
+        .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+        .calc-slider { width: 100%; accent-color: var(--accent); height: 6px; cursor: pointer; }
+        .calc-summary-panel {
+            background: #f6faf5; border: 2px solid #dbe8d8; border-radius: var(--radius-md);
+            padding: 24px; display: flex; flex-direction: column; justify-content: center;
+        }
+        .calc-sum-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #e1ece0; font-size: 14px; }
+        .calc-sum-row.total { border-bottom: none; padding-top: 14px; font-size: 18px; font-weight: 900; color: var(--accent); }
+
+        /* Toast */
+        .toast {
+            position: fixed; bottom: 30px; right: 30px; background: var(--primary-dark); color: white;
+            padding: 14px 24px; border-radius: 30px; box-shadow: var(--shadow-lg); font-size: 14px;
+            font-weight: 700; display: flex; align-items: center; gap: 10px; z-index: 3000;
+            opacity: 0; transform: translateY(20px); transition: all 0.3s ease; pointer-events: none;
+        }
+        .toast.show { opacity: 1; transform: translateY(0); }
+
+        footer {
+            background: var(--primary-dark); color: rgba(255, 255, 255, 0.75);
+            padding: 45px 24px; text-align: center; font-size: 13.5px;
+        }
+        footer p { margin-bottom: 6px; }
+
+        @media (max-width: 860px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 28px; }
+            .calc-grid { grid-template-columns: 1fr; }
+            .weather-card { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="scroll-progress"></div>
+
+    <!-- Top Agency Header -->
+    <div class="top-agency-bar">
+        <div class="agency-brand">
+            <span class="badge-agent">旗艦客製包團</span>
+            <span>2026 中秋廿載聚首・6 家庭 22-23 人專屬度假企劃｜專案編號：YIL-202609-SANFU-6FAM</span>
+        </div>
+        <div>
+            <span><i class="fa-solid fa-moon"></i> 2026 中秋連假：2026/09/25(五) - 09/26(六)</span>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <i class="fa-solid fa-feather-pointed"></i>
+                <span>紫森林・廿載之約</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#gallery"><i class="fa-solid fa-images"></i> 景點美食寫真</a></li>
+                <li><a href="#itinerary"><i class="fa-solid fa-route"></i> 行程時間表</a></li>
+                <li><a href="#geothermal"><i class="fa-solid fa-hot-tub-person"></i> 清水地熱</a></li>
+                <li><a href="#accommodation"><i class="fa-solid fa-house-chimney-window"></i> 6家庭分房</a></li>
+                <li><a href="#amenities"><i class="fa-solid fa-boxes-packing"></i> 包棟設備</a></li>
+                <li><a href="#calculator"><i class="fa-solid fa-calculator"></i> 費用試算</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn-nav-action" onclick="copyLineBroadcast()">
+                    <i class="fa-solid fa-share-nodes"></i> 複製 LINE 通知
+                </button>
+                <button class="btn-nav-action" style="background: var(--accent);" onclick="window.print()">
+                    <i class="fa-solid fa-print"></i> 列印 / PDF
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-badge-tag">
+            <i class="fa-solid fa-moon"></i> 水果家・阿伯家・阿冠家・余老闆・老呂・老朋友 專屬聚首
+        </div>
+        <h1>廿載情誼・漫步紫森林<br><span style="font-size: 0.85em; color: #ffebc9;">宜蘭三富農場包棟 × 清水地熱谷煮泉 × 星空 BBQ 二日遊</span></h1>
+        <p class="hero-sub">
+            6 個家庭、22-23 位跨越大學、高中、國中青年學子與家長的輕鬆假期。<br>
+            包棟 5 間客房（含加 2 床大套房）＋ 加訂 1 間獨立客房，專屬交誼大客廳、地熱竹簍煮溫泉蛋與海陸名宴！
+        </p>
+
+        <!-- Live Countdown -->
+        <div class="countdown-container">
+            <div class="countdown-title">
+                <i class="fa-solid fa-hourglass-half"></i> 距離 2026/09/25(五) 出發啟程 倒數計時
+            </div>
+            <div class="countdown-timer">
+                <div class="time-block">
+                    <div class="time-val" id="cd-days">33</div>
+                    <div class="time-label">Days 天</div>
+                </div>
+                <div class="time-block">
+                    <div class="time-val" id="cd-hours">12</div>
+                    <div class="time-label">Hours 時</div>
+                </div>
+                <div class="time-block">
+                    <div class="time-val" id="cd-mins">45</div>
+                    <div class="time-label">Mins 分</div>
+                </div>
+                <div class="time-block">
+                    <div class="time-val" id="cd-secs">30</div>
+                    <div class="time-label">Secs 秒</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-meta-grid">
+            <div class="meta-pill"><i class="fa-solid fa-people-roof"></i> <strong>團體成員：</strong> 6 個家庭 (22-23 人)</div>
+            <div class="meta-pill"><i class="fa-solid fa-bed"></i> <strong>房型配置：</strong> 包棟 5 間(含加床) ＋ 1 間獨立房</div>
+            <div class="meta-pill"><i class="fa-solid fa-hot-tub-person"></i> <strong>升級體驗：</strong> 清水地熱竹簍煮蛋/足湯</div>
+            <div class="meta-pill"><i class="fa-solid fa-fire-burner"></i> <strong>餐飲亮點：</strong> 2 特色名宴 + 1 星空 BBQ</div>
+            <div class="meta-pill"><i class="fa-solid fa-coins"></i> <strong>全包預算：</strong> 每人約 NT$ 5,000 元</div>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Live Weather Forecast Widget -->
+        <div class="weather-card">
+            <div class="weather-info-main">
+                <div class="weather-icon-large"><i class="fa-solid fa-sun"></i></div>
+                <div>
+                    <div style="font-size: 13.5px; opacity: 0.88; text-transform: uppercase;">宜蘭冬山 ＆ 大同清水地熱氣象預報</div>
+                    <div class="weather-temp">28°C / 22°C</div>
+                    <div style="font-size: 14px;">秋高氣爽・微風舒適・降雨機率 10%</div>
+                </div>
+            </div>
+            <div class="weather-days-grid">
+                <div class="w-day-box">
+                    <div style="font-weight: 800; font-size: 13px; color: #ffd659;">Day 1 (9/25 五)</div>
+                    <div style="font-size: 20px; margin: 4px 0;"><i class="fa-solid fa-cloud-sun"></i> 28°C</div>
+                    <div style="font-size: 11.5px; opacity: 0.85;">甲鳥園/三富夜探螢</div>
+                </div>
+                <div class="w-day-box">
+                    <div style="font-weight: 800; font-size: 13px; color: #ffd659;">Day 2 (9/26 六)</div>
+                    <div style="font-size: 20px; margin: 4px 0;"><i class="fa-solid fa-sun"></i> 27°C</div>
+                    <div style="font-size: 11.5px; opacity: 0.85;">清水地熱煮蛋泡腳</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Photo Gallery & Destination Links -->
+        <section id="gallery">
+            <div class="section-header">
+                <span class="section-subtitle">Visual Highlights</span>
+                <h2 class="section-title">精選景點與名宴寫真</h2>
+                <p class="section-desc">點擊各卡片連結可直達官方網站或一鍵啟動 Google Maps 導航路線。</p>
+            </div>
+
+            <div class="gallery-grid">
+                <!-- Card 1: 甲鳥園 -->
+                <div class="gallery-card">
+                    <div class="gallery-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=700&q=80" alt="甲鳥園清水模鴨舍" class="gallery-img">
+                        <span class="gallery-tag-float">礁溪・鳥園生態</span>
+                    </div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title">礁溪・甲鳥園五星清水模鴨舍</h3>
+                        <p class="gallery-desc">全台最美清水模科技鴨舍，稻鴨共生循環池，體驗手捧小鴨、餵鴨與品嚐特濃純鴨蛋蛋糕。門票 NT$100 可全額折抵消費。</p>
+                        <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:10px;">
+                            <i class="fa-solid fa-phone"></i> <a href="tel:0392881520" style="color:var(--primary-light); text-decoration:none;">03-928-1520</a> &nbsp;|&nbsp;
+                            <i class="fa-solid fa-clock"></i> 09:00-18:00
+                        </div>
+                        <div style="display: flex; gap: 10px; margin-top: auto;">
+                            <a href="https://produck.tw/" target="_blank" class="gallery-link-btn"><i class="fa-solid fa-globe"></i> 官網預約</a>
+                            <a href="https://maps.google.com/?q=礁溪甲鳥園" target="_blank" class="gallery-link-btn" style="color: var(--primary);"><i class="fa-solid fa-location-dot"></i> 導航</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: 八甲魚場 -->
+                <div class="gallery-card">
+                    <div class="gallery-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=700&q=80" alt="八甲魚場" class="gallery-img">
+                        <span class="gallery-tag-float">Day 1 特色午餐</span>
+                    </div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title">員山・八甲休閒魚場</h3>
+                        <p class="gallery-desc">天然純淨湧泉養殖，大面落地窗坐擁湖光水色。招牌香魚雙吃（椒鹽＋蒲燒）、鱘龍魚滋補湯。<strong>假日必須提前訂位！</strong></p>
+                        <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:10px;">
+                            <i class="fa-solid fa-phone"></i> <a href="tel:0392225990" style="color:var(--primary-light); text-decoration:none;">03-922-5990</a> &nbsp;|&nbsp;
+                            <i class="fa-solid fa-clock"></i> 11:00-14:00 / 17:00-21:00（週三休）
+                        </div>
+                        <div style="display: flex; gap: 10px; margin-top: auto;">
+                            <a href="https://maps.google.com/?q=八甲休閒魚場員山" target="_blank" class="gallery-link-btn" style="color: var(--primary);"><i class="fa-solid fa-location-dot"></i> Google Maps 導航</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: 三富農場紫森林 -->
+                <div class="gallery-card">
+                    <div class="gallery-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=700&q=80" alt="三富農場" class="gallery-img">
+                        <span class="gallery-tag-float">冬山・包棟住宿</span>
+                    </div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title">三富休閒農場（紫森林包棟）</h3>
+                        <p class="gallery-desc">落羽松池畔水鳥棲地、清水模獨立包棟大客廳，夜探秋螢與台北樹蛙，老友深夜暢聚天地。</p>
+                        <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:10px;">
+                            <i class="fa-solid fa-phone"></i> <a href="tel:0395886900" style="color:var(--primary-light); text-decoration:none;">03-958-8690</a> &nbsp;|&nbsp;
+                            LINE: <strong>@nxd5370g</strong>
+                        </div>
+                        <div style="display: flex; gap: 10px; margin-top: auto;">
+                            <a href="https://www.sanfufarm.com.tw/" target="_blank" class="gallery-link-btn"><i class="fa-solid fa-globe"></i> 官網訂房</a>
+                            <a href="https://maps.google.com/?q=紫森林-三富休閒農場" target="_blank" class="gallery-link-btn" style="color: var(--primary);"><i class="fa-solid fa-location-dot"></i> 導航</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: 幾米廣場 ⭐新增中秋景點 -->
+                <div class="gallery-card">
+                    <div class="gallery-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=700&q=80" alt="幾米廣場地景藝術" class="gallery-img">
+                        <span class="gallery-tag-float">中秋地景藝術</span>
+                    </div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title">宜蘭・幾米廣場 ＋ 麻竹寮文旦</h3>
+                        <p class="gallery-desc">「星空男孩」「月亮忘記了」繪本場景化身戶外裝置，免費入場。廣場旁採買宜蘭麻竹寮文旦，剝文旦才是中秋儀式感！</p>
+                        <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:10px;">
+                            <i class="fa-solid fa-circle-info"></i> 免費入場 &nbsp;|&nbsp; <i class="fa-solid fa-clock"></i> 全天開放
+                        </div>
+                        <div style="display: flex; gap: 10px; margin-top: auto;">
+                            <a href="https://maps.google.com/?q=幾米廣場宜蘭" target="_blank" class="gallery-link-btn" style="color: var(--primary);"><i class="fa-solid fa-location-dot"></i> 導航至幾米廣場</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: 清水地熱 -->
+                <div class="gallery-card">
+                    <div class="gallery-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=700&q=80" alt="清水地熱" class="gallery-img">
+                        <span class="gallery-tag-float">Day 2 溫泉煮蛋泡腳</span>
+                    </div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title">大同・清水地熱公園</h3>
+                        <p class="gallery-desc">山谷白煙裊裊，竹簍燜煮溫泉蛋、超甜水果玉米、茭白筍，日式木造露天溫泉足湯同樂。免費入場，食材現場購買。</p>
+                        <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:10px;">
+                            <i class="fa-solid fa-phone"></i> <a href="tel:039800" style="color:var(--primary-light); text-decoration:none;">03-9800（宜蘭縣政府）</a> &nbsp;|&nbsp;
+                            <i class="fa-solid fa-circle-info"></i> 免費入場
+                        </div>
+                        <div style="display: flex; gap: 10px; margin-top: auto;">
+                            <a href="https://maps.google.com/?q=清水地熱公園大同鄉" target="_blank" class="gallery-link-btn" style="color: var(--primary);"><i class="fa-solid fa-location-dot"></i> Google Maps 導航</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6: 富哥活海產 -->
+                <div class="gallery-card">
+                    <div class="gallery-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=700&q=80" alt="甲富哥活海產" class="gallery-img">
+                        <span class="gallery-tag-float">Day 2 壓軸午宴</span>
+                    </div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title">冬山・甲富哥活海產 ＋ 水果山</h3>
+                        <p class="gallery-desc">生猛海鮮、招牌海鮮米粉鍋，壓軸五星級超浮誇頂級現切綜合水果山，震撼全場！<strong>假日必須提前訂位！</strong></p>
+                        <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:10px;">
+                            <i class="fa-solid fa-phone"></i> <a href="tel:0396133877" style="color:var(--primary-light); text-decoration:none;">03-961-3877</a> &nbsp;|&nbsp;
+                            <i class="fa-solid fa-clock"></i> 11:30-14:30 / 17:30-21:00
+                        </div>
+                        <div style="display: flex; gap: 10px; margin-top: auto;">
+                            <a href="https://maps.google.com/?q=甲富哥活海產冬山" target="_blank" class="gallery-link-btn" style="color: var(--primary);"><i class="fa-solid fa-location-dot"></i> Google Maps 導航</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Itinerary Timeline Section -->
+        <section id="itinerary">
+            <div class="section-header">
+                <span class="section-subtitle">Timeline</span>
+                <h2 class="section-title">兩天一夜・精細時程表</h2>
+                <p class="section-desc">點擊下方按鈕切換 Day 1 與 Day 2，各站均提供直接導航按鈕。</p>
+            </div>
+
+            <div class="day-switch-container">
+                <button class="day-switch-btn active" id="btn-d1" onclick="switchDayTab(1)">
+                    <i class="fa-solid fa-moon"></i> 第一天：甲鳥園生態 × 幾米廣場文旦 × 🌕 月圓 BBQ 賞月派對
+                </button>
+                <button class="day-switch-btn" id="btn-d2" onclick="switchDayTab(2)">
+                    <i class="fa-solid fa-hot-tub-person"></i> 第二天：晨光林泉 × 清水地熱竹簍煮蛋 × 富哥海鮮壓軸名宴
+                </button>
+            </div>
+
+            <div class="timeline" id="tl-d1">
+
+                <!-- 1. 出發 -->
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fa-solid fa-car"></i></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <span class="timeline-time"><i class="fa-regular fa-clock"></i> 08:00 - 09:45</span>
+                                <h3 class="timeline-title">集合出發・國道五號雪隧・中秋連假提早出行</h3>
+                            </div>
+                            <span class="timeline-badge"><i class="fa-solid fa-shield-halved"></i> 提早避塞</span>
+                        </div>
+                        <p class="timeline-desc">6 個家庭自駕（5-6 車），建議 08:00 前上路避開中秋連假車潮。約 09:45 陸續抵達礁溪交流道集合，各車安裝同一導航目的地，不強求車隊同行。</p>
+                    </div>
+                </div>
+
+                <!-- 2. 甲鳥園 -->
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fa-solid fa-dove"></i></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <span class="timeline-time"><i class="fa-regular fa-clock"></i> 10:00 - 12:00</span>
+                                <h3 class="timeline-title">第一站：【礁溪・甲鳥園】全台最美清水模生態鴨舍</h3>
+                            </div>
+                            <span class="timeline-badge"><i class="fa-solid fa-camera"></i> 親子互動</span>
+                        </div>
+                        <p class="timeline-desc">摸小鴨、親手餵鴨、品嚐純天然鴨蛋特濃蛋糕與滷蛋。清水模極簡建築配上綠意稻鴨共生池，是孩子與父母都愛的開場。務必提前預約入場時段！</p>
+                        <div class="timeline-actions-row">
+                            <a href="https://maps.google.com/?q=礁溪甲鳥園" target="_blank" class="btn-map-link"><i class="fa-solid fa-location-arrow"></i> 導航至甲鳥園</a>
+                            <a href="https://produck.tw/" target="_blank" class="btn-map-link" style="background:#f0f9ff; color:#0369a1;"><i class="fa-solid fa-globe"></i> 官網預約</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. 午餐 八甲魚場 -->
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fa-solid fa-utensils"></i></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <span class="timeline-time"><i class="fa-regular fa-clock"></i> 12:30 - 14:00</span>
+                                <h3 class="timeline-title">特色午餐（一）：【員山・八甲休閒魚場】湖畔景觀宴席</h3>
+                            </div>
+                            <span class="timeline-badge">員山名店</span>
+                        </div>
+                        <p class="timeline-desc">預約 2 大桌落地窗景觀席，湖光水色伴席。招牌香魚雙吃（椒鹽＋蒲燒）、鱘龍魚盅、放山土雞湯，純淨湧泉養殖，鮮甜無腥味。行程中最清爽的一餐。</p>
+                        <div class="timeline-actions-row">
+                            <a href="https://maps.google.com/?q=八甲休閒魚場員山" target="_blank" class="btn-map-link"><i class="fa-solid fa-location-arrow"></i> 導航至八甲魚場</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. 幾米廣場 + 文旦採購 ⭐中秋特色 -->
+                <div class="timeline-item">
+                    <div class="timeline-icon" style="background:#fff3cd; border-color:#d97706; color:#92400e;"><i class="fa-solid fa-moon"></i></div>
+                    <div class="timeline-card" style="border: 2px solid #d97706; background: linear-gradient(135deg,#fffcf5,#fff9eb);">
+                        <div class="timeline-header">
+                            <div>
+                                <span class="timeline-time" style="background:#fef3c7; color:#92400e;"><i class="fa-regular fa-clock"></i> 14:30 - 16:00</span>
+                                <h3 class="timeline-title">🌕 中秋節氣儀式：【幾米廣場】地景藝術打卡 ＋ 麻竹寮文旦採買</h3>
+                            </div>
+                            <span class="timeline-badge" style="background:#fde68a; color:#78350f;">中秋特色站</span>
+                        </div>
+                        <p class="timeline-desc">
+                            📍 <strong>幾米廣場</strong>（宜蘭車站旁）：「星空男孩」「月亮忘記了」經典繪本場景化身戶外地景裝置，全家大小童心未泯必拍！<br><br>
+                            🍋 <strong>麻竹寮在地文旦</strong>：宜蘭最知名產地，當季新鮮採買帶回農場，讓每個孩子親手剝文旦——這就是中秋節最真實的儀式感。<br><br>
+                            🥮 <strong>月餅＋中秋零食</strong>：順手採購伴手禮，農場賞月烤肉時當甜點壓軸。
+                        </p>
+                        <div class="timeline-actions-row">
+                            <a href="https://maps.google.com/?q=幾米廣場宜蘭" target="_blank" class="btn-map-link" style="background:#fef3c7; color:#78350f;"><i class="fa-solid fa-location-arrow"></i> 導航至幾米廣場</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. 三富農場入住 -->
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fa-solid fa-house-chimney-window"></i></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <span class="timeline-time"><i class="fa-regular fa-clock"></i> 16:00 - 17:30</span>
+                                <h3 class="timeline-title">抵達【三富農場・紫森林包棟】入住 ＆ 按年齡分房放行李</h3>
+                            </div>
+                            <span class="timeline-badge">包棟入住</span>
+                        </div>
+                        <p class="timeline-desc">依分房計畫各自入住（呂老闆夫妻雙人房、爸爸廳、媽媽廳、男孩閣樓房、女孩閨蜜房、老友獨立客房）。彩虹星砂瓶 DIY、落羽松池畔水鳥餵食、玻璃屋咖啡廳下午茶，準備迎接中秋重頭戲！</p>
+                        <div class="timeline-actions-row">
+                            <a href="https://maps.google.com/?q=紫森林-三富休閒農場" target="_blank" class="btn-map-link"><i class="fa-solid fa-location-arrow"></i> 導航至三富農場</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. 月圓BBQ賞月派對 ⭐重頭戲 -->
+                <div class="timeline-item">
+                    <div class="timeline-icon" style="background:#1e3a5f; border-color:#1e40af; color:#93c5fd;"><i class="fa-solid fa-fire"></i></div>
+                    <div class="timeline-card" style="border: 2px solid #1e40af; background: linear-gradient(135deg,#0f172a,#1e3a5f); color:white;">
+                        <div class="timeline-header">
+                            <div>
+                                <span class="timeline-time" style="background:rgba(255,255,255,0.15); color:#fde68a;"><i class="fa-regular fa-clock"></i> 18:00 - 21:00</span>
+                                <h3 class="timeline-title" style="color:white;">🌕 廿載最重要的一夜：月圓人團圓・星空 BBQ 烤肉賞月派對</h3>
+                            </div>
+                            <span class="timeline-badge" style="background:#fde68a; color:#78350f;">⭐ 年度重頭戲</span>
+                        </div>
+                        <p class="timeline-desc" style="color:#cbd5e1;">
+                            🔥 <strong style="color:#fca5a5;">海陸直火炭烤</strong>：帶骨牛小排、生猛大草蝦、松阪豬、三星蔥肉串，全套代辦免備料免善後<br>
+                            🌕 <strong style="color:#fde68a;">文旦賞月</strong>：月圓之夜圍桌同剝文旦，大人小孩一起體驗中秋最純粹的儀式<br>
+                            🎴 <strong style="color:#86efac;">傳統博餅遊戲</strong>（閩南中秋習俗）：六個骰子投擲，誰奪狀元誰拿大獎，笑聲不斷<br>
+                            🍺 <strong style="color:#93c5fd;">生啤酒＋無酒精飲品</strong>暢飲，孩子有專屬汽水冰品
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 7. 夜間生態導覽 -->
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fa-solid fa-frog"></i></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <span class="timeline-time"><i class="fa-regular fa-clock"></i> 21:00 - 22:00</span>
+                                <h3 class="timeline-title">月光夜探：【紫森林・夜間生態奇幻導覽】秋螢 × 台北樹蛙</h3>
+                            </div>
+                            <span class="timeline-badge">秋螢 / 樹蛙</span>
+                        </div>
+                        <p class="timeline-desc">中秋滿月映照下，專業生態老師帶領夜探秋季螢火蟲、台北樹蛙、夜行性鳥類。螢火蟲在月光中閃爍，是孩子這趟旅行最難忘的畫面。</p>
+                    </div>
+                </div>
+
+                <!-- 8. 老友深夜暢聊 -->
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fa-solid fa-couch"></i></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <span class="timeline-time"><i class="fa-regular fa-clock"></i> 22:00 - 深夜</span>
+                                <h3 class="timeline-title">包棟大客廳・廿年老友月下茶酒暢聊 ＆ 孩子 Switch 桌遊博餅加賽</h3>
+                            </div>
+                            <span class="timeline-badge">老友長談</span>
+                        </div>
+                        <p class="timeline-desc">大人品冬山素馨紅茶微醺敘舊，聊二十年來的點點滴滴；青年學生打 Switch 玩狼人殺，各自盡興直到天明。這一夜才是這趟旅行真正的主角。</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="timeline" id="tl-d2" style="display: none;">
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fa-solid fa-mug-hot"></i></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <span class="timeline-time"><i class="fa-regular fa-clock"></i> 07:30 - 09:00</span>
+                                <h3 class="timeline-title">三富晨光元氣自助早餐 ＆ 池畔晨步</h3>
+                            </div>
+                            <span class="timeline-badge">元氣晨光</span>
+                        </div>
+                        <p class="timeline-desc">紫森林餐廳在地食材早餐，清粥小菜熱咖啡，享受林間晨曦芬多精。</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fa-solid fa-hot-tub-person"></i></div>
+                    <div class="timeline-card" style="border: 2px solid var(--accent);">
+                        <div class="timeline-header">
+                            <div>
+                                <span class="timeline-time"><i class="fa-regular fa-clock"></i> 09:45 - 11:45</span>
+                                <h3 class="timeline-title">第二天焦點：【清水地熱公園】竹簍煮溫泉蛋 ＆ 溫泉足湯泡腳</h3>
+                            </div>
+                            <span class="timeline-badge" style="background:#e63946; color:white;">超人氣野趣</span>
+                        </div>
+                        <p class="timeline-desc">09:00 退房前往清水地熱。竹簍燜煮溫泉蛋、超甜水果玉米、茭白筍，日式木造露天溫泉足湯同樂！</p>
+                        <div class="timeline-actions-row">
+                            <a href="https://maps.google.com/?q=清水地熱公園" target="_blank" class="btn-map-link"><i class="fa-solid fa-location-arrow"></i> 導航至清水地熱</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fa-solid fa-bread-slice"></i></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <span class="timeline-time"><i class="fa-regular fa-clock"></i> 11:45 - 12:30</span>
+                                <h3 class="timeline-title">順遊彩蛋：三星蔥油餅老店嚐鮮</h3>
+                            </div>
+                            <span class="timeline-badge">在地名點</span>
+                        </div>
+                        <p class="timeline-desc">下山順道品嚐三星阿婆蔥油餅或味珍香卜肉，品嚐爆汁三星蔥香。</p>
+                        <div class="timeline-actions-row">
+                            <a href="https://maps.google.com/?q=三星阿婆蔥油餅" target="_blank" class="btn-map-link"><i class="fa-solid fa-location-arrow"></i> 導航至三星蔥油餅</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fa-solid fa-fish"></i></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <span class="timeline-time"><i class="fa-regular fa-clock"></i> 12:30 - 14:30</span>
+                                <h3 class="timeline-title">特色午餐（二）：【富哥活海產】旗艦海鮮 ＋ 傳奇浮誇水果山</h3>
+                            </div>
+                            <span class="timeline-badge">壓軸美食</span>
+                        </div>
+                        <p class="timeline-desc">生猛海鮮名宴 2 大桌，壓軸五星級超浮誇頂級綜合水果山，為午宴畫下完美句點。</p>
+                        <div class="timeline-actions-row">
+                            <a href="https://maps.google.com/?q=冬山富哥活海產" target="_blank" class="btn-map-link"><i class="fa-solid fa-location-arrow"></i> 導航至富哥海產</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fa-solid fa-basket-shopping"></i></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <span class="timeline-time"><i class="fa-regular fa-clock"></i> 14:45 - 15:30</span>
+                                <h3 class="timeline-title">冬山良食農創園區 / 伴手禮巡禮 ＆ 賦歸</h3>
+                            </div>
+                            <span class="timeline-badge">滿載而歸</span>
+                        </div>
+                        <p class="timeline-desc">採買素馨紅茶、宜蘭餅、奶凍捲。15:30 啟程北上避開收假車潮，約 17:00-17:30 平安抵達雙北！</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Geothermal Interactive Simulator -->
+        <section id="geothermal">
+            <div class="interactive-geo-box">
+                <div style="text-align:center;">
+                    <h3 style="font-size:24px; color:var(--accent);"><i class="fa-solid fa-fire-burner"></i> 清水地熱公園・煮泉倒數計時器</h3>
+                    <p style="font-size:14px; color:var(--text-muted); margin-top:4px;">點擊想煮的食材即可啟動黃金倒數計時，現場煮食不失敗！</p>
+                </div>
+                <div class="geo-food-selector">
+                    <div class="geo-food-btn active" onclick="selectGeoFood('egg', 9, '🥚 初生溫泉蛋', '半熟滑嫩膏狀（建議 8-10 分鐘，煮完移入冷水槽）')">
+                        <div style="font-size:24px;">🥚</div>
+                        <div style="font-weight:800; font-size:14px;">初生溫泉蛋</div>
+                        <div style="font-size:11.5px;">9 分鐘</div>
+                    </div>
+                    <div class="geo-food-btn" onclick="selectGeoFood('corn', 15, '🌽 黃金水果玉米', '高溫地熱鎖住糖分，爆汁香甜（建議 15 分鐘）')">
+                        <div style="font-size:24px;">🌽</div>
+                        <div style="font-weight:800; font-size:14px;">水果玉米</div>
+                        <div style="font-size:11.5px;">15 分鐘</div>
+                    </div>
+                    <div class="geo-food-btn" onclick="selectGeoFood('bamboo', 15, '🎋 美人腿茭白筍', '帶殼燜煮鎖住清甜，鮮脆爽口（建議 15 分鐘）')">
+                        <div style="font-size:24px;">🎋</div>
+                        <div style="font-weight:800; font-size:14px;">美人腿茭白筍</div>
+                        <div style="font-size:11.5px;">15 分鐘</div>
+                    </div>
+                    <div class="geo-food-btn" onclick="selectGeoFood('peanut', 20, '🥜 帶殼花生與香菇', '軟糯入味香濃（建議 20 分鐘）')">
+                        <div style="font-size:24px;">🥜</div>
+                        <div style="font-weight:800; font-size:14px;">花生與香菇</div>
+                        <div style="font-size:11.5px;">20 分鐘</div>
+                    </div>
+                </div>
+                <div class="geo-timer-display-card">
+                    <div id="geo-selected-title" style="font-weight:800; font-size:17px; color:var(--primary-dark);">🥚 初生溫泉蛋</div>
+                    <div class="geo-clock" id="geo-timer-clock">09:00</div>
+                    <p id="geo-food-tips" style="font-size:13px; color:var(--text-muted); margin-bottom:14px;">半熟滑嫩膏狀（建議 8-10 分鐘，煮完移入冷水槽）</p>
+                    <div class="geo-controls">
+                        <button class="btn-geo-action btn-geo-start" id="btn-geo-start" onclick="toggleGeoTimer()"><i class="fa-solid fa-play"></i> 開始計時</button>
+                        <button class="btn-geo-action btn-geo-reset" onclick="resetGeoTimer()"><i class="fa-solid fa-rotate-left"></i> 重設</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6 Families Accommodation Layout -->
+        <section id="accommodation">
+            <div class="section-header">
+                <span class="section-subtitle">Room Allocation</span>
+                <h2 class="section-title">三富農場・6 大家庭專屬分房配置</h2>
+                <p class="section-desc">包棟雙人房 ×1、四人房 ×4（其中 1 間閣樓可加日式軟墊住 6 人）＋ 加訂獨立客房 ×1，共 6 間房，按年齡層分房，讓同輩的人住在一起最有話聊！合計 23 人剛剛好。</p>
+            </div>
+
+            <div class="villa-box">
+                <!-- 分房邏輯說明 -->
+                <div style="background:#fffbeb; border:1px solid #fcd34d; border-radius:var(--radius-sm); padding:14px 18px; margin-bottom:20px; font-size:13.5px; color:#78350f;">
+                    <strong><i class="fa-solid fa-lightbulb"></i> 分房原則：按年齡層分，讓同輩的人住在一起，才有話聊！</strong><br>
+                    <span style="color:#92400e;">呂老闆夫妻（3人家庭）住雙人房最剛好，兒子加入男孩房；其餘4對爸媽拆開分住；5個男孩住閣樓加墊房；4個女孩住閨蜜房；老朋友4人住獨立客房。</span>
+                </div>
+                <div class="room-interactive-grid">
+                    <div class="room-interactive-card selected" onclick="selectRoom(this, '呂老闆夫妻 (2人)', '包棟雙人房（1大床）', '呂老闆爸 ＋ 媽', '3人家庭最佳選擇，夫妻有獨立空間；兒子併入男孩閣樓房')">
+                        <div class="room-card-head"><span>呂老闆夫妻</span><span class="room-badge-type">雙人房 · 2人</span></div>
+                        <p style="font-size:13px; color:var(--text-muted);">1 大床・包棟內唯一雙人房・夫妻專屬</p>
+                    </div>
+                    <div class="room-interactive-card" onclick="selectRoom(this, '爸爸夜話廳 (4人)', '包棟四人房（2大床）', '水果爸、阿冠爸、阿伯爸、余老闆爸', '4位爸爸同住，深夜茶酒敘舊不打擾媽媽們休息')">
+                        <div class="room-card-head"><span>爸爸夜話廳</span><span class="room-badge-type">四人房 · 4人</span></div>
+                        <p style="font-size:13px; color:var(--text-muted);">2 大床・水果爸、阿冠爸、阿伯爸、余老闆爸</p>
+                    </div>
+                    <div class="room-interactive-card" onclick="selectRoom(this, '媽媽聯誼室 (4人)', '包棟四人房（2大床）', '水果媽、阿冠媽、阿伯媽、余老闆媽', '4位媽媽同住，聊到天亮沒人管，屬於媽媽們的深夜私話時光')">
+                        <div class="room-card-head"><span>媽媽聯誼室</span><span class="room-badge-type">四人房 · 4人</span></div>
+                        <p style="font-size:13px; color:var(--text-muted);">2 大床・水果媽、阿冠媽、阿伯媽、余老闆媽</p>
+                    </div>
+                    <div class="room-interactive-card" onclick="selectRoom(this, '女孩閨蜜房 (4人)', '包棟四人房（2大床）', '水果國中女、阿伯大學女、阿伯國中女、余高中女', '4位女孩跨年齡同住，大姐帶小妹，深夜聊天分享秘密')">
+                        <div class="room-card-head"><span>女孩閨蜜房</span><span class="room-badge-type">四人房 · 4人</span></div>
+                        <p style="font-size:13px; color:var(--text-muted);">2 大床・4位女孩（大學/高中/國中）</p>
+                    </div>
+                    <div class="room-interactive-card" onclick="selectRoom(this, '男孩打機閣樓 (5人)', '包棟閣樓四人房＋日式軟墊（最多6人）', '水果國中男、呂國中男、阿冠大學男、阿冠高中男、余大學男', '5位男生住閣樓加墊房，打Switch、玩狼人殺，最嗨的一間')">
+                        <div class="room-card-head"><span>男孩打機閣樓</span><span class="room-badge-type" style="background:#ede9fe; color:#5b21b6;">閣樓房＋加墊 · 5人</span></div>
+                        <p style="font-size:13px; color:var(--text-muted);">加日式軟墊可住6人・5位男生（大學/高中/國中）</p>
+                    </div>
+                    <div class="room-interactive-card" onclick="selectRoom(this, '老朋友專屬 (4人)', '加訂獨立客房（另棟獨立空間）', '4位老朋友', '獨立清幽、完整隱私、衛浴齊全，老友有自己的節奏')">
+                        <div class="room-card-head"><span>老朋友專屬</span><span class="room-badge-type" style="background:#e0f2fe; color:#0369a1;">獨立客房 · 4人</span></div>
+                        <p style="font-size:13px; color:var(--text-muted);">加訂獨立房・4位老朋友・獨立出入隱私空間</p>
+                    </div>
+                </div>
+
+                <div id="room-detail-box" style="background: #f1f7ef; border: 1px solid #d2e4cf; padding: 16px 20px; border-radius: var(--radius-sm); font-size: 14px;">
+                    <strong>目前選取：呂老闆夫妻 — 包棟雙人房（1大床）</strong><br>
+                    <span style="color:var(--text-muted); font-size:13px;">成員配置：呂老闆爸 ＋ 媽 ｜ 房型特色：3人家庭最佳選擇，夫妻有獨立空間；兒子併入男孩閣樓房</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Cost Calculator -->
+        <section id="calculator">
+            <div class="section-header">
+                <span class="section-subtitle">Cost Simulator</span>
+                <h2 class="section-title">各家庭費用即時試算</h2>
+            </div>
+
+            <div class="calculator-card">
+                <div class="calc-grid">
+                    <div>
+                        <div style="margin-bottom:18px;">
+                            <label style="font-weight:700; font-size:14px; display:flex; justify-content:space-between;">
+                                <span>大人人數 (家長)</span><span id="v-adults" style="color:var(--accent);">2 人</span>
+                            </label>
+                            <input type="range" class="calc-slider" id="s-adults" min="1" max="4" value="2" oninput="recalc()">
+                        </div>
+                        <div style="margin-bottom:18px;">
+                            <label style="font-weight:700; font-size:14px; display:flex; justify-content:space-between;">
+                                <span>青年 / 學生 (大學/高中/國中)</span><span id="v-students" style="color:var(--accent);">2 人</span>
+                            </label>
+                            <input type="range" class="calc-slider" id="s-students" min="0" max="4" value="2" oninput="recalc()">
+                        </div>
+                        <div style="margin-bottom:18px;">
+                            <label style="font-weight:700; font-size:14px; display:flex; justify-content:space-between;">
+                                <span>幼童 (國小/學齡前)</span><span id="v-kids" style="color:var(--accent);">0 人</span>
+                            </label>
+                            <input type="range" class="calc-slider" id="s-kids" min="0" max="3" value="0" oninput="recalc()">
+                        </div>
+                        <div style="font-size:12.5px; color:var(--text-muted); background:#fdfaf6; padding:12px; border-radius:8px; border:1px solid #ebd8c8;">
+                            <strong style="color:var(--accent);">全包每人約 NT$ 6,000 元</strong>，含：包棟住宿、甲鳥園門票、八甲午餐、星空 BBQ、清水地熱食材、富哥海產午餐、油費分攤、文旦月餅博餅獎品與雜費。
+                            <br><span style="color:#b45309; font-size:11.5px;">⚠️ 中秋假日旺季，住宿價格以農場實際報價為準。</span>
+                        </div>
+                    </div>
+                    <div class="calc-summary-panel">
+                        <div style="font-size:14px; font-weight:800; color:var(--primary); margin-bottom:10px;"><i class="fa-solid fa-receipt"></i> 該家庭應分攤費用</div>
+                        <div class="calc-sum-row"><span>家庭總人數</span><span id="res-pax" style="font-weight:700;">4 人</span></div>
+                        <div class="calc-sum-row"><span>預付訂金 (50%)</span><span id="res-dep" style="font-weight:700; color:var(--primary-light);">NT$ 10,000 元</span></div>
+                        <div class="calc-sum-row"><span>現場尾款 (50%)</span><span id="res-bal" style="font-weight:700; color:var(--primary-light);">NT$ 10,000 元</span></div>
+                        <div class="calc-sum-row total"><span>應繳總額</span><span id="res-total">NT$ 20,000 元</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    
+        <!-- Villa Equipment & Amenities Section -->
+        <section id="amenities" style="margin-top: 50px;">
+            <div class="section-header">
+                <span class="section-subtitle">Villa Amenities</span>
+                <h2 class="section-title">三富紫森林・包棟專屬設備與配套清冊</h2>
+                <p class="section-desc">農場官方清水模包棟設施齊全，從大客廳交誼、綠色精品衛浴到專屬戶外烤肉區，讓 6 個家庭享受如家般的自在與尊榮。</p>
+            </div>
+
+            <div class="feature-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 50px;">
+                <!-- Card 1: 客廳交誼 -->
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-couch"></i></div>
+                    <h3 class="feature-title">獨立大客廳 ＆ 小吧檯</h3>
+                    <p class="feature-text">
+                        • 獨立出入口 ＆ 私人庭園綠意露台<br>
+                        • 獨立中央大客廳、長型原木大茶几<br>
+                        • <strong>大螢幕液晶電視</strong>（支援 HDMI / Switch / 影音投屏）<br>
+                        • <strong>全棟高速免費 Wi-Fi 無線網路</strong><br>
+                        • 冷熱雙溫飲水機、泡茶熱水壺、冷藏小冰箱<br>
+                        • 有機紅茶包、小桔子綠茶、UCC 濾掛咖啡<br>
+                        • 充足多孔電源插座（方便手機/相機/Switch 充電）
+                    </p>
+                </div>
+
+                <!-- Card 2: 衛浴客房 -->
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-bath"></i></div>
+                    <h3 class="feature-title">客房與綠色精品衛浴</h3>
+                    <p class="feature-text">
+                        • 乾濕分離獨立衛浴（部分房型設有泡澡浴缸）<br>
+                        • 台灣綠色頂級 <strong>O'right 歐萊德</strong> 環保洗沐備品<br>
+                        • 獨立冷暖變頻空調系統（靜音恆溫）<br>
+                        • 靜音吹風機、大浴巾、厚毛巾、室內拖鞋<br>
+                        • 高級獨立筒名床、純棉親膚寢具、遮光窗簾<br>
+                        • 嬰兒備品支援（嬰兒澡盆/床需提早預約）
+                    </p>
+                </div>
+
+                <!-- Card 3: 烤肉庭園 -->
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-fire-burner"></i></div>
+                    <h3 class="feature-title">專屬戶外庭園烤肉區</h3>
+                    <p class="feature-text">
+                        • 專屬戶外遮陽遮雨烤肉場地（風雨無阻）<br>
+                        • 專業炭烤烤肉爐架 ＆ 長型戶外餐桌椅<br>
+                        • 戶外獨立清洗水槽、流理台、垃圾分類桶<br>
+                        • 夜間投射照明設備 ＆ 防潑水戶外插座<br>
+                        • <strong>全套代辦海陸烤肉食材</strong>（免備料、免收拾洗烤網）
+                    </p>
+                </div>
+
+                <!-- Card 4: 公共園區 -->
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-tree"></i></div>
+                    <h3 class="feature-title">園區生態與休閒設施</h3>
+                    <p class="feature-text">
+                        • <strong>住宿專屬免費停車場</strong>（小客車/SUV 停放無虞）<br>
+                        • 落羽松步道、林泉閣生態池（水鳥、錦鯉餵食）<br>
+                        • 玻璃屋紫森林景觀咖啡廳（可享用下午茶）<br>
+                        • 新寮溪天然清澈淺水溪流（沁涼踩水戲水區）<br>
+                        • 彩虹星砂瓶手作工坊 ＆ 100 坪森林廣場<br>
+                        • 專人生態老師帶隊夜探秋螢與台北樹蛙
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="toast" id="toast-msg">
+        <i class="fa-solid fa-circle-check" style="color: #4ade80;"></i>
+        <span id="toast-text">已複製 LINE 行前通知！</span>
+    </div>
+
+    <footer>
+        <p><strong>2026 宜蘭三富農場包棟 × 清水地熱 6 家庭廿載聚首度假企劃專頁</strong></p>
+        <p>水果家・阿伯家・阿冠家・余老闆・老呂・老朋友 ｜ 敬祝 旅途愉快 歡笑滿滿！</p>
+    </footer>
+
+    <script>
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("scroll-progress").style.width = scrolled + "%";
+        };
+
+        function updateCountdown() {
+            const targetDate = new Date('2026-09-25T08:30:00+08:00').getTime();
+            const now = new Date().getTime();
+            const diff = targetDate - now;
+            if (diff > 0) {
+                document.getElementById('cd-days').innerText = String(Math.floor(diff / (1000*60*60*24))).padStart(2,'0');
+                document.getElementById('cd-hours').innerText = String(Math.floor((diff % (1000*60*60*24))/(1000*60*60))).padStart(2,'0');
+                document.getElementById('cd-mins').innerText = String(Math.floor((diff % (1000*60*60))/(1000*60))).padStart(2,'0');
+                document.getElementById('cd-secs').innerText = String(Math.floor((diff % (1000*60))/1000)).padStart(2,'0');
+            }
+        }
+        setInterval(updateCountdown, 1000); updateCountdown();
+
+        function switchDayTab(day) {
+            const t1 = document.getElementById('tl-d1'), t2 = document.getElementById('tl-d2');
+            const b1 = document.getElementById('btn-d1'), b2 = document.getElementById('btn-d2');
+            if (day === 1) {
+                t1.style.display = 'block'; t2.style.display = 'none';
+                b1.classList.add('active'); b2.classList.remove('active');
+            } else {
+                t1.style.display = 'none'; t2.style.display = 'block';
+                b1.classList.remove('active'); b2.classList.add('active');
+            }
+        }
+
+        let geoInterval = null, geoSecs = 9*60, geoInit = 9*60, isRunning = false;
+        function selectGeoFood(type, mins, title, tips) {
+            document.querySelectorAll('.geo-food-btn').forEach(b => b.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+            clearInterval(geoInterval); isRunning = false;
+            document.getElementById('btn-geo-start').innerHTML = '<i class="fa-solid fa-play"></i> 開始計時';
+            geoInit = mins * 60; geoSecs = geoInit;
+            document.getElementById('geo-selected-title').innerText = title;
+            document.getElementById('geo-food-tips').innerText = tips;
+            updateGeoDisp();
+        }
+        function updateGeoDisp() {
+            const m = Math.floor(geoSecs / 60), s = geoSecs % 60;
+            document.getElementById('geo-timer-clock').innerText = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+        }
+        function toggleGeoTimer() {
+            if (isRunning) {
+                clearInterval(geoInterval); isRunning = false;
+                document.getElementById('btn-geo-start').innerHTML = '<i class="fa-solid fa-play"></i> 繼續計時';
+            } else {
+                isRunning = true;
+                document.getElementById('btn-geo-start').innerHTML = '<i class="fa-solid fa-pause"></i> 暫停';
+                geoInterval = setInterval(() => {
+                    if (geoSecs > 0) { geoSecs--; updateGeoDisp(); }
+                    else {
+                        clearInterval(geoInterval); isRunning = false;
+                        document.getElementById('btn-geo-start').innerHTML = '<i class="fa-solid fa-rotate-left"></i> 重試';
+                        showToast('♨️ 溫泉食材燜煮完成！請撈起移至冷卻水槽！');
+                    }
+                }, 1000);
+            }
+        }
+        function resetGeoTimer() {
+            clearInterval(geoInterval); isRunning = false; geoSecs = geoInit;
+            document.getElementById('btn-geo-start').innerHTML = '<i class="fa-solid fa-play"></i> 開始計時';
+            updateGeoDisp();
+        }
+
+        function selectRoom(card, fam, room, mem, feat) {
+            document.querySelectorAll('.room-interactive-card').forEach(c => c.classList.remove('selected'));
+            card.classList.add('selected');
+            document.getElementById('room-detail-box').innerHTML = 
+                `<strong>目前選取：${fam} — ${room}</strong><br><span style="color:var(--text-muted); font-size:13px;">成員配置：${mem} ｜ 房型特色：${feat}</span>`;
+        }
+
+        function recalc() {
+            const a = parseInt(document.getElementById('s-adults').value, 10);
+            const s = parseInt(document.getElementById('s-students').value, 10);
+            const k = parseInt(document.getElementById('s-kids').value, 10);
+            document.getElementById('v-adults').innerText = a + ' 人';
+            document.getElementById('v-students').innerText = s + ' 人';
+            document.getElementById('v-kids').innerText = k + ' 人';
+            const total = (a + s + k) * 6000;
+            document.getElementById('res-pax').innerText = (a + s + k) + ' 人';
+            document.getElementById('res-dep').innerText = 'NT$ ' + (total*0.5).toLocaleString() + ' 元';
+            document.getElementById('res-bal').innerText = 'NT$ ' + (total*0.5).toLocaleString() + ' 元';
+            document.getElementById('res-total').innerText = 'NT$ ' + total.toLocaleString() + ' 元';
+        }
+
+        function showToast(msg) {
+            const t = document.getElementById('toast-msg');
+            document.getElementById('toast-text').innerText = msg;
+            t.classList.add('show');
+            setTimeout(() => { t.classList.remove('show'); }, 3000);
+        }
+
+        function copyLineBroadcast() {
+            const txt = `🌕【2026 中秋廿載聚首・6 家庭宜蘭三富農場包棟二日遊】🌕\n📅 時間：2026/09/25(五) - 09/26(六)\n👨‍👩‍👧‍👦 成員：水果家(4)、阿冠家(4)、阿伯家(4)、余老闆(4)、呂老闆(3)、老朋友(4) 共 23 人\n🏡 住宿：三富農場紫森林包棟（按年齡層分房）\n\n🗓 行程速覽：\n🦆 10:00 礁溪【甲鳥園】生態清水模鴨舍\n🐟 12:30 員山【八甲魚場】湖畔景觀午宴\n🌙 14:30 宜蘭【幾米廣場】地景藝術＋文旦採買\n🔥 18:00 三富紫森林【月圓 BBQ 烤肉賞月＋博餅遊戲】\n🦋 21:00 夜探秋螢與台北樹蛙\n\n♨️ Day 2：清水地熱竹簍煮蛋＋富哥活海產壓軸名宴\n\n💰 每人全包約 NT$ 6,000 元\n📞 三富農場訂房：03-958-8690`;
+            navigator.clipboard.writeText(txt).then(() => { showToast('已成功複製 LINE 行前通知！'); });
+        }
+    </script>
+</body>
+</html>
