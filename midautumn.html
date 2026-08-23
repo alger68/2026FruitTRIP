@@ -617,29 +617,157 @@
                 <span style="background:#b45309;color:white;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;">⑤ 返回永和</span>
             </div>
 
-            <!-- Day 1 Map -->
-            <div id="map-d1" style="border-radius:16px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,.15); border:2px solid #1e6b3c;">
-                <iframe
-                    src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY&origin=永和區,新北市,台灣&destination=三富休閒農場,冬山鄉,宜蘭縣,台灣&waypoints=甲鳥園,礁溪鄉,宜蘭縣,台灣|八甲休閒魚場,員山鄉,宜蘭縣,台灣|幾米廣場,宜蘭市,宜蘭縣,台灣&language=zh-TW&region=tw"
-                    width="100%" height="480" style="border:0; display:block;"
-                    allowfullscreen loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                    onerror="this.parentElement.innerHTML=mapFallback('d1')">
-                </iframe>
+            <!-- Day 1 Route Card -->
+            <div id="map-d1" style="border-radius:16px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,.12); border:2px solid #1e6b3c; background:var(--card-bg, #fff); padding:28px 24px;">
+                <div style="display:flex; flex-direction:column; gap:0;">
+                    <div style="display:flex; align-items:stretch; gap:0;">
+                        <div style="display:flex; flex-direction:column; align-items:center; margin-right:16px;">
+                            <div style="width:14px;height:14px;border-radius:50%;background:#1e6b3c;border:3px solid #fff;box-shadow:0 0 0 2px #1e6b3c;flex-shrink:0;margin-top:2px;"></div>
+                            <div style="width:2px;flex:1;background:#1e6b3c;opacity:.35;min-height:28px;"></div>
+                        </div>
+                        <div style="padding-bottom:20px;">
+                            <div style="font-size:11px;font-weight:700;color:#64748b;letter-spacing:.5px;">08:00 出發</div>
+                            <div style="font-size:15px;font-weight:800;color:#1e293b;">🏠 永和・集合出發</div>
+                            <div style="font-size:12px;color:#94a3b8;">北宜高雪隧，約 90 分鐘</div>
+                        </div>
+                    </div>
+                    <div style="display:flex; align-items:stretch; gap:0;">
+                        <div style="display:flex; flex-direction:column; align-items:center; margin-right:16px;">
+                            <div style="width:14px;height:14px;border-radius:50%;background:#1e6b3c;border:3px solid #fff;box-shadow:0 0 0 2px #1e6b3c;flex-shrink:0;margin-top:2px;"></div>
+                            <div style="width:2px;flex:1;background:#1e6b3c;opacity:.35;min-height:28px;"></div>
+                        </div>
+                        <div style="padding-bottom:20px;">
+                            <div style="font-size:11px;font-weight:700;color:#64748b;letter-spacing:.5px;">10:00 – 12:00</div>
+                            <div style="font-size:15px;font-weight:800;color:#1e293b;">🦆 礁溪・甲鳥園五星清水模鴨舍</div>
+                            <div style="font-size:12px;color:#94a3b8;">親子生態・手捧小鴨・鴨蛋蛋糕</div>
+                        </div>
+                    </div>
+                    <div style="display:flex; align-items:stretch; gap:0;">
+                        <div style="display:flex; flex-direction:column; align-items:center; margin-right:16px;">
+                            <div style="width:14px;height:14px;border-radius:50%;background:#1e6b3c;border:3px solid #fff;box-shadow:0 0 0 2px #1e6b3c;flex-shrink:0;margin-top:2px;"></div>
+                            <div style="width:2px;flex:1;background:#1e6b3c;opacity:.35;min-height:28px;"></div>
+                        </div>
+                        <div style="padding-bottom:20px;">
+                            <div style="font-size:11px;font-weight:700;color:#64748b;letter-spacing:.5px;">12:30 – 14:30 午餐</div>
+                            <div style="font-size:15px;font-weight:800;color:#1e293b;">🐟 員山・八甲休閒魚場</div>
+                            <div style="font-size:12px;color:#94a3b8;">湧泉香魚雙吃・鱘龍魚湯・假日必訂位</div>
+                        </div>
+                    </div>
+                    <div style="display:flex; align-items:stretch; gap:0;">
+                        <div style="display:flex; flex-direction:column; align-items:center; margin-right:16px;">
+                            <div style="width:14px;height:14px;border-radius:50%;background:#1e6b3c;border:3px solid #fff;box-shadow:0 0 0 2px #1e6b3c;flex-shrink:0;margin-top:2px;"></div>
+                            <div style="width:2px;flex:1;background:#1e6b3c;opacity:.35;min-height:28px;"></div>
+                        </div>
+                        <div style="padding-bottom:20px;">
+                            <div style="font-size:11px;font-weight:700;color:#64748b;letter-spacing:.5px;">14:30 – 16:00 ⭐ 中秋限定</div>
+                            <div style="font-size:15px;font-weight:800;color:#1e293b;">🌙 宜蘭市・幾米廣場 ＋ 文旦採購</div>
+                            <div style="font-size:12px;color:#94a3b8;">地景藝術・麻竹寮文旦・中秋儀式感</div>
+                        </div>
+                    </div>
+                    <div style="display:flex; align-items:stretch; gap:0;">
+                        <div style="display:flex; flex-direction:column; align-items:center; margin-right:16px;">
+                            <div style="width:14px;height:14px;border-radius:50%;background:#1e6b3c;border:3px solid #fff;box-shadow:0 0 0 2px #1e6b3c;flex-shrink:0;margin-top:2px;"></div>
+                        </div>
+                        <div>
+                            <div style="font-size:11px;font-weight:700;color:#64748b;letter-spacing:.5px;">16:00 入住</div>
+                            <div style="font-size:15px;font-weight:800;color:#1e293b;">🌲 冬山・三富農場紫森林包棟</div>
+                            <div style="font-size:12px;color:#94a3b8;">全棟包場・月圓BBQ・螢火蟲夜探</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top:24px; text-align:center;">
+                    <a href="https://www.google.com/maps/dir/永和區,新北市,台灣/礁溪甲鳥園,宜蘭縣/八甲休閒魚場,員山鄉,宜蘭縣/幾米廣場,宜蘭市,宜蘭縣/三富休閒農場,冬山鄉,宜蘭縣" target="_blank"
+                       style="display:inline-flex;align-items:center;gap:10px;background:#1e6b3c;color:white;font-size:15px;font-weight:800;padding:14px 28px;border-radius:12px;text-decoration:none;box-shadow:0 4px 16px rgba(30,107,60,.4);transition:opacity .2s;"
+                       onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+                        <i class="fa-brands fa-google" style="font-size:18px;"></i>
+                        在 Google Maps 開啟 Day 1 完整路線
+                    </a>
+                    <div style="margin-top:8px;font-size:11.5px;color:#94a3b8;"><i class="fa-solid fa-mobile-screen"></i> 手機點擊可直接導航・共 5 站</div>
+                </div>
             </div>
 
-            <!-- Day 2 Map -->
-            <div id="map-d2" style="display:none; border-radius:16px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,.15); border:2px solid #b45309;">
-                <iframe
-                    src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY&origin=三富休閒農場,冬山鄉,宜蘭縣,台灣&destination=永和區,新北市,台灣&waypoints=清水地熱公園,大同鄉,宜蘭縣,台灣|三星阿婆蔥油餅,三星鄉,宜蘭縣,台灣|田媽媽泰雅風味館,大同鄉,宜蘭縣,台灣&language=zh-TW&region=tw"
-                    width="100%" height="480" style="border:0; display:block;"
-                    allowfullscreen loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+            <!-- Day 2 Route Card -->
+            <div id="map-d2" style="display:none; border-radius:16px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,.12); border:2px solid #b45309; background:var(--card-bg, #fff); padding:28px 24px;">
+                <div style="display:flex; flex-direction:column; gap:0;">
+                    <div style="display:flex; align-items:stretch; gap:0;">
+                        <div style="display:flex; flex-direction:column; align-items:center; margin-right:16px;">
+                            <div style="width:14px;height:14px;border-radius:50%;background:#b45309;border:3px solid #fff;box-shadow:0 0 0 2px #b45309;flex-shrink:0;margin-top:2px;"></div>
+                            <div style="width:2px;flex:1;background:#b45309;opacity:.35;min-height:28px;"></div>
+                        </div>
+                        <div style="padding-bottom:20px;">
+                            <div style="font-size:11px;font-weight:700;color:#64748b;letter-spacing:.5px;">07:30 早餐 ＆ 09:00 退房</div>
+                            <div style="font-size:15px;font-weight:800;color:#1e293b;">☀️ 冬山・三富農場晨光早餐</div>
+                            <div style="font-size:12px;color:#94a3b8;">清粥小菜・池畔晨步・打包行李</div>
+                        </div>
+                    </div>
+                    <div style="display:flex; align-items:stretch; gap:0;">
+                        <div style="display:flex; flex-direction:column; align-items:center; margin-right:16px;">
+                            <div style="width:14px;height:14px;border-radius:50%;background:#b45309;border:3px solid #fff;box-shadow:0 0 0 2px #b45309;flex-shrink:0;margin-top:2px;"></div>
+                            <div style="width:2px;flex:1;background:#b45309;opacity:.35;min-height:28px;"></div>
+                        </div>
+                        <div style="padding-bottom:20px;">
+                            <div style="font-size:11px;font-weight:700;color:#64748b;letter-spacing:.5px;">09:45 – 11:45 ⭐ Day 2 焦點</div>
+                            <div style="font-size:15px;font-weight:800;color:#1e293b;">♨️ 大同・清水地熱公園</div>
+                            <div style="font-size:12px;color:#94a3b8;">竹簍煮溫泉蛋・水果玉米・露天足湯</div>
+                        </div>
+                    </div>
+                    <div style="display:flex; align-items:stretch; gap:0;">
+                        <div style="display:flex; flex-direction:column; align-items:center; margin-right:16px;">
+                            <div style="width:14px;height:14px;border-radius:50%;background:#b45309;border:3px solid #fff;box-shadow:0 0 0 2px #b45309;flex-shrink:0;margin-top:2px;"></div>
+                            <div style="width:2px;flex:1;background:#b45309;opacity:.35;min-height:28px;"></div>
+                        </div>
+                        <div style="padding-bottom:20px;">
+                            <div style="font-size:11px;font-weight:700;color:#64748b;letter-spacing:.5px;">11:45 – 12:30 順遊</div>
+                            <div style="font-size:15px;font-weight:800;color:#1e293b;">🧅 三星・阿婆蔥油餅 ＆ 味珍香卜肉</div>
+                            <div style="font-size:12px;color:#94a3b8;">在地名點・爆汁三星蔥香</div>
+                        </div>
+                    </div>
+                    <div style="display:flex; align-items:stretch; gap:0;">
+                        <div style="display:flex; flex-direction:column; align-items:center; margin-right:16px;">
+                            <div style="width:14px;height:14px;border-radius:50%;background:#b45309;border:3px solid #fff;box-shadow:0 0 0 2px #b45309;flex-shrink:0;margin-top:2px;"></div>
+                            <div style="width:2px;flex:1;background:#b45309;opacity:.35;min-height:28px;"></div>
+                        </div>
+                        <div style="padding-bottom:20px;">
+                            <div style="font-size:11px;font-weight:700;color:#64748b;letter-spacing:.5px;">12:30 – 14:00 壓軸午宴</div>
+                            <div style="font-size:15px;font-weight:800;color:#1e293b;">🍗 大同・田媽媽泰雅風味館</div>
+                            <div style="font-size:12px;color:#94a3b8;">馬告打那雞・山豬肉刈包・原民合菜</div>
+                        </div>
+                    </div>
+                    <div style="display:flex; align-items:stretch; gap:0;">
+                        <div style="display:flex; flex-direction:column; align-items:center; margin-right:16px;">
+                            <div style="width:14px;height:14px;border-radius:50%;background:#b45309;border:3px solid #fff;box-shadow:0 0 0 2px #b45309;flex-shrink:0;margin-top:2px;"></div>
+                            <div style="width:2px;flex:1;background:#b45309;opacity:.35;min-height:28px;"></div>
+                        </div>
+                        <div style="padding-bottom:20px;">
+                            <div style="font-size:11px;font-weight:700;color:#64748b;letter-spacing:.5px;">14:45 – 15:30 伴手禮</div>
+                            <div style="font-size:15px;font-weight:800;color:#1e293b;">🎁 伴手禮巡禮・素馨紅茶・宜蘭餅</div>
+                            <div style="font-size:12px;color:#94a3b8;">滿載而歸・避開收假車潮</div>
+                        </div>
+                    </div>
+                    <div style="display:flex; align-items:stretch; gap:0;">
+                        <div style="display:flex; flex-direction:column; align-items:center; margin-right:16px;">
+                            <div style="width:14px;height:14px;border-radius:50%;background:#b45309;border:3px solid #fff;box-shadow:0 0 0 2px #b45309;flex-shrink:0;margin-top:2px;"></div>
+                        </div>
+                        <div>
+                            <div style="font-size:11px;font-weight:700;color:#64748b;letter-spacing:.5px;">約 17:00 抵達</div>
+                            <div style="font-size:15px;font-weight:800;color:#1e293b;">🏠 平安返回永和</div>
+                            <div style="font-size:12px;color:#94a3b8;">北宜高雪隧・滿滿回憶帶回家</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top:24px; text-align:center;">
+                    <a href="https://www.google.com/maps/dir/三富休閒農場,冬山鄉,宜蘭縣,台灣/清水地熱公園,大同鄉,宜蘭縣,台灣/三星阿婆蔥油餅,三星鄉,宜蘭縣,台灣/田媽媽泰雅風味館,大同鄉,宜蘭縣,台灣/永和區,新北市,台灣" target="_blank"
+                       style="display:inline-flex;align-items:center;gap:10px;background:#b45309;color:white;font-size:15px;font-weight:800;padding:14px 28px;border-radius:12px;text-decoration:none;box-shadow:0 4px 16px rgba(180,83,9,.4);transition:opacity .2s;"
+                       onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+                        <i class="fa-brands fa-google" style="font-size:18px;"></i>
+                        在 Google Maps 開啟 Day 2 完整路線
+                    </a>
+                    <div style="margin-top:8px;font-size:11.5px;color:#94a3b8;"><i class="fa-solid fa-mobile-screen"></i> 手機點擊可直接導航・共 5 站</div>
+                </div>
             </div>
 
             <p style="text-align:center; margin-top:12px; font-size:12.5px; color:#94a3b8;">
-                <i class="fa-solid fa-circle-info"></i> 點擊地圖內「在 Google 地圖中開啟」可在手機導航使用
+                <i class="fa-solid fa-circle-info"></i> 建議出發前在手機 Google Maps 預先下載離線地圖，山區收訊較弱
             </p>
         </section>
 
