@@ -1,47 +1,56 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>🌕 2026 中秋・卅載聚首 漫遊紫森林 ｜ 30週年專屬全案企劃手冊 (單一整合檔)</title>
   
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <!-- Google Fonts (Strict XML Compliant) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Noto+Sans+TC:wght@400;500;700;900&amp;display=swap" rel="stylesheet" />
   
   <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-  <style>
+  <style>/*<![CDATA[*/
     :root {
-      --bg-primary: #06130B;
-      --bg-secondary: #0D2316;
-      --bg-card: rgba(18, 43, 28, 0.75);
-      --bg-card-hover: rgba(26, 61, 40, 0.9);
-      --bg-glass: rgba(255, 255, 255, 0.05);
-      --border-glass: rgba(212, 175, 55, 0.25);
-      --border-subtle: rgba(255, 255, 255, 0.1);
+      /* Warm Cream & Japanese Minimalist Palette */
+      --bg-body: #FDFBF7;
+      --bg-hero: linear-gradient(180deg, #F5EFEB 0%, #FAF6F0 100%);
+      --bg-card: #FFFFFF;
+      --bg-card-alt: #F7F3EE;
+      --bg-pill: rgba(255, 255, 255, 0.92);
       
-      --accent-gold: #D4AF37;
-      --accent-gold-light: #FCE881;
-      --accent-emerald: #2DD4BF;
-      --accent-orange: #FB923C;
-      --accent-rose: #FB7185;
+      --forest-dark: #143621;
+      --forest-med: #205033;
+      --forest-light: #2D6A4F;
+      --forest-soft: #E8F2EB;
       
-      --text-main: #F8FAFC;
-      --text-muted: #94A3B8;
-      --text-gold: #FDE047;
+      --gold-primary: #B8860B;
+      --gold-dark: #926A06;
+      --gold-soft: #FEF3C7;
+      --gold-border: rgba(184, 134, 11, 0.25);
+      
+      --coral-accent: #E0533C;
+      --coral-soft: #FEE2E2;
+      
+      --text-title: #0F172A;
+      --text-main: #2D3748;
+      --text-muted: #64748B;
+      
+      --border-light: rgba(226, 232, 240, 0.9);
+      --border-warm: #EAE3D9;
       
       --radius-sm: 10px;
       --radius-md: 16px;
       --radius-lg: 24px;
       --radius-xl: 32px;
       
-      --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
-      --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.4);
-      --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.6);
-      --shadow-glow: 0 0 35px rgba(212, 175, 55, 0.25);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 8px 24px rgba(20, 54, 33, 0.08);
+      --shadow-lg: 0 16px 40px rgba(20, 54, 33, 0.12);
+      --shadow-glow: 0 8px 30px rgba(184, 134, 11, 0.12);
     }
 
     * {
@@ -52,34 +61,28 @@
     }
 
     body {
-      background-color: var(--bg-primary);
+      background-color: var(--bg-body);
       color: var(--text-main);
       font-family: 'Plus Jakarta Sans', 'Noto Sans TC', -apple-system, sans-serif;
-      line-height: 1.65;
+      line-height: 1.68;
       overflow-x: hidden;
-      background-image: 
-        radial-gradient(circle at 15% 15%, rgba(45, 212, 191, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 85% 30%, rgba(212, 175, 55, 0.1) 0%, transparent 45%),
-        radial-gradient(circle at 50% 80%, rgba(27, 67, 50, 0.3) 0%, transparent 60%);
-      background-attachment: fixed;
     }
 
-    /* Typography */
     h1, h2, h3, .font-serif {
       font-family: 'Noto Serif TC', serif;
+      color: var(--text-title);
     }
 
-    /* Container */
     .container {
-      max-width: 1200px;
+      max-width: 1180px;
       margin: 0 auto;
       padding: 0 24px;
     }
 
-    /* Floating Navigation */
+    /* Floating Navigation Pill */
     .nav-wrapper {
       position: fixed;
-      top: 20px;
+      top: 18px;
       left: 0;
       right: 0;
       z-index: 1000;
@@ -88,14 +91,14 @@
       padding: 0 16px;
     }
     .nav-pill {
-      background: rgba(13, 35, 22, 0.85);
+      background: var(--bg-pill);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--border-glass);
-      padding: 8px 18px;
+      border: 1px solid var(--border-warm);
+      padding: 7px 16px;
       border-radius: 50px;
       display: flex;
-      gap: 10px;
+      gap: 8px;
       box-shadow: var(--shadow-md);
       overflow-x: auto;
       max-width: 100%;
@@ -107,84 +110,81 @@
       font-weight: 600;
       padding: 6px 14px;
       border-radius: 20px;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.25s ease;
       white-space: nowrap;
       display: flex;
       align-items: center;
       gap: 6px;
     }
     .nav-pill a:hover, .nav-pill a.active {
-      color: #06130B;
-      background: linear-gradient(135deg, var(--accent-gold-light), var(--accent-gold));
-      box-shadow: 0 2px 12px rgba(212, 175, 55, 0.4);
+      color: #FFFFFF;
+      background: var(--forest-dark);
+      box-shadow: 0 2px 10px rgba(20, 54, 33, 0.25);
     }
 
-    /* Hero Section */
+    /* Hero Section (Warm Cream Elegant Style) */
     .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: var(--bg-hero);
+      padding: 120px 20px 65px;
       text-align: center;
-      padding: 130px 20px 70px;
-      overflow: hidden;
+      border-bottom: 1px solid var(--border-warm);
+      position: relative;
     }
     .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(212, 175, 55, 0.15);
-      border: 1px solid var(--accent-gold);
-      color: var(--accent-gold-light);
-      padding: 6px 18px;
+      background: #FFFFFF;
+      border: 1px solid var(--gold-primary);
+      color: var(--gold-dark);
+      padding: 6px 20px;
       border-radius: 50px;
       font-size: 14px;
       font-weight: 700;
-      margin-bottom: 24px;
-      box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+      margin-bottom: 22px;
+      box-shadow: var(--shadow-sm);
     }
     .hero-title {
-      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
       font-weight: 900;
-      line-height: 1.2;
-      margin-bottom: 18px;
-      background: linear-gradient(135deg, #FFFFFF 30%, var(--accent-gold-light) 70%, var(--accent-gold) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      line-height: 1.25;
+      margin-bottom: 16px;
+      color: var(--forest-dark);
       letter-spacing: -0.5px;
     }
     .hero-subtitle {
-      font-size: clamp(1.05rem, 2.5vw, 1.4rem);
-      color: #CBD5E1;
+      font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+      color: var(--text-main);
       max-width: 860px;
-      margin: 0 auto 36px;
-      font-weight: 400;
+      margin: 0 auto 34px;
+      font-weight: 500;
     }
     .hero-highlight {
-      color: var(--accent-emerald);
-      font-weight: 700;
+      color: var(--forest-med);
+      font-weight: 800;
+      background: var(--forest-soft);
+      padding: 2px 8px;
+      border-radius: 6px;
     }
 
-    /* Countdown Timer */
+    /* Countdown Card */
     .countdown-card {
-      background: rgba(15, 38, 25, 0.6);
-      backdrop-filter: blur(15px);
-      border: 1px solid var(--border-glass);
+      background: #FFFFFF;
+      border: 1px solid var(--border-warm);
       border-radius: var(--radius-lg);
-      padding: 24px 32px;
+      padding: 20px 32px;
       display: inline-flex;
       gap: 24px;
-      margin-bottom: 40px;
+      margin-bottom: 38px;
       box-shadow: var(--shadow-glow);
     }
     .countdown-unit {
       text-align: center;
     }
     .countdown-num {
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
       font-weight: 800;
-      color: var(--text-gold);
+      color: var(--gold-dark);
       line-height: 1;
       font-variant-numeric: tabular-nums;
     }
@@ -192,39 +192,32 @@
       font-size: 11.5px;
       color: var(--text-muted);
       text-transform: uppercase;
-      font-weight: 600;
+      font-weight: 700;
       margin-top: 4px;
     }
 
-    /* Key Stats Grid */
+    /* Quick Stats Grid */
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 18px;
-      max-width: 1060px;
+      max-width: 1080px;
       margin: 0 auto;
     }
     .stat-item {
-      background: var(--bg-card);
-      backdrop-filter: blur(12px);
-      border: 1px solid var(--border-subtle);
+      background: #FFFFFF;
+      border: 1px solid var(--border-warm);
       border-radius: var(--radius-md);
       padding: 22px;
       text-align: left;
       transition: all 0.3s ease;
+      box-shadow: var(--shadow-sm);
       position: relative;
-      overflow: hidden;
-    }
-    .stat-item::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; width: 4px; height: 100%;
-      background: linear-gradient(180deg, var(--accent-gold), var(--accent-emerald));
     }
     .stat-item:hover {
-      transform: translateY(-4px);
-      border-color: var(--accent-gold);
+      transform: translateY(-3px);
       box-shadow: var(--shadow-md);
+      border-color: var(--forest-light);
     }
     .stat-label {
       font-size: 13px;
@@ -235,75 +228,78 @@
       gap: 6px;
     }
     .stat-value {
-      font-size: 1.45rem;
+      font-size: 1.4rem;
       font-weight: 800;
-      color: var(--text-main);
+      color: var(--forest-dark);
       margin-top: 6px;
     }
     .stat-desc {
-      font-size: 12px;
-      color: var(--accent-gold-light);
+      font-size: 12.5px;
+      color: var(--gold-dark);
       margin-top: 4px;
+      font-weight: 600;
     }
 
     /* Section Styling */
     section {
-      padding: 90px 0;
-      position: relative;
+      padding: 85px 0;
+      border-bottom: 1px solid var(--border-warm);
     }
     .section-header {
       text-align: center;
       max-width: 760px;
-      margin: 0 auto 55px;
+      margin: 0 auto 50px;
     }
     .section-tag {
       font-size: 13px;
       font-weight: 800;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: var(--accent-gold);
+      color: var(--gold-dark);
       margin-bottom: 8px;
       display: inline-block;
     }
     .section-title {
-      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-size: clamp(1.9rem, 3.8vw, 2.6rem);
       font-weight: 800;
-      color: #FFFFFF;
-      margin-bottom: 14px;
+      color: var(--forest-dark);
+      margin-bottom: 12px;
     }
     .section-desc {
       font-size: 1.05rem;
       color: var(--text-muted);
     }
 
-    /* Timeline / Itinerary Styling */
+    /* Day Tab Selector */
     .day-selector {
       display: flex;
       justify-content: center;
-      gap: 16px;
-      margin-bottom: 40px;
+      gap: 14px;
+      margin-bottom: 38px;
     }
     .day-btn {
-      background: rgba(15, 38, 25, 0.7);
-      border: 1px solid var(--border-subtle);
+      background: #FFFFFF;
+      border: 1px solid var(--border-warm);
       color: var(--text-muted);
-      padding: 12px 32px;
+      padding: 12px 28px;
       border-radius: 40px;
       font-size: 15px;
       font-weight: 700;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.25s ease;
       display: flex;
       align-items: center;
       gap: 8px;
+      box-shadow: var(--shadow-sm);
     }
     .day-btn.active, .day-btn:hover {
-      background: linear-gradient(135deg, #1B4332, #2D6A4F);
-      border-color: var(--accent-gold);
+      background: var(--forest-dark);
+      border-color: var(--forest-dark);
       color: #FFFFFF;
-      box-shadow: 0 4px 20px rgba(45, 212, 191, 0.2);
+      box-shadow: var(--shadow-md);
     }
 
+    /* Timeline Styling */
     .timeline-container {
       position: relative;
       max-width: 900px;
@@ -312,45 +308,45 @@
     .timeline-container::before {
       content: '';
       position: absolute;
-      top: 20px;
-      bottom: 20px;
+      top: 24px;
+      bottom: 24px;
       left: 31px;
       width: 2px;
-      background: linear-gradient(180deg, var(--accent-gold), var(--accent-emerald), var(--border-subtle));
+      background: linear-gradient(180deg, var(--gold-primary), var(--forest-med), #CBD5E1);
     }
 
     .timeline-node {
       position: relative;
       display: flex;
-      gap: 28px;
-      margin-bottom: 32px;
+      gap: 24px;
+      margin-bottom: 28px;
     }
     .timeline-icon-box {
       flex-shrink: 0;
       width: 64px;
       height: 64px;
-      background: #0E291A;
-      border: 2px solid var(--accent-gold);
+      background: #FFFFFF;
+      border: 2px solid var(--forest-med);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--text-gold);
+      color: var(--forest-dark);
       font-size: 22px;
       z-index: 2;
-      box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+      box-shadow: var(--shadow-md);
     }
     .timeline-content-card {
       flex-grow: 1;
-      background: var(--bg-card);
-      backdrop-filter: blur(16px);
-      border: 1px solid var(--border-subtle);
+      background: #FFFFFF;
+      border: 1px solid var(--border-warm);
       border-radius: var(--radius-lg);
       padding: 26px;
+      box-shadow: var(--shadow-sm);
       transition: all 0.3s ease;
     }
     .timeline-content-card:hover {
-      border-color: var(--accent-emerald);
+      border-color: var(--forest-light);
       transform: translateX(4px);
       box-shadow: var(--shadow-md);
     }
@@ -365,8 +361,8 @@
     .timeline-time {
       font-size: 13.5px;
       font-weight: 800;
-      color: var(--accent-orange);
-      background: rgba(251, 146, 60, 0.12);
+      color: var(--coral-accent);
+      background: var(--coral-soft);
       padding: 3px 12px;
       border-radius: 20px;
       display: inline-flex;
@@ -376,21 +372,21 @@
     .timeline-tag {
       font-size: 12px;
       font-weight: 700;
-      color: var(--accent-emerald);
-      background: rgba(45, 212, 191, 0.12);
+      color: var(--forest-dark);
+      background: var(--forest-soft);
       padding: 3px 10px;
       border-radius: 12px;
     }
     .timeline-title {
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       font-weight: 800;
-      color: #FFFFFF;
-      margin-bottom: 10px;
+      color: var(--text-title);
+      margin-bottom: 8px;
     }
     .timeline-desc {
       font-size: 14.5px;
-      color: #CBD5E1;
-      margin-bottom: 14px;
+      color: var(--text-main);
+      margin-bottom: 12px;
     }
     .timeline-features {
       display: flex;
@@ -399,55 +395,55 @@
     }
     .feature-pill {
       font-size: 12px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: #E2E8F0;
+      background: var(--bg-card-alt);
+      border: 1px solid var(--border-warm);
+      color: var(--text-main);
       padding: 4px 10px;
       border-radius: 8px;
+      font-weight: 600;
     }
 
     /* Rooms Grid */
     .rooms-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 22px;
     }
     .room-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
+      background: #FFFFFF;
+      border: 1px solid var(--border-warm);
       border-radius: var(--radius-lg);
       overflow: hidden;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
     }
     .room-card:hover {
-      border-color: var(--accent-gold);
-      transform: translateY(-6px);
+      border-color: var(--forest-light);
+      transform: translateY(-4px);
       box-shadow: var(--shadow-lg);
     }
     .room-header {
-      background: linear-gradient(135deg, rgba(27, 67, 50, 0.8), rgba(15, 38, 25, 0.95));
-      padding: 20px 24px;
-      border-bottom: 1px solid var(--border-subtle);
+      background: var(--bg-card-alt);
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--border-warm);
     }
     .room-badge-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .room-code {
       font-size: 12px;
       font-weight: 800;
-      color: var(--accent-gold-light);
-      text-transform: uppercase;
+      color: var(--gold-dark);
     }
     .room-bathtub-badge {
       font-size: 11.5px;
       font-weight: 700;
-      color: #67E8F9;
-      background: rgba(6, 182, 212, 0.15);
-      border: 1px solid rgba(6, 182, 212, 0.3);
+      color: var(--forest-dark);
+      background: var(--forest-soft);
+      border: 1px solid rgba(45, 106, 79, 0.2);
       padding: 2px 10px;
       border-radius: 20px;
       display: inline-flex;
@@ -455,43 +451,42 @@
       gap: 4px;
     }
     .room-title {
-      font-size: 1.35rem;
+      font-size: 1.3rem;
       font-weight: 800;
-      color: #FFFFFF;
+      color: var(--forest-dark);
     }
     .room-assignee {
-      font-size: 14.5px;
-      color: var(--accent-orange);
+      font-size: 14px;
+      color: var(--coral-accent);
       font-weight: 700;
       margin-top: 4px;
     }
     .room-body {
-      padding: 22px 24px;
+      padding: 20px 22px;
     }
     .room-specs {
       list-style: none;
-      margin-bottom: 18px;
     }
     .room-specs li {
       font-size: 13.5px;
-      color: #CBD5E1;
+      color: var(--text-main);
       margin-bottom: 8px;
       display: flex;
       align-items: flex-start;
       gap: 8px;
     }
     .room-specs li i {
-      color: var(--accent-emerald);
+      color: var(--forest-light);
       margin-top: 4px;
     }
 
-    /* Budget & Finance Table */
+    /* Budget Table & Payments */
     .budget-wrapper {
-      background: var(--bg-card);
-      border: 1px solid var(--border-glass);
+      background: #FFFFFF;
+      border: 1px solid var(--border-warm);
       border-radius: var(--radius-xl);
       padding: 36px;
-      box-shadow: var(--shadow-lg);
+      box-shadow: var(--shadow-md);
     }
     .budget-table-responsive {
       overflow-x: auto;
@@ -503,73 +498,74 @@
       text-align: left;
     }
     table.custom-table th {
-      background: rgba(27, 67, 50, 0.6);
-      color: var(--accent-gold-light);
+      background: var(--forest-dark);
+      color: #FFFFFF;
       font-size: 13.5px;
       font-weight: 700;
-      padding: 16px 18px;
-      border-bottom: 2px solid var(--accent-gold);
+      padding: 14px 16px;
       white-space: nowrap;
     }
     table.custom-table td {
-      padding: 16px 18px;
+      padding: 14px 16px;
       font-size: 14px;
-      color: #E2E8F0;
-      border-bottom: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      border-bottom: 1px solid var(--border-warm);
     }
     table.custom-table tr:hover td {
-      background: rgba(255, 255, 255, 0.03);
+      background: #FAF8F5;
     }
     table.custom-table tr.total-row td {
-      background: rgba(212, 175, 55, 0.12);
+      background: var(--gold-soft);
       font-size: 1.15rem;
       font-weight: 800;
-      color: var(--text-gold);
-      border-top: 2px solid var(--accent-gold);
-      border-bottom: 2px solid var(--accent-gold);
+      color: var(--forest-dark);
+      border-top: 2px solid var(--gold-primary);
+      border-bottom: 2px solid var(--gold-primary);
     }
 
-    /* Family Payment Cards */
     .payment-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 18px;
-      margin-top: 28px;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
     }
     .payment-card {
-      background: rgba(15, 38, 25, 0.7);
-      border: 1px solid var(--border-subtle);
+      background: var(--bg-card-alt);
+      border: 1px solid var(--border-warm);
       border-radius: var(--radius-md);
       padding: 20px;
-      transition: all 0.3s ease;
+      transition: all 0.25s ease;
     }
     .payment-card:hover {
-      border-color: var(--accent-gold);
-      transform: translateY(-3px);
+      border-color: var(--forest-light);
+      background: #FFFFFF;
+      box-shadow: var(--shadow-sm);
     }
     .payment-head {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
     .payment-title {
       font-size: 1.15rem;
       font-weight: 700;
-      color: #FFFFFF;
+      color: var(--forest-dark);
     }
     .payment-people {
       font-size: 12px;
-      background: rgba(255, 255, 255, 0.1);
+      background: #FFFFFF;
+      border: 1px solid var(--border-warm);
       padding: 2px 8px;
       border-radius: 12px;
-      color: var(--accent-emerald);
+      color: var(--forest-light);
+      font-weight: 700;
     }
     .payment-amount {
-      font-size: 1.5rem;
+      font-size: 1.45rem;
       font-weight: 800;
-      color: var(--text-gold);
-      margin-bottom: 8px;
+      color: var(--forest-dark);
+      margin-bottom: 6px;
     }
     .payment-breakdown {
       font-size: 12.5px;
@@ -584,68 +580,66 @@
       gap: 18px;
     }
     .contact-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
+      background: #FFFFFF;
+      border: 1px solid var(--border-warm);
       border-radius: var(--radius-md);
       padding: 22px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 16px;
-    }
-    .contact-card:hover {
-      border-color: var(--accent-emerald);
+      gap: 14px;
+      box-shadow: var(--shadow-sm);
     }
     .contact-name {
       font-size: 1.15rem;
       font-weight: 700;
-      color: #FFFFFF;
+      color: var(--forest-dark);
     }
     .contact-role {
       font-size: 12px;
-      color: var(--accent-gold);
-      font-weight: 600;
+      color: var(--gold-dark);
+      font-weight: 700;
+      text-transform: uppercase;
     }
     .contact-phone-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      background: linear-gradient(135deg, var(--accent-gold), #B8860B);
-      color: #06130B;
+      background: var(--forest-dark);
+      color: #FFFFFF;
       text-decoration: none;
-      font-weight: 800;
+      font-weight: 700;
       font-size: 14px;
       padding: 10px 16px;
       border-radius: var(--radius-sm);
-      transition: all 0.3s ease;
+      transition: all 0.25s ease;
     }
     .contact-phone-btn:hover {
-      transform: scale(1.02);
-      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+      background: var(--forest-med);
+      box-shadow: var(--shadow-md);
     }
 
     /* Footer */
     footer {
-      background: #030A06;
-      border-top: 1px solid var(--border-subtle);
-      padding: 50px 0 40px;
+      background: var(--forest-dark);
+      color: #FFFFFF;
+      padding: 45px 0 35px;
       text-align: center;
     }
     .footer-logo {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       font-weight: 900;
-      color: var(--accent-gold);
-      margin-bottom: 12px;
+      color: #FCE881;
+      margin-bottom: 8px;
     }
     .footer-text {
-      font-size: 14px;
-      color: var(--text-muted);
+      font-size: 13.5px;
+      color: #CBD5E1;
       max-width: 600px;
-      margin: 0 auto 20px;
+      margin: 0 auto 16px;
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
       .countdown-card {
         gap: 14px;
@@ -666,7 +660,7 @@
         padding: 20px;
       }
     }
-  </style>
+  /*]]>*/</style>
 </head>
 <body>
 
@@ -747,6 +741,12 @@
         <span class="section-tag"><i class="fa-solid fa-route"></i> Timeline Schedule</span>
         <h2 class="section-title">⏱️ 2 天 1 夜實測精準行程</h2>
         <p class="section-desc">07:00 永和晨光出發，完美避開國五連假車潮，順遊最美景點與雙旗艦名宴！</p>
+      </div>
+
+            <!-- Google Maps Quick Route Buttons -->
+      <div style="display: flex; justify-content: center; gap: 14px; margin-bottom: 30px; flex-wrap: wrap;">
+        <a href="https://www.google.com/maps/dir/%E6%96%B0%E5%8C%97%E5%B8%82%E6%B0%B8%E5%92%8C%E5%8D%80/%E5%86%AC%E5%B1%B1%E7%81%AB%E8%BB%8A%E7%AB%99/%E5%86%AC%E5%B1%B1%E6%B2%B3%E7%94%9F%E6%85%8B%E7%B6%A0%E8%88%9F/%E5%8C%97%E5%90%8E%E5%AF%BA/%E5%85%AB%E7%94%B2%E4%BC%91%E9%96%92%E9%AD%9A%E5%A0%B4/%E7%B4%AB%E6%A3%AE%E6%9E%97-%E4%B8%89%E5%AF%8C%E4%BC%91%E9%96%92%E8%BE%B2%E5%A0%B4" target="_blank" class="contact-phone-btn" style="background: var(--forest-dark);"><i class="fa-solid fa-map-location-dot"></i> 開啟 Day 1 Google 地圖全日車隊導航路線</a>
+        <a href="https://www.google.com/maps/dir/%E7%B4%AB%E6%A3%AE%E6%9E%97-%E4%B8%89%E5%AF%8C%E4%BC%91%E9%96%92%E8%BE%B2%E5%A0%B4/%E6%B8%85%E6%B0%B4%E5%9C%B0%E7%86%B1%E5%85%AC%E5%9C%92/%E5%BE%97%E6%84%8F%E6%A8%93%E9%A4%90%E5%BB%B3/%E5%A5%95%E9%A0%86%E8%BB%92+%E5%AE%9C%E8%98%AD%E5%BA%97/%E6%96%B0%E5%8C%97%E5%B8%82%E6%B0%B8%E5%92%8C%E5%8D%80" target="_blank" class="contact-phone-btn" style="background: var(--gold-dark);"><i class="fa-solid fa-map-location-dot"></i> 開啟 Day 2 Google 地圖全日車隊導航路線</a>
       </div>
 
       <!-- Day Tabs -->
@@ -944,7 +944,7 @@
   </section>
 
   <!-- Section: Rooms -->
-  <section id="rooms" style="background: rgba(8, 28, 16, 0.4);">
+  <section id="rooms" style="background: var(--bg-card-alt);">
     <div class="container">
       <div class="section-header">
         <span class="section-tag"><i class="fa-solid fa-bed"></i> Accommodation</span>
@@ -1049,11 +1049,11 @@
         </div>
 
         <!-- Room F -->
-        <div class="room-card" style="border-color: var(--accent-emerald);">
+        <div class="room-card" style="border-color: var(--forest-light);">
           <div class="room-header">
             <div class="room-badge-row">
               <span class="room-code">加訂獨立客房 F</span>
-              <span class="room-bathtub-badge" style="color: var(--accent-emerald); background: rgba(45, 212, 191, 0.15); border-color: rgba(45, 212, 191, 0.3);"><i class="fa-solid fa-shower"></i> 乾濕分離</span>
+              <span class="room-bathtub-badge" style="color: var(--forest-dark); background: var(--forest-soft); border-color: rgba(45, 106, 79, 0.3);"><i class="fa-solid fa-shower"></i> 乾濕分離</span>
             </div>
             <div class="room-title">紫森林 特選獨立客房 F</div>
             <div class="room-assignee">🍻 老戰友群 (3~4人 / 永和6號車)</div>
@@ -1160,7 +1160,7 @@
         </div>
 
         <!-- Family Payments -->
-        <h3 style="font-size: 1.3rem; color: #FFFFFF; margin-bottom: 8px;">👨‍👩‍👧‍👦 各家庭應繳金額與收支拆解 (訂金 50% ＋ 現場尾款 50%)</h3>
+        <h3 style="font-size: 1.25rem; color: var(--forest-dark); margin-bottom: 8px;">👨‍👩‍👧‍👦 各家庭應繳金額與收支拆解 (訂金 50% ＋ 現場尾款 50%)</h3>
         <div class="payment-grid">
           <div class="payment-card">
             <div class="payment-head">
@@ -1169,8 +1169,8 @@
             </div>
             <div class="payment-amount">NT$ 23,427</div>
             <div class="payment-breakdown">
-              • 預付訂金：<b>NT$ 11,700 元</b><br>
-              • 現場尾款：<b>NT$ 11,727 元</b><br>
+              • 預付訂金：<b>NT$ 11,700 元</b><br />
+              • 現場尾款：<b>NT$ 11,727 元</b><br />
               • 分配房型：景觀四人房 A (附浴缸)
             </div>
           </div>
@@ -1182,8 +1182,8 @@
             </div>
             <div class="payment-amount">NT$ 23,427</div>
             <div class="payment-breakdown">
-              • 預付訂金：<b>NT$ 11,700 元</b><br>
-              • 現場尾款：<b>NT$ 11,727 元</b><br>
+              • 預付訂金：<b>NT$ 11,700 元</b><br />
+              • 現場尾款：<b>NT$ 11,727 元</b><br />
               • 分配房型：景觀四人房 B (附浴缸)
             </div>
           </div>
@@ -1195,8 +1195,8 @@
             </div>
             <div class="payment-amount">NT$ 23,427</div>
             <div class="payment-breakdown">
-              • 預付訂金：<b>NT$ 11,700 元</b><br>
-              • 現場尾款：<b>NT$ 11,727 元</b><br>
+              • 預付訂金：<b>NT$ 11,700 元</b><br />
+              • 現場尾款：<b>NT$ 11,727 元</b><br />
               • 分配房型：景觀四人房 C (附浴缸)
             </div>
           </div>
@@ -1208,8 +1208,8 @@
             </div>
             <div class="payment-amount">NT$ 23,427</div>
             <div class="payment-breakdown">
-              • 預付訂金：<b>NT$ 11,700 元</b><br>
-              • 現場尾款：<b>NT$ 11,727 元</b><br>
+              • 預付訂金：<b>NT$ 11,700 元</b><br />
+              • 現場尾款：<b>NT$ 11,727 元</b><br />
               • 分配房型：景觀四人房 D (附浴缸)
             </div>
           </div>
@@ -1221,21 +1221,21 @@
             </div>
             <div class="payment-amount">NT$ 17,570</div>
             <div class="payment-breakdown">
-              • 預付訂金：<b>NT$ 8,700 元</b><br>
-              • 現場尾款：<b>NT$ 8,870 元</b><br>
+              • 預付訂金：<b>NT$ 8,700 元</b><br />
+              • 現場尾款：<b>NT$ 8,870 元</b><br />
               • 分配房型：和風二人房 E (附浴缸/加墊)
             </div>
           </div>
 
-          <div class="payment-card" style="border-color: var(--accent-emerald);">
+          <div class="payment-card" style="border-color: var(--forest-light);">
             <div class="payment-head">
               <span class="payment-title">老戰友群</span>
               <span class="payment-people">4 人計 (每人均攤)</span>
             </div>
             <div class="payment-amount">NT$ 23,427</div>
             <div class="payment-breakdown">
-              • 每人均攤：<b>NT$ 5,857 元</b><br>
-              • 每人訂金：<b>NT$ 2,925 元</b><br>
+              • 每人均攤：<b>NT$ 5,857 元</b><br />
+              • 每人訂金：<b>NT$ 2,925 元</b><br />
               • 分配房型：特選獨立客房 F
             </div>
           </div>
@@ -1245,10 +1245,10 @@
   </section>
 
   <!-- Section: Convoy & Contacts -->
-  <section id="convoy" style="background: rgba(8, 28, 16, 0.4);">
+  <section id="convoy" style="background: var(--bg-card-alt);">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag"><i class="fa-solid fa-car"></i> Convoy & Lineup</span>
+        <span class="section-tag"><i class="fa-solid fa-car"></i> Convoy &amp; Lineup</span>
         <h2 class="section-title">🚗 新北永和 6 車自駕共乘編組名冊</h2>
         <p class="section-desc">07:00 統一於新北市永和區出發，車隊乘員名冊與分工。</p>
       </div>
@@ -1258,8 +1258,8 @@
           <div>
             <div class="contact-role"><i class="fa-solid fa-flag"></i> 1 號車 ｜ 車隊領航</div>
             <div class="contact-name">水果家 (4 人)</div>
-            <div style="font-size: 13px; color: #94A3B8; margin-top: 6px;">
-              • 駕駛：水果家爸爸<br>
+            <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">
+              • 駕駛：水果家爸爸<br />
               • 任務：車隊前導導航、掌握國五路況
             </div>
           </div>
@@ -1269,8 +1269,8 @@
           <div>
             <div class="contact-role"><i class="fa-solid fa-shield"></i> 2 號車 ｜ 車隊中堅</div>
             <div class="contact-name">阿伯家 (4 人)</div>
-            <div style="font-size: 13px; color: #94A3B8; margin-top: 6px;">
-              • 駕駛：阿伯家爸爸<br>
+            <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">
+              • 駕駛：阿伯家爸爸<br />
               • 任務：中繼隨隊行駛、照應前後
             </div>
           </div>
@@ -1280,8 +1280,8 @@
           <div>
             <div class="contact-role"><i class="fa-solid fa-car"></i> 3 號車 ｜ 隨行共乘</div>
             <div class="contact-name">阿冠家 (4 人)</div>
-            <div style="font-size: 13px; color: #94A3B8; margin-top: 6px;">
-              • 駕駛：阿冠家爸爸<br>
+            <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">
+              • 駕駛：阿冠家爸爸<br />
               • 任務：隨隊行駛、車隊通訊保持
             </div>
           </div>
@@ -1291,8 +1291,8 @@
           <div>
             <div class="contact-role"><i class="fa-solid fa-car"></i> 4 號車 ｜ 隨行共乘</div>
             <div class="contact-name">余老闆家 (4 人)</div>
-            <div style="font-size: 13px; color: #94A3B8; margin-top: 6px;">
-              • 駕駛：余老闆<br>
+            <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">
+              • 駕駛：余老闆<br />
               • 備註：不吃牛肉
             </div>
           </div>
@@ -1302,8 +1302,8 @@
           <div>
             <div class="contact-role"><i class="fa-solid fa-car"></i> 5 號車 ｜ 隨行共乘</div>
             <div class="contact-name">老呂家 (3 人)</div>
-            <div style="font-size: 13px; color: #94A3B8; margin-top: 6px;">
-              • 駕駛：老呂<br>
+            <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">
+              • 駕駛：老呂<br />
               • 任務：隨隊行駛、景點集合照應
             </div>
           </div>
@@ -1313,8 +1313,8 @@
           <div>
             <div class="contact-role"><i class="fa-solid fa-shield-halved"></i> 6 號車 ｜ 殿後機動</div>
             <div class="contact-name">老戰友專車 (3~4 人)</div>
-            <div style="font-size: 13px; color: #94A3B8; margin-top: 6px;">
-              • 駕駛：老戰友群<br>
+            <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">
+              • 駕駛：老戰友群<br />
               • 任務：車隊押後照應、老友同行
             </div>
           </div>
@@ -1337,7 +1337,7 @@
           <div>
             <div class="contact-role">Day 1 午宴旗艦餐廳</div>
             <div class="contact-name">八甲休閒魚場</div>
-            <div style="font-size: 13px; color: #94A3B8; margin-top: 4px;">宜蘭縣員山鄉尚德村八甲路1之10號</div>
+            <div style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">宜蘭縣員山鄉尚德村八甲路1之10號</div>
           </div>
           <a href="tel:039225990" class="contact-phone-btn"><i class="fa-solid fa-phone"></i> (03) 922-5990</a>
         </div>
@@ -1346,7 +1346,7 @@
           <div>
             <div class="contact-role">Day 2 烤鴨午宴餐廳</div>
             <div class="contact-name">得意樓餐廳</div>
-            <div style="font-size: 13px; color: #94A3B8; margin-top: 4px;">宜蘭市民族里民權新路104號</div>
+            <div style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">宜蘭市民族里民權新路104號</div>
           </div>
           <a href="tel:039322048" class="contact-phone-btn"><i class="fa-solid fa-phone"></i> (03) 932-2048</a>
         </div>
@@ -1355,7 +1355,7 @@
           <div>
             <div class="contact-role">Day 1 住宿 ＆ BBQ</div>
             <div class="contact-name">三富休閒農場 (紫森林)</div>
-            <div style="font-size: 13px; color: #94A3B8; margin-top: 4px;">訂單: BOSLPL00011016 (冬山新寮二路161號)</div>
+            <div style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">訂單: BOSLPL00011016 (冬山新寮二路161號)</div>
           </div>
           <a href="tel:039588690" class="contact-phone-btn"><i class="fa-solid fa-phone"></i> (03) 958-8690</a>
         </div>
@@ -1364,7 +1364,7 @@
           <div>
             <div class="contact-role">Day 1 遊船遊客中心</div>
             <div class="contact-name">冬山河生態綠舟</div>
-            <div style="font-size: 13px; color: #94A3B8; margin-top: 4px;">宜蘭縣冬山鄉冬山路二段172號</div>
+            <div style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">宜蘭縣冬山鄉冬山路二段172號</div>
           </div>
           <a href="tel:039591314" class="contact-phone-btn"><i class="fa-solid fa-phone"></i> (03) 959-1314</a>
         </div>
@@ -1379,26 +1379,27 @@
       <p class="footer-text">
         2026 中秋 5 大家庭 ＆ 老戰友 30 週年專屬紀念行 ｜ 預祝全員歡聚圓滿、情誼長存！
       </p>
-      <div style="font-size: 12px; color: #64748B;">
-        © 2026 宜蘭紫森林紀念行籌備會 ｜ 專屬響應式互動企劃專頁
+      <div style="font-size: 12px; color: #94A3B8;">
+        © 2026 宜蘭紫森林紀念行籌備會 ｜ 專屬日系暖白奶油風互動企劃手冊
       </div>
     </div>
   </footer>
 
   <script>
+    //<![CDATA[
     // Day Tab Switcher
     function switchDay(dayNum) {
-      const d1 = document.getElementById('day1-timeline');
-      const d2 = document.getElementById('day2-timeline');
-      const btns = document.querySelectorAll('.day-btn');
+      var d1 = document.getElementById('day1-timeline');
+      var d2 = document.getElementById('day2-timeline');
+      var btns = document.querySelectorAll('.day-btn');
       
-      btns.forEach((b, idx) => {
-        if (idx === dayNum - 1) {
-          b.classList.add('active');
+      for (var i = 0; i < btns.length; i++) {
+        if (i === dayNum - 1) {
+          btns[i].classList.add('active');
         } else {
-          b.classList.remove('active');
+          btns[i].classList.remove('active');
         }
-      });
+      }
 
       if (dayNum === 1) {
         d1.style.display = 'block';
@@ -1411,9 +1412,9 @@
 
     // Countdown Timer to 2026-09-25 07:00:00
     function updateCountdown() {
-      const target = new Date('2026-09-25T07:00:00+08:00').getTime();
-      const now = new Date().getTime();
-      const diff = target - now;
+      var target = new Date('2026-09-25T07:00:00+08:00').getTime();
+      var now = new Date().getTime();
+      var diff = target - now;
 
       if (diff <= 0) {
         document.getElementById('cd-days').innerText = '00';
@@ -1423,10 +1424,10 @@
         return;
       }
 
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
       document.getElementById('cd-days').innerText = String(days).padStart(2, '0');
       document.getElementById('cd-hours').innerText = String(hours).padStart(2, '0');
@@ -1438,25 +1439,26 @@
     updateCountdown();
 
     // Scroll Spy for Nav
-    window.addEventListener('scroll', () => {
-      const sections = document.querySelectorAll('section, header');
-      const navLinks = document.querySelectorAll('.nav-pill a');
-      let current = '';
+    window.addEventListener('scroll', function() {
+      var sections = document.querySelectorAll('section, header');
+      var navLinks = document.querySelectorAll('.nav-pill a');
+      var current = '';
 
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (pageYOffset >= sectionTop - 150) {
+      sections.forEach(function(section) {
+        var sectionTop = section.offsetTop;
+        if (window.pageYOffset >= sectionTop - 150) {
           current = section.getAttribute('id');
         }
       });
 
-      navLinks.forEach(link => {
+      navLinks.forEach(function(link) {
         link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
+        if (link.getAttribute('href') === '#' + current) {
           link.classList.add('active');
         }
       });
     });
+    //]]>
   </script>
 </body>
 </html>
