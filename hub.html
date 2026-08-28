@@ -292,7 +292,6 @@
   <p>2026 中秋・5 大家庭 ＆ 老戰友 30 週年專屬紀念行</p>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
   // Countdown
   function tick() {
@@ -339,20 +338,21 @@ https://alger68.github.io/2026FruitTRIP/handbook.html`;
     });
   } catch(e) {}
 
-  // QR Codes
+  // QR Codes via Google Charts API
   const base = 'https://alger68.github.io/2026FruitTRIP/';
   const pages = [
-    {name:'✅ 正式版：全案企劃手冊', url:'handbook.html'},
+    {name:'✅ 正式版・全案企劃手冊', url:'handbook.html'},
+    {name:'🛶 冬山綠舟・甲富哥版', url:'dongshan.html'},
+    {name:'🌿 主行程圖文版', url:'midautumn.html'},
   ];
   const grid = document.getElementById('qr-grid');
   pages.forEach(p => {
+    const fullUrl = base + p.url;
+    const qrUrl = 'https://chart.googleapis.com/chart?chs=160x160&cht=qr&chl=' + encodeURIComponent(fullUrl) + '&choe=UTF-8&chld=M|1';
     const card = document.createElement('div');
     card.className = 'qr-card';
-    const qd = document.createElement('div');
-    card.appendChild(qd);
-    card.innerHTML += `<div class="qr-name">${p.name}</div><div class="qr-url">${p.url}</div>`;
+    card.innerHTML = `<img src="${qrUrl}" width="160" height="160" alt="QR Code" style="border-radius:8px;"><div class="qr-name">${p.name}</div><div class="qr-url">${p.url}</div>`;
     grid.appendChild(card);
-    new QRCode(qd,{text:base+p.url,width:150,height:150,colorDark:'#143621',colorLight:'#fff',correctLevel:QRCode.CorrectLevel.M});
   });
 </script>
 </body>
