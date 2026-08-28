@@ -96,8 +96,8 @@
     .cl-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; }
     .cl-card { background:#fff; border:1px solid var(--border); border-radius:14px; padding:18px; box-shadow:var(--shadow); }
     .cl-card-title { font-size:.95rem; font-weight:800; color:var(--forest); margin-bottom:12px; display:flex; align-items:center; gap:7px; }
-    .cl-item { display:flex; align-items:center; gap:9px; margin-bottom:9px; cursor:pointer; }
-    .cl-item input { width:16px; height:16px; accent-color:var(--forest); cursor:pointer; flex-shrink:0; }
+    .cl-item { display:flex; align-items:center; gap:9px; margin-bottom:9px; }
+    .cl-item input { width:18px; height:18px; accent-color:var(--forest); cursor:pointer; flex-shrink:0; }
     .cl-item label { font-size:13px; color:var(--text); cursor:pointer; user-select:none; }
     .cl-item.done label { text-decoration:line-through; color:var(--muted); }
 
@@ -228,52 +228,52 @@
 
       <div class="cl-card">
         <div class="cl-card-title"><i class="fa-solid fa-shirt" style="color:var(--forest)"></i> 衣物用品</div>
-        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c1"><label for="c1">換洗衣物（2天份）</label></div>
-        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c2"><label for="c2">防曬乳 / 防曬衣</label></div>
-        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c3"><label for="c3">雨衣 / 輕薄外套</label></div>
-        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c4"><label for="c4">拖鞋（地熱泡腳用）</label></div>
-        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c5"><label for="c5">運動鞋 / 走路鞋</label></div>
+        <div class="cl-item"><input type="checkbox" onchange="onCheck(this)" id="c1"><label for="c1">換洗衣物（2天份）</label></div>
+        <div class="cl-item"><input type="checkbox" onchange="onCheck(this)" id="c2"><label for="c2">防曬乳 / 防曬衣</label></div>
+        <div class="cl-item"><input type="checkbox" onchange="onCheck(this)" id="c3"><label for="c3">雨衣 / 輕薄外套</label></div>
+        <div class="cl-item"><input type="checkbox" onchange="onCheck(this)" id="c4"><label for="c4">拖鞋（地熱泡腳用）</label></div>
+        <div class="cl-item"><input type="checkbox" onchange="onCheck(this)" id="c5"><label for="c5">運動鞋 / 走路鞋</label></div>
       </div>
 
       <div class="cl-card">
         <div class="cl-card-title"><i class="fa-solid fa-kit-medical" style="color:var(--coral)"></i> 藥品保健</div>
-        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c6"><label for="c6">暈車藥（雪隧備用）</label></div>
-        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c7"><label for="c7">常備藥（感冒/腸胃）</label></div>
-        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c8"><label for="c8">防蚊液（夜探螢火蟲）</label></div>
-        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c9"><label for="c9">OK繃 / 個人用藥</label></div>
+        <div class="cl-item"><input type="checkbox" onchange="onCheck(this)" id="c6"><label for="c6">暈車藥（雪隧備用）</label></div>
+        <div class="cl-item"><input type="checkbox" onchange="onCheck(this)" id="c7"><label for="c7">常備藥（感冒/腸胃）</label></div>
+        <div class="cl-item"><input type="checkbox" onchange="onCheck(this)" id="c8"><label for="c8">防蚊液（夜探螢火蟲）</label></div>
+        <div class="cl-item"><input type="checkbox" onchange="onCheck(this)" id="c9"><label for="c9">OK繃 / 個人用藥</label></div>
       </div>
 
       <div class="cl-card">
         <div class="cl-card-title"><i class="fa-solid fa-camera" style="color:var(--gold)"></i> 3C 電子</div>
-        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c10"><label for="c10">手機充電線 ＆ 充電頭</label></div>
-        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c11"><label for="c11">行動電源</label></div>
-        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c12"><label for="c12">相機 ＆ 記憶卡</label></div>
-        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c13"><label for="c13">Switch / 桌遊</label></div>
-        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c14"><label for="c14">藍牙喇叭（BBQ用）</label></div>
+        <div class="cl-item"><input type="checkbox" onchange="onCheck(this)" id="c10"><label for="c10">手機充電線 ＆ 充電頭</label></div>
+        <div class="cl-item"><input type="checkbox" onchange="onCheck(this)" id="c11"><label for="c11">行動電源</label></div>
+        <div class="cl-item"><input type="checkbox" onchange="onCheck(this)" id="c12"><label for="c12">相機 ＆ 記憶卡</label></div>
+        <div class="cl-item"><input type="checkbox" onchange="onCheck(this)" id="c13"><label for="c13">Switch / 桌遊</label></div>
+        <div class="cl-item"><input type="checkbox" onchange="onCheck(this)" id="c14"><label for="c14">藍牙喇叭（BBQ用）</label></div>
       </div>
 
       <div class="cl-card">
         <div class="cl-card-title"><i class="fa-solid fa-mug-hot" style="color:var(--forest-light)"></i> 食品零食</div>
-        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c15"><label for="c15">地熱野炊食材（蛋/玉米）</label></div>
-        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c16"><label for="c16">車上零食點心</label></div>
-        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c17"><label for="c17">飲料 / 礦泉水</label></div>
-        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c18"><label for="c18">文旦 / 月餅（中秋）</label></div>
+        <div class="cl-item"><input type="checkbox" onchange="onCheck(this)" id="c15"><label for="c15">地熱野炊食材（蛋/玉米）</label></div>
+        <div class="cl-item"><input type="checkbox" onchange="onCheck(this)" id="c16"><label for="c16">車上零食點心</label></div>
+        <div class="cl-item"><input type="checkbox" onchange="onCheck(this)" id="c17"><label for="c17">飲料 / 礦泉水</label></div>
+        <div class="cl-item"><input type="checkbox" onchange="onCheck(this)" id="c18"><label for="c18">文旦 / 月餅（中秋）</label></div>
       </div>
 
       <div class="cl-card">
         <div class="cl-card-title"><i class="fa-solid fa-wallet" style="color:var(--gold)"></i> 費用 ＆ 文件</div>
-        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c19"><label for="c19">現金（尾款 ＆ 零用）</label></div>
-        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c20"><label for="c20">身分證 / 健保卡</label></div>
-        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c21"><label for="c21">ETC 已儲值確認</label></div>
-        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c22"><label for="c22">預訂確認截圖存手機</label></div>
+        <div class="cl-item"><input type="checkbox" onchange="onCheck(this)" id="c19"><label for="c19">現金（尾款 ＆ 零用）</label></div>
+        <div class="cl-item"><input type="checkbox" onchange="onCheck(this)" id="c20"><label for="c20">身分證 / 健保卡</label></div>
+        <div class="cl-item"><input type="checkbox" onchange="onCheck(this)" id="c21"><label for="c21">ETC 已儲值確認</label></div>
+        <div class="cl-item"><input type="checkbox" onchange="onCheck(this)" id="c22"><label for="c22">預訂確認截圖存手機</label></div>
       </div>
 
       <div class="cl-card">
         <div class="cl-card-title"><i class="fa-solid fa-car" style="color:var(--forest)"></i> 車輛行前確認</div>
-        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c23"><label for="c23">油箱加滿</label></div>
-        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c24"><label for="c24">胎壓確認</label></div>
-        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c25"><label for="c25">Google Maps 下載離線地圖</label></div>
-        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c26"><label for="c26">行車記錄器記憶卡清空</label></div>
+        <div class="cl-item"><input type="checkbox" onchange="onCheck(this)" id="c23"><label for="c23">油箱加滿</label></div>
+        <div class="cl-item"><input type="checkbox" onchange="onCheck(this)" id="c24"><label for="c24">胎壓確認</label></div>
+        <div class="cl-item"><input type="checkbox" onchange="onCheck(this)" id="c25"><label for="c25">Google Maps 下載離線地圖</label></div>
+        <div class="cl-item"><input type="checkbox" onchange="onCheck(this)" id="c26"><label for="c26">行車記錄器記憶卡清空</label></div>
       </div>
 
     </div>
@@ -321,10 +321,8 @@ https://alger68.github.io/2026FruitTRIP/handbook.html`;
   }
 
   // Checklist
-  function toggle(item) {
-    const cb = item.querySelector('input');
-    cb.checked = !cb.checked;
-    item.classList.toggle('done', cb.checked);
+  function onCheck(cb) {
+    cb.closest('.cl-item').classList.toggle('done', cb.checked);
     try {
       const s = {};
       document.querySelectorAll('.cl-item input').forEach(c => s[c.id]=c.checked);
@@ -338,7 +336,7 @@ https://alger68.github.io/2026FruitTRIP/handbook.html`;
     });
   } catch(e) {}
 
-  // QR Codes via Google Charts API
+  // QR Codes via api.qrserver.com
   const base = 'https://alger68.github.io/2026FruitTRIP/';
   const pages = [
     {name:'✅ 正式版・全案企劃手冊', url:'handbook.html'},
@@ -348,10 +346,10 @@ https://alger68.github.io/2026FruitTRIP/handbook.html`;
   const grid = document.getElementById('qr-grid');
   pages.forEach(p => {
     const fullUrl = base + p.url;
-    const qrUrl = 'https://chart.googleapis.com/chart?chs=160x160&cht=qr&chl=' + encodeURIComponent(fullUrl) + '&choe=UTF-8&chld=M|1';
+    const qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=' + encodeURIComponent(fullUrl) + '&color=143621&bgcolor=ffffff&margin=6';
     const card = document.createElement('div');
     card.className = 'qr-card';
-    card.innerHTML = `<img src="${qrUrl}" width="160" height="160" alt="QR Code" style="border-radius:8px;"><div class="qr-name">${p.name}</div><div class="qr-url">${p.url}</div>`;
+    card.innerHTML = `<a href="${fullUrl}" target="_blank"><img src="${qrUrl}" width="160" height="160" alt="QR Code" style="border-radius:8px;display:block;"></a><div class="qr-name">${p.name}</div><div class="qr-url">${p.url}</div>`;
     grid.appendChild(card);
   });
 </script>
