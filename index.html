@@ -1,980 +1,467 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-site-verification" content="oH1LLztpx51KZIxyLmPepn1EARyKg0x23ExAMDoFfD4" />
-  <title>水果幫 2026 宜蘭行｜紫森林兩天一夜</title>
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>🌕 2026 中秋・卅載聚首 漫遊紫森林｜水果幫旅遊企劃入口</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --bg: #FDFBF7;
+      --bg-alt: #F5EFEB;
+      --forest: #143621;
+      --forest-med: #205033;
+      --forest-light: #2D6A4F;
+      --forest-soft: #E8F2EB;
+      --gold: #B8860B;
+      --gold-soft: #FEF3C7;
+      --coral: #E0533C;
+      --text: #1A202C;
+      --text-muted: #64748B;
+      --border: #EAE3D9;
+      --shadow: 0 4px 20px rgba(20,54,33,0.08);
+      --shadow-lg: 0 12px 40px rgba(20,54,33,0.14);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      line-height: 1.65;
+    }
+    h1,h2,h3 { font-family: 'Noto Serif TC', serif; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(180deg, #F0EBE3 0%, var(--bg) 100%);
+      text-align: center;
+      padding: 64px 24px 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; border: 1px solid var(--gold);
+      color: var(--gold); padding: 5px 18px; border-radius: 50px;
+      font-size: 13px; font-weight: 700; margin-bottom: 20px;
+    }
+    .hero-title {
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      font-weight: 900; color: var(--forest);
+      line-height: 1.25; margin-bottom: 12px;
+    }
+    .hero-sub {
+      font-size: 1rem; color: var(--text-muted);
+      max-width: 560px; margin: 0 auto 28px;
+    }
+
+    /* Countdown */
+    .countdown {
+      display: inline-flex; gap: 20px;
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 20px; padding: 16px 28px;
+      box-shadow: var(--shadow); margin-bottom: 0;
+    }
+    .cd-unit { text-align: center; }
+    .cd-num {
+      font-size: clamp(1.6rem,4vw,2.2rem);
+      font-weight: 800; color: var(--gold);
+      font-variant-numeric: tabular-nums; line-height: 1;
+    }
+    .cd-lbl { font-size: 11px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; margin-top: 3px; }
+
+    /* Page Cards */
+    .section { padding: 52px 24px; max-width: 900px; margin: 0 auto; }
+    .section-title {
+      font-size: 1.5rem; font-weight: 800; color: var(--forest);
+      margin-bottom: 6px;
+    }
+    .section-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 28px; }
+
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+
+    .card {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 20px; overflow: hidden;
+      box-shadow: var(--shadow); transition: all 0.25s ease;
+      text-decoration: none; color: inherit;
+      display: flex; flex-direction: column;
+    }
+    .card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: var(--forest-light); }
+
+    .card-header {
+      padding: 22px 22px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .card-tag {
+      font-size: 11px; font-weight: 800; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 8px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .card-title { font-size: 1.2rem; font-weight: 800; color: var(--forest); margin-bottom: 4px; }
+    .card-badge {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      background: var(--forest-soft); color: var(--forest);
+      padding: 2px 10px; border-radius: 20px;
+    }
+    .card-body { padding: 16px 22px; flex: 1; }
+    .card-desc { font-size: 13.5px; color: var(--text-muted); margin-bottom: 14px; line-height: 1.6; }
+    .card-features { display: flex; flex-wrap: wrap; gap: 6px; }
+    .feat {
+      font-size: 11.5px; background: var(--bg-alt);
+      border: 1px solid var(--border); color: var(--text);
+      padding: 3px 9px; border-radius: 8px; font-weight: 600;
+    }
+    .card-footer {
+      padding: 14px 22px;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .card-url { font-size: 12px; color: var(--text-muted); }
+    .card-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--forest); color: #fff;
+      font-size: 13px; font-weight: 700;
+      padding: 8px 16px; border-radius: 10px;
+      text-decoration: none; transition: background 0.2s;
+    }
+    .card-btn:hover { background: var(--forest-med); }
+    .card-btn.gold { background: var(--gold); }
+    .card-btn.gold:hover { background: #926A06; }
+
+    /* Checklist Section */
+    .checklist-section {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 52px 24px;
+    }
+    .checklist-inner { max-width: 900px; margin: 0 auto; }
+    .cl-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 24px; }
+    .cl-card {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 16px; padding: 20px; box-shadow: var(--shadow);
+    }
+    .cl-card-title {
+      font-size: 1rem; font-weight: 800; color: var(--forest);
+      margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+    }
+    .cl-item {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 10px; cursor: pointer;
+    }
+    .cl-item input[type=checkbox] { width: 17px; height: 17px; accent-color: var(--forest); cursor: pointer; flex-shrink: 0; }
+    .cl-item label { font-size: 13.5px; color: var(--text); cursor: pointer; user-select: none; }
+    .cl-item.checked label { text-decoration: line-through; color: var(--text-muted); }
+
+    /* QR Section */
+    .qr-section { max-width: 900px; margin: 0 auto; padding: 48px 24px; }
+    .qr-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+    .qr-card {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 16px; padding: 20px; text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .qr-card canvas { border-radius: 8px; }
+    .qr-title { font-size: 13px; font-weight: 700; color: var(--forest); margin-top: 10px; }
+    .qr-url { font-size: 11px; color: var(--text-muted); margin-top: 3px; }
+
+    /* Footer */
+    footer {
+      background: var(--forest); color: #fff;
+      text-align: center; padding: 36px 24px 28px;
+    }
+    .footer-logo { font-family: 'Noto Serif TC', serif; font-size: 1.4rem; font-weight: 900; color: #FCE881; margin-bottom: 6px; }
+    .footer-text { font-size: 13px; color: #CBD5E1; }
+
+    /* LINE Copy btn */
+    .line-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #06C755; color: #fff;
+      font-size: 14px; font-weight: 700;
+      padding: 11px 22px; border-radius: 12px;
+      border: none; cursor: pointer; margin-top: 20px;
+      transition: opacity 0.2s;
+    }
+    .line-btn:hover { opacity: 0.88; }
+
+    @media (max-width: 600px) {
+      .hero { padding: 48px 16px 36px; }
+      .countdown { gap: 14px; padding: 12px 18px; }
+      .section { padding: 40px 16px; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ===== NAV ===== -->
-  <nav id="navbar">
-    <div class="nav-inner">
-      <span class="nav-logo">🍉 水果幫 2026</span>
-      <div class="nav-links">
-        <a href="#about">紫森林</a>
-        <a href="#weather">天氣</a>
-        <a href="#itinerary">行程</a>
-        <a href="#pricing">費用</a>
-        <a href="#gallery">相簿</a>
-        <a href="#guestbook">留言</a>
+<!-- Hero -->
+<header class="hero">
+  <div class="hero-badge"><i class="fa-solid fa-moon"></i> 2026 中秋連假・30 週年紀念行</div>
+  <h1 class="hero-title">🌕 卅載聚首・漫遊紫森林</h1>
+  <p class="hero-sub">5 個家庭 ＋ 老戰友群 23 人｜宜蘭三富農場包棟・冬山河・清水地熱・得意樓烤鴨</p>
+
+  <div class="countdown">
+    <div class="cd-unit"><div class="cd-num" id="cd-d">--</div><div class="cd-lbl">Days 天</div></div>
+    <div class="cd-unit"><div class="cd-num" id="cd-h">--</div><div class="cd-lbl">Hours 時</div></div>
+    <div class="cd-unit"><div class="cd-num" id="cd-m">--</div><div class="cd-lbl">Mins 分</div></div>
+    <div class="cd-unit"><div class="cd-num" id="cd-s">--</div><div class="cd-lbl">Secs 秒</div></div>
+  </div>
+
+  <br>
+  <button class="line-btn" onclick="copyLine()"><i class="fa-brands fa-line"></i> 複製行程連結分享 LINE</button>
+  <div id="copy-msg" style="font-size:13px;color:var(--forest);margin-top:8px;height:20px;"></div>
+</header>
+
+<!-- Page Cards -->
+<div class="section">
+  <h2 class="section-title">📋 行程企劃頁面</h2>
+  <p class="section-desc">點選進入各版本頁面，歡迎分享給所有團員</p>
+
+  <div class="cards">
+
+    <a class="card" href="handbook.html" target="_blank">
+      <div class="card-header">
+        <div class="card-tag"><i class="fa-solid fa-book-open"></i> 全案企劃管理手冊</div>
+        <div class="card-title">📒 全案企劃管理手冊</div>
+        <span class="card-badge">日系暖白・手機最佳化</span>
       </div>
-      <button class="nav-menu-btn" onclick="toggleMenu()">☰</button>
-    </div>
-    <div class="nav-mobile" id="mobileMenu">
-      <a href="#about" onclick="toggleMenu()">🏡 紫森林</a>
-      <a href="#weather" onclick="toggleMenu()">🌤️ 天氣</a>
-      <a href="#itinerary" onclick="toggleMenu()">📅 行程</a>
-      <a href="#pricing" onclick="toggleMenu()">💰 費用</a>
-      <a href="#gallery" onclick="toggleMenu()">📸 相簿</a>
-      <a href="#guestbook" onclick="toggleMenu()">💬 留言</a>
-    </div>
-  </nav>
-
-  <!-- ===== HERO ===== -->
-  <section id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-particles" id="particles"></div>
-    <div class="hero-content" data-aos="fade-up">
-      <div class="hero-badge">✨ Annual Trip 2026 · 水果幫年度盛典</div>
-      <h1 class="hero-title">宜蘭<span class="accent">紫森林</span><br/>兩天一夜</h1>
-      <p class="hero-sub">23人 · 5個家庭 · 4位老朋友 · 夜間生態導覽 · 星砂瓶DIY</p>
-
-      <!-- COUNTDOWN -->
-      <div class="countdown-wrap" id="countdownWrap">
-        <p class="countdown-label">距離出發還有</p>
-        <div class="countdown-grid">
-          <div class="countdown-box"><span id="cd-days">--</span><small>天</small></div>
-          <div class="countdown-box"><span id="cd-hours">--</span><small>時</small></div>
-          <div class="countdown-box"><span id="cd-mins">--</span><small>分</small></div>
-          <div class="countdown-box"><span id="cd-secs">--</span><small>秒</small></div>
+      <div class="card-body">
+        <p class="card-desc">完整行程 + 6 間分房名冊 + 預算拆解 + 各家應繳金額 + 車隊編組 + 廠商電話 + Google Maps 導航</p>
+        <div class="card-features">
+          <span class="feat">📍 Google Maps</span>
+          <span class="feat">🛏️ 分房名冊</span>
+          <span class="feat">💰 預算表</span>
+          <span class="feat">📞 廠商電話</span>
         </div>
       </div>
-
-      <div class="hero-btns">
-        <a href="#itinerary" class="btn-primary">查看行程 →</a>
-        <a href="#pricing" class="btn-glass">費用試算</a>
+      <div class="card-footer">
+        <span class="card-url">handbook.html</span>
+        <span class="card-btn gold"><i class="fa-solid fa-arrow-right"></i> 開啟</span>
       </div>
-    </div>
-    <div class="hero-scroll-hint">↓ 滾動探索</div>
-  </section>
+    </a>
 
-  <!-- ===== ABOUT 紫森林 ===== -->
-  <section id="about" class="section bg-dark">
-    <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-tag">主場地</span>
-        <h2 class="section-title">紫森林 <span class="accent">Violet Forest</span></h2>
-        <p class="section-sub">宜蘭冬山 · 自然系旅宿 · 全包式體驗</p>
+    <a class="card" href="dongshan.html" target="_blank">
+      <div class="card-header">
+        <div class="card-tag"><i class="fa-solid fa-ship"></i> 冬山綠舟・甲富哥版</div>
+        <div class="card-title">🛶 冬山綠舟・甲富哥版</div>
+        <span class="card-badge">互動功能版</span>
       </div>
-
-      <div class="about-grid" data-aos="fade-up" data-aos-delay="100">
-        <div class="about-info">
-          <div class="info-row">
-            <span class="info-icon">📍</span>
-            <div>
-              <p class="info-label">地址</p>
-              <p class="info-val">宜蘭縣冬山鄉中山村新寨二路161巷88號</p>
-            </div>
-          </div>
-          <div class="info-row">
-            <span class="info-icon">📞</span>
-            <div>
-              <p class="info-label">電話</p>
-              <p class="info-val">03-9588690</p>
-            </div>
-          </div>
-          <div class="info-row">
-            <span class="info-icon">💬</span>
-            <div>
-              <p class="info-label">LINE 預訂</p>
-              <p class="info-val">@nxd5370g</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="includes-grid">
-          <div class="include-card" data-aos="zoom-in" data-aos-delay="100">
-            <div class="include-icon">🌅</div>
-            <p>元氣自助式<br/><strong>早餐</strong></p>
-          </div>
-          <div class="include-card" data-aos="zoom-in" data-aos-delay="150">
-            <div class="include-icon">🍽️</div>
-            <p>農場風格<br/><strong>晚餐</strong></p>
-          </div>
-          <div class="include-card" data-aos="zoom-in" data-aos-delay="200">
-            <div class="include-icon">🫖</div>
-            <p>紫森林<br/><strong>下午茶</strong></p>
-          </div>
-          <div class="include-card" data-aos="zoom-in" data-aos-delay="250">
-            <div class="include-icon">⭐</div>
-            <p>彩虹星砂瓶<br/><strong>DIY</strong></p>
-          </div>
-          <div class="include-card" data-aos="zoom-in" data-aos-delay="300">
-            <div class="include-icon">🦋</div>
-            <p>夜間生態<br/><strong>導覽</strong></p>
-          </div>
-          <div class="include-card" data-aos="zoom-in" data-aos-delay="350">
-            <div class="include-icon">🏡</div>
-            <p>5間房<br/><strong>最多20人</strong></p>
-          </div>
+      <div class="card-body">
+        <p class="card-desc">含倒數計時器、地熱煮蛋計時器、家庭費用計算機、車隊名冊，互動功能最完整</p>
+        <div class="card-features">
+          <span class="feat">⏱️ 地熱計時器</span>
+          <span class="feat">🧮 費用計算機</span>
+          <span class="feat">🚗 車隊編組</span>
         </div>
       </div>
-
-      <!-- Package note -->
-      <div class="package-note" data-aos="fade-up">
-        <span class="note-badge">包棟方案說明</span>
-        雙人房1間 + 四人房4間，合計5間房可住宿20人。
-        我們 23 人需另加訂紫屋館房間供額外3人住宿。
-        包含獨立出入口、專屬客廳、庭園及簡易吧台等獨立使用空間。
+      <div class="card-footer">
+        <span class="card-url">dongshan.html</span>
+        <span class="card-btn"><i class="fa-solid fa-arrow-right"></i> 開啟</span>
       </div>
-    </div>
-  </section>
+    </a>
 
-  <!-- ===== WEATHER ===== -->
-  <section id="weather" class="section bg-darker">
-    <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-tag">出發前必看</span>
-        <h2 class="section-title">冬山鄉 <span class="accent">即時天氣</span></h2>
-        <p class="section-sub">資料來源：Open-Meteo · 自動每次載入更新</p>
+    <a class="card" href="midautumn.html" target="_blank">
+      <div class="card-header">
+        <div class="card-tag"><i class="fa-solid fa-images"></i> 主行程精選圖文版</div>
+        <div class="card-title">🌿 主行程精選圖文版</div>
+        <span class="card-badge">景點實景畫廊</span>
       </div>
-
-      <div id="weather-container" data-aos="fade-up" data-aos-delay="100">
-        <div class="weather-loading" id="weather-loading">
-          <div class="spinner"></div>
-          <p>載入天氣資料中…</p>
-        </div>
-        <div id="weather-data" class="weather-data" style="display:none;">
-          <!-- Filled by JS -->
-        </div>
-        <div id="weather-error" style="display:none;" class="weather-error">
-          ⚠️ 無法載入天氣，請稍後再試
+      <div class="card-body">
+        <p class="card-desc">精選景點實景照片畫廊、行程時間軸、票價交通資訊，適合分享給團員預覽景點</p>
+        <div class="card-features">
+          <span class="feat">📸 實景照片</span>
+          <span class="feat">🗺️ 景點介紹</span>
+          <span class="feat">🕐 時間軸</span>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ===== ITINERARY ===== -->
-  <section id="itinerary" class="section bg-dark">
-    <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-tag">Trip Schedule</span>
-        <h2 class="section-title">兩天<span class="accent">一夜</span>行程</h2>
+      <div class="card-footer">
+        <span class="card-url">midautumn.html</span>
+        <span class="card-btn"><i class="fa-solid fa-arrow-right"></i> 開啟</span>
       </div>
+    </a>
 
-      <!-- Day Tabs -->
-      <div class="day-tabs" data-aos="fade-up">
-        <button class="day-tab active" onclick="switchDay(1)">🌞 第一天</button>
-        <button class="day-tab" onclick="switchDay(2)">🌙 第二天</button>
+    <a class="card" href="v26.html" target="_blank">
+      <div class="card-header">
+        <div class="card-tag"><i class="fa-solid fa-star"></i> 深度介紹版 v26</div>
+        <div class="card-title">✨ 深度介紹版 v26</div>
+        <span class="card-badge">精選實景大師版</span>
       </div>
-
-      <!-- Day 1 -->
-      <div id="day1-content" class="day-content active">
-        <p class="day-route" data-aos="fade-up">台北出發 → 礁溪泡腳 → 傳藝中心 → 羅東午餐 → <strong>紫森林</strong></p>
-        <div class="timeline-v2">
-          <div class="tl-item" data-aos="fade-right">
-            <div class="tl-time">07:30</div>
-            <div class="tl-dot" style="background:#7c3aed"></div>
-            <div class="tl-card">
-              <span class="tl-emoji">🚗</span>
-              <div>
-                <h4>台北 / 新北 集合出發</h4>
-                <p>多台車自駕，走國道5號雪山隧道，建議 07:30 前出發避開假日車流。建立車隊 LINE 群組隨時回報位置。</p>
-                <span class="tl-tag">約 1.5 小時車程</span>
-              </div>
-            </div>
-          </div>
-          <div class="tl-item" data-aos="fade-right" data-aos-delay="50">
-            <div class="tl-time">09:00</div>
-            <div class="tl-dot" style="background:#3b82f6"></div>
-            <div class="tl-card">
-              <span class="tl-emoji">♨️</span>
-              <div>
-                <h4>礁溪溫泉公園 · 泡腳</h4>
-                <p>戶外泡腳池完全免費，舒緩長途開車疲勞，旁邊便利商店補給食物飲水。</p>
-                <span class="tl-tag green">免費 · 停留 30 分鐘</span>
-              </div>
-            </div>
-          </div>
-          <div class="tl-item" data-aos="fade-right" data-aos-delay="100">
-            <div class="tl-time">10:00</div>
-            <div class="tl-dot" style="background:#f59e0b"></div>
-            <div class="tl-card">
-              <span class="tl-emoji">🎨</span>
-              <div>
-                <h4>宜蘭傳藝中心</h4>
-                <p>台灣傳統工藝文化園區，捏陶、紙雕、糖葫蘆 DIY，傳統小吃與表演。老少咸宜，青少年最愛。</p>
-                <span class="tl-tag orange">門票約 $200 · 停留 1.5 小時</span>
-              </div>
-            </div>
-          </div>
-          <div class="tl-item" data-aos="fade-right" data-aos-delay="150">
-            <div class="tl-time">12:00</div>
-            <div class="tl-dot" style="background:#ef4444"></div>
-            <div class="tl-card">
-              <span class="tl-emoji">🍜</span>
-              <div>
-                <h4>羅東市場午餐</h4>
-                <p>正常木瓜牛奶、阿灶伯冬瓜茶、炸雞、肉羹，散點覓食各取所需。</p>
-                <span class="tl-tag red">自由覓食 · 停留 1 小時</span>
-              </div>
-            </div>
-          </div>
-          <div class="tl-item" data-aos="fade-right" data-aos-delay="200">
-            <div class="tl-time">13:30</div>
-            <div class="tl-dot" style="background:#7c3aed"></div>
-            <div class="tl-card highlight">
-              <span class="tl-emoji">🟣</span>
-              <div>
-                <h4>抵達紫森林 · 辦理入住</h4>
-                <p>安置行李，農場導覽介紹環境。房型：雙人房1間 + 四人房4間，23人包棟入住，超豪華獨立空間。</p>
-                <span class="tl-tag purple">重點 · 主場地</span>
-              </div>
-            </div>
-          </div>
-          <div class="tl-item" data-aos="fade-right" data-aos-delay="250">
-            <div class="tl-time">15:00</div>
-            <div class="tl-dot" style="background:#10b981"></div>
-            <div class="tl-card">
-              <span class="tl-emoji">🫖</span>
-              <div>
-                <h4>紫森林下午茶</h4>
-                <p>農場特色下午茶（包含在住宿方案內），在庭園中愜意享用，拍照打卡最佳時光。</p>
-                <span class="tl-tag green">住宿含included</span>
-              </div>
-            </div>
-          </div>
-          <div class="tl-item" data-aos="fade-right" data-aos-delay="300">
-            <div class="tl-time">16:30</div>
-            <div class="tl-dot" style="background:#3b82f6"></div>
-            <div class="tl-card">
-              <span class="tl-emoji">🚲</span>
-              <div>
-                <h4>梅花湖風景區 · 環湖騎車</h4>
-                <p>距紫森林約 15 分鐘，環湖腳踏車道景色優美，青少年騎車大人散步拍照。</p>
-                <span class="tl-tag">租車約 $100/人 · 1.5 小時</span>
-              </div>
-            </div>
-          </div>
-          <div class="tl-item" data-aos="fade-right" data-aos-delay="350">
-            <div class="tl-time">18:30</div>
-            <div class="tl-dot" style="background:#f59e0b"></div>
-            <div class="tl-card">
-              <span class="tl-emoji">🍽️</span>
-              <div>
-                <h4>紫森林農場晚餐</h4>
-                <p>農場桌菜晚餐（含住宿方案），在地食材，全員共桌，最溫馨的聚餐時光。</p>
-                <span class="tl-tag orange">住宿含included</span>
-              </div>
-            </div>
-          </div>
-          <div class="tl-item" data-aos="fade-right" data-aos-delay="400">
-            <div class="tl-time">20:00</div>
-            <div class="tl-dot" style="background:#7c3aed"></div>
-            <div class="tl-card">
-              <span class="tl-emoji">⭐</span>
-              <div>
-                <h4>彩虹星砂瓶 DIY</h4>
-                <p>紫森林特色體驗（含住宿），親手製作彩虹星砂瓶，是最棒的旅遊紀念品，全年齡都愛。</p>
-                <span class="tl-tag purple">住宿含included · 約 1 小時</span>
-              </div>
-            </div>
-          </div>
-          <div class="tl-item" data-aos="fade-right" data-aos-delay="450">
-            <div class="tl-time">21:30</div>
-            <div class="tl-dot" style="background:#10b981"></div>
-            <div class="tl-card">
-              <span class="tl-emoji">🦋</span>
-              <div>
-                <h4>夜間生態導覽</h4>
-                <p>紫森林夜間生態導覽（含住宿），農場專業導覽員帶領探索夜間生態，賞螢、觀察夜行動物。</p>
-                <span class="tl-tag green">住宿含included · 需提前告知</span>
-              </div>
-            </div>
-          </div>
-          <div class="tl-item" data-aos="fade-right" data-aos-delay="500">
-            <div class="tl-time">23:00</div>
-            <div class="tl-dot" style="background:#6b7280"></div>
-            <div class="tl-card">
-              <span class="tl-emoji">😴</span>
-              <div>
-                <h4>就寢</h4>
-                <p>各家庭回房休息，在森林蟲鳴聲中安然入睡，每房皆有獨立衛浴及浴缸。</p>
-              </div>
-            </div>
-          </div>
+      <div class="card-body">
+        <p class="card-desc">深度景點介紹、精選實景大圖，視覺質感最高，適合對外分享或存檔紀念</p>
+        <div class="card-features">
+          <span class="feat">🖼️ 大圖設計</span>
+          <span class="feat">📖 深度介紹</span>
         </div>
       </div>
-
-      <!-- Day 2 -->
-      <div id="day2-content" class="day-content">
-        <p class="day-route" data-aos="fade-up"><strong>紫森林</strong>晨間 → 武荖坑 → 冬山河 → 蘇澳冷泉 → 返程台北</p>
-        <div class="timeline-v2">
-          <div class="tl-item" data-aos="fade-left">
-            <div class="tl-time">07:00</div>
-            <div class="tl-dot" style="background:#f59e0b"></div>
-            <div class="tl-card">
-              <span class="tl-emoji">🌅</span>
-              <div>
-                <h4>紫森林晨間漫步</h4>
-                <p>清晨森林薄霧瀰漫，光線絕美，早起拍照，感受紫森林的清晨靜謐之美。</p>
-              </div>
-            </div>
-          </div>
-          <div class="tl-item" data-aos="fade-left" data-aos-delay="50">
-            <div class="tl-time">08:00</div>
-            <div class="tl-dot" style="background:#f59e0b"></div>
-            <div class="tl-card">
-              <span class="tl-emoji">🥣</span>
-              <div>
-                <h4>元氣自助早餐</h4>
-                <p>紫森林提供元氣自助式早餐（含住宿方案），豐盛補充一天的能量。</p>
-                <span class="tl-tag orange">住宿含included</span>
-              </div>
-            </div>
-          </div>
-          <div class="tl-item" data-aos="fade-left" data-aos-delay="100">
-            <div class="tl-time">09:30</div>
-            <div class="tl-dot" style="background:#6b7280"></div>
-            <div class="tl-card">
-              <span class="tl-emoji">🧳</span>
-              <div>
-                <h4>退房 · 整理行李</h4>
-                <p>收拾行李放入車中，與紫森林道別，準備前往下一個目的地。</p>
-              </div>
-            </div>
-          </div>
-          <div class="tl-item" data-aos="fade-left" data-aos-delay="150">
-            <div class="tl-time">10:00</div>
-            <div class="tl-dot" style="background:#06b6d4"></div>
-            <div class="tl-card highlight-blue">
-              <span class="tl-emoji">💧</span>
-              <div>
-                <h4>武荖坑風景區 · 溪流戲水</h4>
-                <p>天然溪流清澈見底，青少年在溪水中盡情戲水，大人在岸邊乘涼。夏日消暑聖地。</p>
-                <span class="tl-tag cyan">免費 · 停留 1.5 小時</span>
-              </div>
-            </div>
-          </div>
-          <div class="tl-item" data-aos="fade-left" data-aos-delay="200">
-            <div class="tl-time">12:00</div>
-            <div class="tl-dot" style="background:#10b981"></div>
-            <div class="tl-card">
-              <span class="tl-emoji">🌊</span>
-              <div>
-                <h4>冬山河親水公園 · 野餐</h4>
-                <p>寬廣草皮搭配親水水道，踩水、野餐拍照。可自備輕食在草皮上享受悠閒午間時光。</p>
-                <span class="tl-tag green">免費 · 自備輕食野餐</span>
-              </div>
-            </div>
-          </div>
-          <div class="tl-item" data-aos="fade-left" data-aos-delay="250">
-            <div class="tl-time">13:30</div>
-            <div class="tl-dot" style="background:#ef4444"></div>
-            <div class="tl-card">
-              <span class="tl-emoji">🦐</span>
-              <div>
-                <h4>蘇澳海鮮午餐</h4>
-                <p>蘇澳港口新鮮海產，海鮮熱炒最推薦。也可嚐嚐蘇澳冷泉冰棒（碳酸口感超特別）。</p>
-                <span class="tl-tag red">停留 1 小時</span>
-              </div>
-            </div>
-          </div>
-          <div class="tl-item" data-aos="fade-left" data-aos-delay="300">
-            <div class="tl-time">15:00</div>
-            <div class="tl-dot" style="background:#10b981"></div>
-            <div class="tl-card">
-              <span class="tl-emoji">🌿</span>
-              <div>
-                <h4>蘇澳冷泉 · 碳酸泉體驗</h4>
-                <p>全台稀有天然碳酸氫鈉泉，泡腳池免費，細緻氣泡附著皮膚超舒爽。</p>
-                <span class="tl-tag green">泡腳免費 · 40 分鐘</span>
-              </div>
-            </div>
-          </div>
-          <div class="tl-item" data-aos="fade-left" data-aos-delay="350">
-            <div class="tl-time">16:30</div>
-            <div class="tl-dot" style="background:#7c3aed"></div>
-            <div class="tl-card">
-              <span class="tl-emoji">🚗</span>
-              <div>
-                <h4>返程出發 · 期待明年</h4>
-                <p>走5號國道雪山隧道返台北，車上播放旅途照片，回味美好的兩天一夜。</p>
-                <span class="tl-tag">預計 18:30 抵達台北</span>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="card-footer">
+        <span class="card-url">v26.html</span>
+        <span class="card-btn"><i class="fa-solid fa-arrow-right"></i> 開啟</span>
       </div>
-    </div>
-  </section>
+    </a>
 
-  <!-- ===== FOOD ===== -->
-  <section id="food" class="section bg-darker">
-    <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-tag">Foodie Guide</span>
-        <h2 class="section-title">沿途<span class="accent">美食地圖</span></h2>
-        <p class="section-sub">精選宜蘭在地美味 · 含詳細菜單與價格</p>
+  </div>
+</div>
+
+<!-- Checklist -->
+<div class="checklist-section">
+  <div class="checklist-inner">
+    <h2 class="section-title">🎒 行前打包 Checklist</h2>
+    <p class="section-desc">勾選後自動記住進度，每台手機各自儲存</p>
+
+    <div class="cl-grid">
+
+      <div class="cl-card">
+        <div class="cl-card-title"><i class="fa-solid fa-shirt" style="color:var(--forest)"></i> 衣物用品</div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c1"><label for="c1">換洗衣物（2天份）</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c2"><label for="c2">防曬乳 / 防曬衣</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c3"><label for="c3">雨衣 / 輕薄外套</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c4"><label for="c4">拖鞋（地熱泡腳用）</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c5"><label for="c5">運動鞋 / 走路鞋</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c6"><label for="c6">泳衣（農場有水景）</label></div>
       </div>
 
-      <!-- Meal tabs -->
-      <div class="meal-tabs" data-aos="fade-up">
-        <button class="meal-tab active" onclick="switchMeal('d1-road')">🚗 Day1 路上</button>
-        <button class="meal-tab" onclick="switchMeal('d1-dinner')">🌙 Day1 晚餐</button>
-        <button class="meal-tab" onclick="switchMeal('d2-meals')">☀️ Day2 餐食</button>
+      <div class="cl-card">
+        <div class="cl-card-title"><i class="fa-solid fa-kit-medical" style="color:var(--coral)"></i> 藥品保健</div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c7"><label for="c7">暈車藥（雪隧備用）</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c8"><label for="c8">常備藥（感冒/腸胃/退燒）</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c9"><label for="c9">防蚊液（夜探螢火蟲用）</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c10"><label for="c10">OK繃 / 紗布</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c11"><label for="c11">眼藥水 / 個人用藥</label></div>
       </div>
 
-      <!-- ── Day1 路上 ── -->
-      <div id="food-d1-road" class="meal-content active">
-        <div class="meal-stop" data-aos="fade-up">
-          <div class="meal-stop-label">📍 09:00 · 礁溪站</div>
-          <div class="food-cards">
+      <div class="cl-card">
+        <div class="cl-card-title"><i class="fa-solid fa-camera" style="color:var(--gold)"></i> 3C 電子</div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c12"><label for="c12">手機充電線 ＆ 充電頭</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c13"><label for="c13">行動電源</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c14"><label for="c14">相機 ＆ 記憶卡</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c15"><label for="c15">Switch / 桌遊（夜間娛樂）</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c16"><label for="c16">藍牙喇叭（BBQ 用）</label></div>
+      </div>
 
-            <div class="food-card" data-aos="zoom-in">
-              <div class="food-card-header" style="background:linear-gradient(135deg,#0ea5e9,#0284c7)">
-                <span class="food-emoji">♨️</span>
-                <div>
-                  <div class="food-name">湯圍溝溫泉公園</div>
-                  <span class="food-badge free">完全免費</span>
-                </div>
-              </div>
-              <div class="food-card-body">
-                <p class="food-desc">泡腳 + 周邊小吃，舒緩長途車程。附近攤販林立，零食飲料補給。</p>
-                <div class="dish-list">
-                  <div class="dish-row"><span>♨️ 戶外溫泉泡腳</span><span class="dish-price free-tag">免費</span></div>
-                  <div class="dish-row"><span>🧅 礁溪蔥仔餅</span><span class="dish-price">$40–60</span></div>
-                  <div class="dish-row"><span>🧃 現打果汁</span><span class="dish-price">$50–80</span></div>
-                  <div class="dish-row"><span>🍡 溫泉蛋串</span><span class="dish-price">$30–50</span></div>
-                </div>
-                <div class="food-budget">💰 每人預估 <strong>$50–150</strong>（自由選購）</div>
-              </div>
-            </div>
+      <div class="cl-card">
+        <div class="cl-card-title"><i class="fa-solid fa-mug-hot" style="color:var(--forest-light)"></i> 食品零食</div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c17"><label for="c17">地熱野炊食材（蛋/玉米）</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c18"><label for="c18">車上零食點心</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c19"><label for="c19">飲料 / 礦泉水</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c20"><label for="c20">文旦（中秋應景）</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c21"><label for="c21">月餅伴手禮</label></div>
+      </div>
 
-          </div>
-        </div>
+      <div class="cl-card">
+        <div class="cl-card-title"><i class="fa-solid fa-wallet" style="color:var(--gold)"></i> 費用 ＆ 文件</div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c22"><label for="c22">現金（尾款 ＆ 零用）</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c23"><label for="c23">身分證 / 健保卡</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c24"><label for="c24">ETC 已儲值確認</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c25"><label for="c25">預訂確認截圖存手機</label></div>
+      </div>
 
-        <div class="meal-stop" data-aos="fade-up">
-          <div class="meal-stop-label">📍 12:00 · 羅東午餐（三選一）</div>
-          <div class="food-cards">
-
-            <div class="food-card" data-aos="zoom-in">
-              <div class="food-card-header" style="background:linear-gradient(135deg,#f59e0b,#d97706)">
-                <span class="food-emoji">🥛</span>
-                <div>
-                  <div class="food-name">正常木瓜牛奶</div>
-                  <span class="food-badge">羅東必喝 · 60年老店</span>
-                </div>
-              </div>
-              <div class="food-card-body">
-                <p class="food-desc">羅東最知名飲料，每杯現打超新鮮，到羅東必喝。建議帶走邊走邊喝。</p>
-                <div class="dish-list">
-                  <div class="dish-row"><span>🧡 木瓜牛奶（大）</span><span class="dish-price">$65</span></div>
-                  <div class="dish-row"><span>🍓 草莓牛奶（大）</span><span class="dish-price">$70</span></div>
-                  <div class="dish-row"><span>🍈 哈密瓜牛奶</span><span class="dish-price">$70</span></div>
-                  <div class="dish-row"><span>💜 芋頭牛奶</span><span class="dish-price">$65</span></div>
-                  <div class="dish-row"><span>🥭 芒果牛奶</span><span class="dish-price">$70</span></div>
-                </div>
-                <div class="food-budget">💰 每人 <strong>$65–70</strong></div>
-                <div class="food-meta">⭐⭐⭐⭐⭐ · 宜蘭縣羅東鎮中正路</div>
-              </div>
-            </div>
-
-            <div class="food-card" data-aos="zoom-in" data-aos-delay="80">
-              <div class="food-card-header" style="background:linear-gradient(135deg,#ef4444,#b91c1c)">
-                <span class="food-emoji">🍲</span>
-                <div>
-                  <div class="food-name">阿灶伯當歸羊肉</div>
-                  <span class="food-badge">40年老店 · 冬天聖品</span>
-                </div>
-              </div>
-              <div class="food-card-body">
-                <p class="food-desc">羅東最知名羊肉料理，當歸藥膳香氣濃郁，湯頭清甜不羶，老少皆宜。</p>
-                <div class="dish-list">
-                  <div class="dish-row"><span>🥣 清燉羊肉湯</span><span class="dish-price">$100</span></div>
-                  <div class="dish-row"><span>🦴 帶骨羊排</span><span class="dish-price">$220</span></div>
-                  <div class="dish-row"><span>🍚 羊肉燥飯</span><span class="dish-price">$40</span></div>
-                  <div class="dish-row"><span>🥬 燙青菜</span><span class="dish-price">$30</span></div>
-                  <div class="dish-row"><span>🫙 當歸藥酒</span><span class="dish-price">$50</span></div>
-                </div>
-                <div class="food-budget">💰 每人預估 <strong>$150–250</strong></div>
-                <div class="food-meta">⭐⭐⭐⭐½ · 宜蘭縣羅東鎮中山路</div>
-              </div>
-            </div>
-
-            <div class="food-card" data-aos="zoom-in" data-aos-delay="160">
-              <div class="food-card-header" style="background:linear-gradient(135deg,#10b981,#059669)">
-                <span class="food-emoji">🍜</span>
-                <div>
-                  <div class="food-name">羅東林場肉羹</div>
-                  <span class="food-badge">在地人私推 · 古早味</span>
-                </div>
-              </div>
-              <div class="food-card-body">
-                <p class="food-desc">隱藏版在地老店，肉羹湯頭香醇，份量紮實，就算是23人團體也可以散點解決。</p>
-                <div class="dish-list">
-                  <div class="dish-row"><span>🍜 肉羹湯麵</span><span class="dish-price">$75</span></div>
-                  <div class="dish-row"><span>🍜 肉羹米粉</span><span class="dish-price">$75</span></div>
-                  <div class="dish-row"><span>🍱 肉燥飯</span><span class="dish-price">$35</span></div>
-                  <div class="dish-row"><span>🥚 滷蛋</span><span class="dish-price">$15</span></div>
-                  <div class="dish-row"><span>🥬 小菜（份）</span><span class="dish-price">$30–50</span></div>
-                </div>
-                <div class="food-budget">💰 每人預估 <strong>$100–150</strong></div>
-                <div class="food-meta">⭐⭐⭐⭐ · 宜蘭縣羅東鎮林場附近</div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div><!-- /d1-road -->
-
-      <!-- ── Day1 晚餐 ── -->
-      <div id="food-d1-dinner" class="meal-content">
-        <div class="meal-stop" data-aos="fade-up">
-          <div class="meal-stop-label">📍 18:30 · 三富農場（紫森林）晚餐</div>
-          <div class="food-cards">
-
-            <div class="food-card food-card-wide" data-aos="zoom-in">
-              <div class="food-card-header" style="background:linear-gradient(135deg,#7c3aed,#4c1d95)">
-                <span class="food-emoji">🌿</span>
-                <div>
-                  <div class="food-name">農場特色桌菜</div>
-                  <span class="food-badge free">✅ 住宿方案已含</span>
-                </div>
-              </div>
-              <div class="food-card-body">
-                <p class="food-desc">農場自種蔬菜搭配當季食材，田園風格桌菜。23人全員共桌，是旅程中最溫馨的聚餐時光。</p>
-                <div class="dish-list">
-                  <div class="dish-row"><span>🥬 農場時令蔬菜（3–4種）</span><span class="dish-price free-tag">含</span></div>
-                  <div class="dish-row"><span>🍗 農場放山雞料理</span><span class="dish-price free-tag">含</span></div>
-                  <div class="dish-row"><span>🐟 在地溪魚或海鮮</span><span class="dish-price free-tag">含</span></div>
-                  <div class="dish-row"><span>🥣 農家湯品</span><span class="dish-price free-tag">含</span></div>
-                  <div class="dish-row"><span>🍚 白飯 / 地瓜飯</span><span class="dish-price free-tag">含</span></div>
-                </div>
-                <div class="food-note">
-                  ⚠️ <strong>注意：</strong>晚餐人數需出發前一週告知農場確認，素食者請提前告知。
-                </div>
-                <div class="food-budget">💰 已含住宿費 · 無需另外付費</div>
-              </div>
-            </div>
-
-            <div class="food-card" data-aos="zoom-in" data-aos-delay="100">
-              <div class="food-card-header" style="background:linear-gradient(135deg,#a16207,#92400e)">
-                <span class="food-emoji">🫖</span>
-                <div>
-                  <div class="food-name">紫森林下午茶</div>
-                  <span class="food-badge free">✅ 住宿方案已含</span>
-                </div>
-              </div>
-              <div class="food-card-body">
-                <p class="food-desc">入住後的歡迎下午茶，農場特色點心搭配手沖茶飲，在庭院享用最愜意。</p>
-                <div class="dish-list">
-                  <div class="dish-row"><span>🫖 農場特調茶飲</span><span class="dish-price free-tag">含</span></div>
-                  <div class="dish-row"><span>🍰 農場手工甜點</span><span class="dish-price free-tag">含</span></div>
-                  <div class="dish-row"><span>🥜 特色小點心</span><span class="dish-price free-tag">含</span></div>
-                </div>
-                <div class="food-budget">💰 已含住宿費</div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div><!-- /d1-dinner -->
-
-      <!-- ── Day2 餐食 ── -->
-      <div id="food-d2-meals" class="meal-content">
-        <div class="meal-stop" data-aos="fade-up">
-          <div class="meal-stop-label">📍 08:00 · 農場早餐</div>
-          <div class="food-cards">
-            <div class="food-card food-card-wide" data-aos="zoom-in">
-              <div class="food-card-header" style="background:linear-gradient(135deg,#f59e0b,#b45309)">
-                <span class="food-emoji">🥣</span>
-                <div>
-                  <div class="food-name">元氣自助式早餐</div>
-                  <span class="food-badge free">✅ 住宿方案已含</span>
-                </div>
-              </div>
-              <div class="food-card-body">
-                <p class="food-desc">農場提供豐盛自助式早餐，在晨霧中享用田園早餐，補充一天的體力。</p>
-                <div class="dish-list">
-                  <div class="dish-row"><span>🍳 現煎荷包蛋 / 炒蛋</span><span class="dish-price free-tag">含</span></div>
-                  <div class="dish-row"><span>🥗 生菜沙拉</span><span class="dish-price free-tag">含</span></div>
-                  <div class="dish-row"><span>🍞 吐司 / 土司</span><span class="dish-price free-tag">含</span></div>
-                  <div class="dish-row"><span>☕ 咖啡 / 茶 / 果汁</span><span class="dish-price free-tag">含</span></div>
-                  <div class="dish-row"><span>🍚 稀飯 / 配菜</span><span class="dish-price free-tag">含</span></div>
-                </div>
-                <div class="food-budget">💰 已含住宿費 · 07:30–09:00 供應</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="meal-stop" data-aos="fade-up">
-          <div class="meal-stop-label">📍 13:30 · Day 2 午餐（二選一）</div>
-          <div class="food-cards">
-
-            <div class="food-card" data-aos="zoom-in">
-              <div class="food-card-header" style="background:linear-gradient(135deg,#06b6d4,#0e7490)">
-                <span class="food-emoji">🦐</span>
-                <div>
-                  <div class="food-name">南方澳漁港海鮮</div>
-                  <span class="food-badge">比蘇澳更在地</span>
-                </div>
-              </div>
-              <div class="food-card-body">
-                <p class="food-desc">南方澳漁港是全台最重要的近海漁業基地，新鮮現捕海鮮直送，比一般觀光餐廳便宜實在得多。</p>
-                <div class="dish-list">
-                  <div class="dish-row"><span>🦞 龍蝦（時價）</span><span class="dish-price">$300–500/隻</span></div>
-                  <div class="dish-row"><span>🐟 現撈生魚片</span><span class="dish-price">$150–300/份</span></div>
-                  <div class="dish-row"><span>🦑 三杯透抽</span><span class="dish-price">$200–280</span></div>
-                  <div class="dish-row"><span>🦀 蒜蒸花蟹</span><span class="dish-price">$250–400</span></div>
-                  <div class="dish-row"><span>🍜 海鮮湯麵</span><span class="dish-price">$120–180</span></div>
-                </div>
-                <div class="food-budget">💰 每人預估 <strong>$250–450</strong>（熱炒均攤）</div>
-                <div class="food-meta">⭐⭐⭐⭐½ · 宜蘭縣蘇澳鎮南方澳漁港</div>
-              </div>
-            </div>
-
-            <div class="food-card" data-aos="zoom-in" data-aos-delay="100">
-              <div class="food-card-header" style="background:linear-gradient(135deg,#10b981,#047857)">
-                <span class="food-emoji">🥚</span>
-                <div>
-                  <div class="food-name">清水地熱小吃</div>
-                  <span class="food-badge">邊煮邊吃 超特別</span>
-                </div>
-              </div>
-              <div class="food-card-body">
-                <p class="food-desc">天然地熱泉（97°C）現場煮食，自帶食材或購買當地食材，邊泡腳邊煮東西吃，超難忘體驗！</p>
-                <div class="dish-list">
-                  <div class="dish-row"><span>🥚 溫泉蛋（自備）</span><span class="dish-price">$5–10/顆</span></div>
-                  <div class="dish-row"><span>🌽 玉米（自備）</span><span class="dish-price">$20–30/根</span></div>
-                  <div class="dish-row"><span>🦑 現烤小卷（攤販）</span><span class="dish-price">$80–120</span></div>
-                  <div class="dish-row"><span>🍡 地瓜球（附近攤）</span><span class="dish-price">$40–60</span></div>
-                  <div class="dish-row"><span>🍱 周邊便當補充</span><span class="dish-price">$80–100</span></div>
-                </div>
-                <div class="food-budget">💰 每人預估 <strong>$100–200</strong>（建議自備食材）</div>
-                <div class="food-meta">⭐⭐⭐⭐ · 宜蘭縣礁溪鄉清水村</div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- 總預算 -->
-        <div class="food-total-card" data-aos="fade-up">
-          <h3>🍽️ 兩天餐飲費用總估</h3>
-          <div class="food-total-grid">
-            <div class="food-total-item">
-              <span class="ftl">Day 1 路上小吃</span>
-              <span class="ftr">$50–250 / 人</span>
-            </div>
-            <div class="food-total-item included">
-              <span class="ftl">Day 1 農場下午茶</span>
-              <span class="ftr free-tag">✅ 住宿含</span>
-            </div>
-            <div class="food-total-item included">
-              <span class="ftl">Day 1 農場晚餐</span>
-              <span class="ftr free-tag">✅ 住宿含</span>
-            </div>
-            <div class="food-total-item included">
-              <span class="ftl">Day 2 農場早餐</span>
-              <span class="ftr free-tag">✅ 住宿含</span>
-            </div>
-            <div class="food-total-item">
-              <span class="ftl">Day 2 午餐（海鮮或地熱）</span>
-              <span class="ftr">$100–450 / 人</span>
-            </div>
-            <div class="food-total-divider"></div>
-            <div class="food-total-item total-row">
-              <span class="ftl">🧾 兩天餐飲自費合計</span>
-              <span class="ftr accent-text">約 $150–700 / 人</span>
-            </div>
-          </div>
-        </div>
-      </div><!-- /d2-meals -->
+      <div class="cl-card">
+        <div class="cl-card-title"><i class="fa-solid fa-car" style="color:var(--forest)"></i> 車輛行前確認</div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c26"><label for="c26">油箱加滿</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c27"><label for="c27">胎壓確認</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c28"><label for="c28">導航 Google Maps 下載離線地圖</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c29"><label for="c29">行車記錄器記憶卡清空</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c30"><label for="c30">車上備毯子（孩子睡覺）</label></div>
+      </div>
 
     </div>
-  </section>
+  </div>
+</div>
 
-  <!-- ===== PRICING ===== -->
-  <section id="pricing" class="section bg-darker">
-    <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-tag">Budget</span>
-        <h2 class="section-title">住宿費用 <span class="accent">方案</span></h2>
-        <p class="section-sub">以下為紫森林官方定價（專案期限 2025/12/1–2026/08/31）</p>
-      </div>
+<!-- QR Codes -->
+<div class="qr-section">
+  <h2 class="section-title" style="margin-bottom:6px">📱 掃碼快速開啟各頁面</h2>
+  <p class="section-desc">當天印出來或展示在手機上，讓大家掃碼</p>
+  <div class="qr-grid" id="qr-grid"></div>
+</div>
 
-      <!-- 包棟方案 -->
-      <div class="pricing-block" data-aos="fade-up">
-        <div class="pricing-title">🏠 包棟方案（10–20人）· 全包式</div>
-        <p class="pricing-note-top">含：住宿、早餐、晚餐、下午茶、星砂瓶DIY、夜間生態導覽</p>
-        <div class="pricing-table-wrap">
-          <table class="pricing-table">
-            <thead>
-              <tr><th>日期類型</th><th>10人基本費</th><th>每加1人</th><th>20人合計</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>平日</td><td>$32,000</td><td>+$1,500</td><td>$47,000</td></tr>
-              <tr><td>旺日</td><td>$35,000</td><td>+$1,650</td><td>$51,500</td></tr>
-              <tr class="row-highlight"><td>假日 ⭐</td><td>$38,500</td><td>+$1,850</td><td>$57,000</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+<!-- Footer -->
+<footer>
+  <div class="footer-logo">🌕 廿載風華・卅載聚首</div>
+  <p class="footer-text">2026 中秋・5 大家庭 ＆ 老戰友 30 週年專屬紀念行 ｜ 預祝全員歡聚圓滿！</p>
+</footer>
 
-      <!-- 暑假方案 -->
-      <div class="pricing-block" data-aos="fade-up" data-aos-delay="100">
-        <div class="pricing-title">☀️ 暑假方案（2026/6/26–8/31）· 每人計算</div>
-        <p class="pricing-note-top">含：住宿、早餐、晚餐、夜間生態導覽 + 體驗二選一</p>
-        <div class="pricing-table-wrap">
-          <table class="pricing-table">
-            <thead>
-              <tr><th>館別 / 房型</th><th>平日</th><th>旺日</th><th>假日</th></tr>
-            </thead>
-            <tbody>
-              <tr class="subheader"><td colspan="4">紫屋館 / 樂樹館</td></tr>
-              <tr><td>雙人房</td><td>$2,800</td><td>$3,000</td><td>$3,400</td></tr>
-              <tr><td>三人房</td><td>$2,450</td><td>$2,700</td><td>$3,050</td></tr>
-              <tr><td>四人房</td><td>$2,250</td><td>$2,450</td><td>$2,800</td></tr>
-              <tr class="subheader"><td colspan="4">森林館</td></tr>
-              <tr><td>雙人房</td><td>$2,250</td><td>$2,450</td><td>$2,800</td></tr>
-              <tr><td>三人房</td><td>$2,000</td><td>$2,150</td><td>$2,450</td></tr>
-              <tr><td>四人房</td><td>$1,850</td><td>$1,950</td><td>$2,100</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+<!-- QR Code Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
-      <!-- Calculator -->
-      <div class="calculator" data-aos="fade-up" data-aos-delay="200">
-        <div class="calc-title">🧮 23人費用試算器</div>
-        <div class="calc-grid">
-          <div class="calc-field">
-            <label>住宿方案</label>
-            <select id="plan-type" onchange="calcBudget()">
-              <option value="package-holiday">包棟假日 ($57,000/20人)</option>
-              <option value="package-wangri">包棟旺日 ($51,500/20人)</option>
-              <option value="package-weekday">包棟平日 ($47,000/20人)</option>
-              <option value="summer-holiday">暑假假日四人房紫屋館 ($2,800/人)</option>
-              <option value="summer-weekday">暑假平日四人房森林館 ($1,850/人)</option>
-              <option value="custom">自訂總金額</option>
-            </select>
-          </div>
-          <div class="calc-field">
-            <label>住宿總費（元）</label>
-            <input type="number" id="accom-cost" value="65400" oninput="calcBudget()" />
-          </div>
-          <div class="calc-field">
-            <label>交通油費（元）</label>
-            <input type="number" id="transport-cost" value="4000" oninput="calcBudget()" />
-          </div>
-          <div class="calc-field">
-            <label>景點門票（元）</label>
-            <input type="number" id="ticket-cost" value="4600" oninput="calcBudget()" />
-          </div>
-        </div>
-        <div class="calc-results">
-          <div class="calc-result-box">
-            <span>總費用</span>
-            <strong id="calc-total">$74,000</strong>
-          </div>
-          <div class="calc-result-box accent-box">
-            <span>每人分攤</span>
-            <strong id="calc-per">$3,217</strong>
-          </div>
-        </div>
-        <p class="calc-note">* 包棟20人 + 額外3人紫屋館假日四人房 $2,800×3=$8,400，合計 $65,400</p>
-      </div>
-    </div>
-  </section>
+<script>
+  // Countdown
+  function tick() {
+    const t = new Date('2026-09-25T07:00:00+08:00') - Date.now();
+    if (t <= 0) { ['d','h','m','s'].forEach(k => document.getElementById('cd-'+k).textContent='00'); return; }
+    const d = Math.floor(t/864e5), h = Math.floor(t%864e5/36e5), m = Math.floor(t%36e5/6e4), s = Math.floor(t%6e4/1e3);
+    document.getElementById('cd-d').textContent = String(d).padStart(2,'0');
+    document.getElementById('cd-h').textContent = String(h).padStart(2,'0');
+    document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
+    document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
+  }
+  setInterval(tick, 1000); tick();
 
-  <!-- ===== CHECKLIST ===== -->
-  <section id="checklist" class="section bg-dark">
-    <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-tag">Packing</span>
-        <h2 class="section-title">出發<span class="accent">打包清單</span></h2>
-        <p class="section-sub">打勾後自動記憶，關掉瀏覽器也不會忘記</p>
-      </div>
-      <div class="checklist-grid" data-aos="fade-up" data-aos-delay="100">
-        <div class="checklist-col">
-          <h3 class="checklist-col-title">🌂 基本裝備</h3>
-          <label class="check-item"><input type="checkbox" data-key="防曬乳"> 防曬乳 SPF50+</label>
-          <label class="check-item"><input type="checkbox" data-key="帽子"> 帽子 / 遮陽帽</label>
-          <label class="check-item"><input type="checkbox" data-key="雨傘"> 雨傘（宜蘭易下雨）</label>
-          <label class="check-item"><input type="checkbox" data-key="防蚊液"> 防蚊液（農場必備）</label>
-          <label class="check-item"><input type="checkbox" data-key="拖鞋"> 輕便拖鞋</label>
-          <label class="check-item"><input type="checkbox" data-key="換洗衣物"> 換洗衣物 × 2套</label>
-        </div>
-        <div class="checklist-col">
-          <h3 class="checklist-col-title">💊 健康藥品</h3>
-          <label class="check-item"><input type="checkbox" data-key="暈車藥"> 暈車藥（雪山隧道）</label>
-          <label class="check-item"><input type="checkbox" data-key="個人藥品"> 個人處方藥</label>
-          <label class="check-item"><input type="checkbox" data-key="OK繃"> OK繃 / 急救包</label>
-          <label class="check-item"><input type="checkbox" data-key="胃藥"> 胃藥 / 腸胃藥</label>
-          <label class="check-item"><input type="checkbox" data-key="過敏藥"> 過敏藥</label>
-        </div>
-        <div class="checklist-col">
-          <h3 class="checklist-col-title">🏖️ 玩水裝備</h3>
-          <label class="check-item"><input type="checkbox" data-key="戲水備衣"> 戲水備用衣物（武荖坑）</label>
-          <label class="check-item"><input type="checkbox" data-key="防水袋"> 防水袋 / 防水手機套</label>
-          <label class="check-item"><input type="checkbox" data-key="毛巾"> 快乾毛巾</label>
-          <label class="check-item"><input type="checkbox" data-key="涼鞋"> 涼鞋 / 水鞋</label>
-        </div>
-        <div class="checklist-col">
-          <h3 class="checklist-col-title">📱 科技 & 文件</h3>
-          <label class="check-item"><input type="checkbox" data-key="行動電源"> 行動電源</label>
-          <label class="check-item"><input type="checkbox" data-key="充電線"> 充電線</label>
-          <label class="check-item"><input type="checkbox" data-key="身份證"> 身份證</label>
-          <label class="check-item"><input type="checkbox" data-key="現金"> 現金</label>
-          <label class="check-item"><input type="checkbox" data-key="相機"> 相機 / GoPro</label>
-        </div>
-      </div>
-      <div class="checklist-footer" data-aos="fade-up" data-aos-delay="200">
-        <div class="checklist-progress">
-          <div class="progress-bar">
-            <div class="progress-fill" id="progress-fill"></div>
-          </div>
-          <span id="progress-text">0 / 19 完成</span>
-        </div>
-        <button class="btn-reset" onclick="resetChecklist()">🔄 重置清單</button>
-      </div>
-    </div>
-  </section>
+  // LINE copy
+  function copyLine() {
+    const text = `🌕 2026 中秋・卅載聚首 漫遊紫森林
+5個家庭＋老戰友 23人｜宜蘭三富農場包棟
+09/25-09/26｜冬山河 → 八甲魚場 → 三富BBQ → 清水地熱 → 得意樓烤鴨
 
-  <!-- ===== GALLERY ===== -->
-  <section id="gallery" class="section bg-darker">
-    <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-tag">Memories</span>
-        <h2 class="section-title">旅遊<span class="accent">相簿</span></h2>
-        <p class="section-sub">上傳照片 · 所有成員即時共享 · 雲端永久保存</p>
-      </div>
+📋 完整企劃手冊：https://alger68.github.io/2026FruitTRIP/handbook.html
+📍 行程入口頁：https://alger68.github.io/2026FruitTRIP/`;
+    navigator.clipboard.writeText(text).then(() => {
+      const m = document.getElementById('copy-msg');
+      m.textContent = '✅ 已複製！貼上 LINE 群組傳送給大家';
+      setTimeout(() => m.textContent = '', 3000);
+    });
+  }
 
-      <!-- Cloud status -->
-      <div class="cloud-status" id="cloud-status" data-aos="fade-up">
-        <div class="cloud-dot" id="cloud-dot"></div>
-        <span id="cloud-status-text">檢查雲端連線中…</span>
-      </div>
+  // Checklist localStorage
+  function toggle(item) {
+    const cb = item.querySelector('input');
+    cb.checked = !cb.checked;
+    item.classList.toggle('checked', cb.checked);
+    save();
+  }
+  function save() {
+    const state = {};
+    document.querySelectorAll('.cl-item input').forEach(cb => state[cb.id] = cb.checked);
+    try { localStorage.setItem('cl2026', JSON.stringify(state)); } catch(e) {}
+  }
+  function load() {
+    try {
+      const state = JSON.parse(localStorage.getItem('cl2026') || '{}');
+      document.querySelectorAll('.cl-item input').forEach(cb => {
+        if (state[cb.id]) { cb.checked = true; cb.closest('.cl-item').classList.add('checked'); }
+      });
+    } catch(e) {}
+  }
+  load();
 
-      <!-- Setup guide (shown when not configured) -->
-      <div class="cloud-setup-guide" id="cloud-setup-guide" style="display:none" data-aos="fade-up">
-        <div class="setup-icon">☁️</div>
-        <h3>設定雲端相簿（一次性設定）</h3>
-        <div class="setup-steps">
-          <div class="setup-step">
-            <span class="step-num">1</span>
-            <div>
-              <strong>Cloudinary</strong> — 前往 <code>cloudinary.com</code> 免費註冊，複製 Cloud name 與 Unsigned Upload Preset
-            </div>
-          </div>
-          <div class="setup-step">
-            <span class="step-num">2</span>
-            <div>
-              <strong>JSONBin</strong> — 前往 <code>jsonbin.io</code> 免費註冊，建立一個空 Bin（內容填 <code>[]</code>），複製 Bin ID 與 API Key
-            </div>
-          </div>
-          <div class="setup-step">
-            <span class="step-num">3</span>
-            <div>
-              開啟 <code>assets/js/gallery-config.js</code>，填入上述資訊，重新推送到 GitHub 即完成
-            </div>
-          </div>
-        </div>
-        <p class="setup-note">設定完成後 23 位成員都可以互相看到上傳的照片 📸</p>
-      </div>
+  // QR Codes
+  const pages = [
+    { title: '全案企劃手冊', url: 'handbook.html' },
+    { title: '冬山綠舟版', url: 'dongshan.html' },
+    { title: '主行程圖文版', url: 'midautumn.html' },
+    { title: '深度介紹 v26', url: 'v26.html' },
+  ];
+  const base = 'https://alger68.github.io/2026FruitTRIP/';
+  const grid = document.getElementById('qr-grid');
+  pages.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'qr-card';
+    const qrDiv = document.createElement('div');
+    card.appendChild(qrDiv);
+    const title = document.createElement('div');
+    title.className = 'qr-title';
+    title.textContent = p.title;
+    const url = document.createElement('div');
+    url.className = 'qr-url';
+    url.textContent = p.url;
+    card.appendChild(title);
+    card.appendChild(url);
+    grid.appendChild(card);
+    new QRCode(qrDiv, { text: base + p.url, width: 160, height: 160, colorDark:'#143621', colorLight:'#ffffff', correctLevel: QRCode.CorrectLevel.M });
+  });
+</script>
 
-      <div class="gallery-upload-zone" id="upload-zone" data-aos="fade-up" onclick="document.getElementById('photo-input').click()">
-        <div class="upload-icon">📷</div>
-        <p>點擊上傳旅遊照片</p>
-        <span>支援 JPG / PNG · 自動壓縮 · 雲端共享給所有人</span>
-        <div class="upload-progress" id="upload-progress" style="display:none">
-          <div class="upload-progress-bar" id="upload-progress-bar"></div>
-          <span id="upload-status-text">上傳中…</span>
-        </div>
-        <input type="file" id="photo-input" accept="image/*" multiple style="display:none" onchange="handlePhotoUpload(event)">
-      </div>
-
-      <div class="gallery-grid" id="gallery-grid" data-aos="fade-up" data-aos-delay="100">
-        <div class="gallery-empty" id="gallery-empty">
-          <div class="gallery-empty-icon">📸</div>
-          <p>還沒有照片</p>
-          <span>旅遊時上傳，所有人即時看到</span>
-        </div>
-      </div>
-
-      <!-- Lightbox -->
-      <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-        <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-        <img id="lightbox-img" src="" alt=""/>
-        <p id="lightbox-caption"></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== GUESTBOOK ===== -->
-  <section id="guestbook" class="section bg-dark">
-    <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-tag">Guestbook</span>
-        <h2 class="section-title">旅遊<span class="accent">留言板</span></h2>
-        <p class="section-sub">留下你的旅遊心情 · 存於此裝置</p>
-      </div>
-
-      <div class="guestbook-form" data-aos="fade-up">
-        <div class="guestbook-form-row">
-          <input type="text" id="gb-name" placeholder="你的名字 👤" maxlength="20"/>
-          <select id="gb-emoji">
-            <option value="😄">😄 開心</option>
-            <option value="🥰">🥰 感動</option>
-            <option value="🤩">🤩 驚喜</option>
-            <option value="😎">😎 帥氣</option>
-            <option value="🍉">🍉 水果幫</option>
-            <option value="🌿">🌿 自然</option>
-            <option value="⭐">⭐ 精采</option>
-          </select>
-        </div>
-        <textarea id="gb-message" placeholder="留下你的旅遊感想、期待或回憶…" maxlength="200" rows="3"></textarea>
-        <div class="guestbook-form-footer">
-          <span id="gb-char-count">0 / 200</span>
-          <button class="btn-submit" onclick="submitGuestbook()">送出留言 💌</button>
-        </div>
-      </div>
-
-      <div class="guestbook-messages" id="guestbook-messages" data-aos="fade-up" data-aos-delay="100">
-        <!-- Rendered by JS -->
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-emoji">🍉🍊🍋🍇🍓🫐🍑🥭</div>
-      <h3>水果幫 2026 宜蘭行</h3>
-      <p>紫森林兩天一夜 · 23人年度盛典</p>
-      <div class="footer-info">
-        <span>📍 宜蘭縣冬山鄉</span>
-        <span>🏡 紫森林 Violet Forest</span>
-        <span>📞 03-9588690</span>
-      </div>
-      <div class="footer-btns">
-        <button onclick="copyLink()" class="btn-glass-sm">📋 複製連結</button>
-        <button onclick="scrollToTop()" class="btn-glass-sm">⬆️ 回頂部</button>
-      </div>
-      <p class="footer-copy">Made with ❤️ for our annual trip · 水果幫永遠的家人</p>
-    </div>
-  </footer>
-
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script src="assets/js/gallery-config.js"></script>
-  <script src="assets/js/main.js"></script>
 </body>
 </html>
