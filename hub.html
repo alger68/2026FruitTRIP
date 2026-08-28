@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>🌕 2026 中秋・卅載聚首 ｜ 企劃頁面入口</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --bg: #FDFBF7;
+      --forest: #143621;
+      --forest-med: #205033;
+      --forest-light: #2D6A4F;
+      --forest-soft: #E8F2EB;
+      --gold: #B8860B;
+      --gold-soft: #FEF3C7;
+      --coral: #E0533C;
+      --text: #1A202C;
+      --muted: #64748B;
+      --border: #EAE3D9;
+      --shadow: 0 4px 20px rgba(20,54,33,0.08);
+      --shadow-lg: 0 12px 40px rgba(20,54,33,0.14);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:var(--bg); color:var(--text); font-family:'Noto Sans TC',-apple-system,sans-serif; line-height:1.65; }
+    h1,h2,h3 { font-family:'Noto Serif TC',serif; }
+
+    .hero {
+      background: linear-gradient(180deg,#F0EBE3 0%,var(--bg) 100%);
+      text-align:center; padding:56px 24px 44px;
+      border-bottom:1px solid var(--border);
+    }
+    .badge {
+      display:inline-flex; align-items:center; gap:8px;
+      background:#fff; border:1px solid var(--gold);
+      color:var(--gold); padding:5px 18px; border-radius:50px;
+      font-size:13px; font-weight:700; margin-bottom:18px;
+    }
+    .hero h1 { font-size:clamp(1.9rem,5.5vw,3rem); font-weight:900; color:var(--forest); margin-bottom:10px; }
+    .hero p { font-size:15px; color:var(--muted); margin-bottom:26px; }
+
+    .countdown {
+      display:inline-flex; gap:18px;
+      background:#fff; border:1px solid var(--border);
+      border-radius:18px; padding:14px 26px;
+      box-shadow:var(--shadow); margin-bottom:22px;
+    }
+    .cd-u { text-align:center; }
+    .cd-n { font-size:clamp(1.5rem,4vw,2rem); font-weight:800; color:var(--gold); font-variant-numeric:tabular-nums; line-height:1; }
+    .cd-l { font-size:10.5px; color:var(--muted); font-weight:600; text-transform:uppercase; margin-top:3px; }
+
+    .line-btn {
+      display:inline-flex; align-items:center; gap:8px;
+      background:#06C755; color:#fff;
+      font-size:14px; font-weight:700;
+      padding:10px 22px; border-radius:12px;
+      border:none; cursor:pointer; transition:opacity .2s;
+    }
+    .line-btn:hover { opacity:.85; }
+    .copy-msg { font-size:13px; color:var(--forest); margin-top:8px; min-height:20px; }
+
+    .wrap { max-width:880px; margin:0 auto; padding:48px 24px; }
+    .wrap h2 { font-size:1.45rem; font-weight:800; color:var(--forest); margin-bottom:6px; }
+    .wrap .sub { font-size:14px; color:var(--muted); margin-bottom:26px; }
+
+    .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:18px; }
+    .card {
+      background:#fff; border:1px solid var(--border);
+      border-radius:18px; overflow:hidden;
+      box-shadow:var(--shadow); transition:all .25s;
+      text-decoration:none; color:inherit;
+      display:flex; flex-direction:column;
+    }
+    .card:hover { transform:translateY(-5px); box-shadow:var(--shadow-lg); border-color:var(--forest-light); }
+    .card-h { padding:20px 20px 14px; border-bottom:1px solid var(--border); }
+    .card-tag { font-size:11px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold); margin-bottom:7px; display:flex; align-items:center; gap:6px; }
+    .card-title { font-size:1.15rem; font-weight:800; color:var(--forest); margin-bottom:4px; }
+    .card-badge { display:inline-block; font-size:11px; font-weight:700; background:var(--forest-soft); color:var(--forest); padding:2px 10px; border-radius:20px; }
+    .card-b { padding:14px 20px; flex:1; }
+    .card-desc { font-size:13px; color:var(--muted); margin-bottom:12px; line-height:1.6; }
+    .feats { display:flex; flex-wrap:wrap; gap:6px; }
+    .feat { font-size:11.5px; background:#F5EFEB; border:1px solid var(--border); color:var(--text); padding:3px 9px; border-radius:7px; font-weight:600; }
+    .card-f { padding:12px 20px; border-top:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
+    .card-url { font-size:11px; color:var(--muted); }
+    .go-btn { display:inline-flex; align-items:center; gap:6px; background:var(--forest); color:#fff; font-size:13px; font-weight:700; padding:7px 15px; border-radius:9px; }
+    .go-btn.gold { background:var(--gold); }
+
+    /* Checklist */
+    .cl-wrap { background:#F5EFEB; border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:48px 24px; }
+    .cl-inner { max-width:880px; margin:0 auto; }
+    .cl-inner h2 { font-size:1.45rem; font-weight:800; color:var(--forest); margin-bottom:6px; }
+    .cl-inner .sub { font-size:14px; color:var(--muted); margin-bottom:24px; }
+    .cl-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; }
+    .cl-card { background:#fff; border:1px solid var(--border); border-radius:14px; padding:18px; box-shadow:var(--shadow); }
+    .cl-card-title { font-size:.95rem; font-weight:800; color:var(--forest); margin-bottom:12px; display:flex; align-items:center; gap:7px; }
+    .cl-item { display:flex; align-items:center; gap:9px; margin-bottom:9px; cursor:pointer; }
+    .cl-item input { width:16px; height:16px; accent-color:var(--forest); cursor:pointer; flex-shrink:0; }
+    .cl-item label { font-size:13px; color:var(--text); cursor:pointer; user-select:none; }
+    .cl-item.done label { text-decoration:line-through; color:var(--muted); }
+
+    /* QR */
+    .qr-wrap { max-width:880px; margin:0 auto; padding:44px 24px; }
+    .qr-wrap h2 { font-size:1.45rem; font-weight:800; color:var(--forest); margin-bottom:6px; }
+    .qr-wrap .sub { font-size:14px; color:var(--muted); margin-bottom:22px; }
+    .qr-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px; }
+    .qr-card { background:#fff; border:1px solid var(--border); border-radius:14px; padding:18px; text-align:center; box-shadow:var(--shadow); }
+    .qr-card canvas, .qr-card img { border-radius:6px; }
+    .qr-name { font-size:13px; font-weight:700; color:var(--forest); margin-top:8px; }
+    .qr-url { font-size:11px; color:var(--muted); margin-top:2px; }
+
+    footer { background:var(--forest); color:#fff; text-align:center; padding:32px 24px; }
+    footer .logo { font-family:'Noto Serif TC',serif; font-size:1.3rem; font-weight:900; color:#FCE881; margin-bottom:6px; }
+    footer p { font-size:13px; color:#CBD5E1; }
+
+    @media (max-width:600px) {
+      .hero { padding:44px 16px 32px; }
+      .countdown { gap:12px; padding:12px 16px; }
+      .wrap, .qr-wrap { padding:36px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="badge"><i class="fa-solid fa-moon"></i> 2026 中秋連假・30 週年紀念行</div>
+  <h1>🌕 卅載聚首・漫遊紫森林</h1>
+  <p>5 個家庭 ＋ 老戰友群 23 人｜宜蘭三富農場包棟・冬山河・清水地熱・得意樓烤鴨</p>
+
+  <div class="countdown">
+    <div class="cd-u"><div class="cd-n" id="cd-d">--</div><div class="cd-l">Days 天</div></div>
+    <div class="cd-u"><div class="cd-n" id="cd-h">--</div><div class="cd-l">Hours 時</div></div>
+    <div class="cd-u"><div class="cd-n" id="cd-m">--</div><div class="cd-l">Mins 分</div></div>
+    <div class="cd-u"><div class="cd-n" id="cd-s">--</div><div class="cd-l">Secs 秒</div></div>
+  </div>
+  <br>
+  <button class="line-btn" onclick="copyLine()"><i class="fa-brands fa-line"></i> 複製連結分享 LINE</button>
+  <div class="copy-msg" id="cmsg"></div>
+</header>
+
+<!-- Cards -->
+<div class="wrap">
+  <h2>📋 企劃頁面導覽</h2>
+  <p class="sub">點選進入各版本，歡迎分享給所有團員</p>
+  <div class="cards">
+
+    <a class="card" href="handbook.html" target="_blank">
+      <div class="card-h">
+        <div class="card-tag"><i class="fa-solid fa-book-open"></i> 全案企劃管理手冊</div>
+        <div class="card-title">📒 全案企劃管理手冊</div>
+        <span class="card-badge">日系暖白・手機最佳化</span>
+      </div>
+      <div class="card-b">
+        <p class="card-desc">完整行程 + 6 間分房名冊 + 預算拆解 + 各家應繳金額 + 車隊編組 + 廠商電話 + Google Maps</p>
+        <div class="feats">
+          <span class="feat">📍 Google Maps</span>
+          <span class="feat">🛏️ 分房名冊</span>
+          <span class="feat">💰 預算表</span>
+          <span class="feat">📞 廠商電話</span>
+        </div>
+      </div>
+      <div class="card-f">
+        <span class="card-url">handbook.html</span>
+        <span class="go-btn gold"><i class="fa-solid fa-arrow-right"></i> 開啟</span>
+      </div>
+    </a>
+
+    <a class="card" href="dongshan.html" target="_blank">
+      <div class="card-h">
+        <div class="card-tag"><i class="fa-solid fa-ship"></i> 冬山綠舟・甲富哥版</div>
+        <div class="card-title">🛶 冬山綠舟・甲富哥版</div>
+        <span class="card-badge">互動功能版</span>
+      </div>
+      <div class="card-b">
+        <p class="card-desc">含倒數計時器、地熱煮蛋計時器、家庭費用計算機、車隊名冊，互動功能最完整</p>
+        <div class="feats">
+          <span class="feat">⏱️ 地熱計時器</span>
+          <span class="feat">🧮 費用計算機</span>
+          <span class="feat">🚗 車隊編組</span>
+        </div>
+      </div>
+      <div class="card-f">
+        <span class="card-url">dongshan.html</span>
+        <span class="go-btn"><i class="fa-solid fa-arrow-right"></i> 開啟</span>
+      </div>
+    </a>
+
+    <a class="card" href="midautumn.html" target="_blank">
+      <div class="card-h">
+        <div class="card-tag"><i class="fa-solid fa-images"></i> 主行程精選圖文版</div>
+        <div class="card-title">🌿 主行程精選圖文版</div>
+        <span class="card-badge">景點實景畫廊</span>
+      </div>
+      <div class="card-b">
+        <p class="card-desc">精選景點實景照片、行程時間軸、票價交通資訊，適合分享給團員預覽景點</p>
+        <div class="feats">
+          <span class="feat">📸 實景照片</span>
+          <span class="feat">🗺️ 景點介紹</span>
+          <span class="feat">🕐 時間軸</span>
+        </div>
+      </div>
+      <div class="card-f">
+        <span class="card-url">midautumn.html</span>
+        <span class="go-btn"><i class="fa-solid fa-arrow-right"></i> 開啟</span>
+      </div>
+    </a>
+
+    <a class="card" href="v26.html" target="_blank">
+      <div class="card-h">
+        <div class="card-tag"><i class="fa-solid fa-star"></i> 深度介紹版 v26</div>
+        <div class="card-title">✨ 深度介紹版 v26</div>
+        <span class="card-badge">精選實景大師版</span>
+      </div>
+      <div class="card-b">
+        <p class="card-desc">深度景點介紹、精選實景大圖，視覺質感最高，適合對外分享或存檔紀念</p>
+        <div class="feats">
+          <span class="feat">🖼️ 大圖設計</span>
+          <span class="feat">📖 深度介紹</span>
+        </div>
+      </div>
+      <div class="card-f">
+        <span class="card-url">v26.html</span>
+        <span class="go-btn"><i class="fa-solid fa-arrow-right"></i> 開啟</span>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<!-- Checklist -->
+<div class="cl-wrap">
+  <div class="cl-inner">
+    <h2>🎒 行前打包 Checklist</h2>
+    <p class="sub">勾選後自動記住進度，每台手機各自儲存</p>
+    <div class="cl-grid">
+
+      <div class="cl-card">
+        <div class="cl-card-title"><i class="fa-solid fa-shirt" style="color:var(--forest)"></i> 衣物用品</div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c1"><label for="c1">換洗衣物（2天份）</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c2"><label for="c2">防曬乳 / 防曬衣</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c3"><label for="c3">雨衣 / 輕薄外套</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c4"><label for="c4">拖鞋（地熱泡腳用）</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c5"><label for="c5">運動鞋 / 走路鞋</label></div>
+      </div>
+
+      <div class="cl-card">
+        <div class="cl-card-title"><i class="fa-solid fa-kit-medical" style="color:var(--coral)"></i> 藥品保健</div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c6"><label for="c6">暈車藥（雪隧備用）</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c7"><label for="c7">常備藥（感冒/腸胃）</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c8"><label for="c8">防蚊液（夜探螢火蟲）</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c9"><label for="c9">OK繃 / 個人用藥</label></div>
+      </div>
+
+      <div class="cl-card">
+        <div class="cl-card-title"><i class="fa-solid fa-camera" style="color:var(--gold)"></i> 3C 電子</div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c10"><label for="c10">手機充電線 ＆ 充電頭</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c11"><label for="c11">行動電源</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c12"><label for="c12">相機 ＆ 記憶卡</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c13"><label for="c13">Switch / 桌遊</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c14"><label for="c14">藍牙喇叭（BBQ用）</label></div>
+      </div>
+
+      <div class="cl-card">
+        <div class="cl-card-title"><i class="fa-solid fa-mug-hot" style="color:var(--forest-light)"></i> 食品零食</div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c15"><label for="c15">地熱野炊食材（蛋/玉米）</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c16"><label for="c16">車上零食點心</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c17"><label for="c17">飲料 / 礦泉水</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c18"><label for="c18">文旦 / 月餅（中秋）</label></div>
+      </div>
+
+      <div class="cl-card">
+        <div class="cl-card-title"><i class="fa-solid fa-wallet" style="color:var(--gold)"></i> 費用 ＆ 文件</div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c19"><label for="c19">現金（尾款 ＆ 零用）</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c20"><label for="c20">身分證 / 健保卡</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c21"><label for="c21">ETC 已儲值確認</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c22"><label for="c22">預訂確認截圖存手機</label></div>
+      </div>
+
+      <div class="cl-card">
+        <div class="cl-card-title"><i class="fa-solid fa-car" style="color:var(--forest)"></i> 車輛行前確認</div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c23"><label for="c23">油箱加滿</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c24"><label for="c24">胎壓確認</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c25"><label for="c25">Google Maps 下載離線地圖</label></div>
+        <div class="cl-item" onclick="toggle(this)"><input type="checkbox" id="c26"><label for="c26">行車記錄器記憶卡清空</label></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- QR Codes -->
+<div class="qr-wrap">
+  <h2>📱 掃碼快速開啟各頁面</h2>
+  <p class="sub">當天展示手機或列印，讓大家掃碼直接進入</p>
+  <div class="qr-grid" id="qr-grid"></div>
+</div>
+
+<footer>
+  <div class="logo">🌕 廿載風華・卅載聚首</div>
+  <p>2026 中秋・5 大家庭 ＆ 老戰友 30 週年專屬紀念行</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+  // Countdown
+  function tick() {
+    const t = new Date('2026-09-25T07:00:00+08:00') - Date.now();
+    if (t <= 0) { ['d','h','m','s'].forEach(k => document.getElementById('cd-'+k).textContent='00'); return; }
+    const pad = n => String(n).padStart(2,'0');
+    document.getElementById('cd-d').textContent = pad(Math.floor(t/864e5));
+    document.getElementById('cd-h').textContent = pad(Math.floor(t%864e5/36e5));
+    document.getElementById('cd-m').textContent = pad(Math.floor(t%36e5/6e4));
+    document.getElementById('cd-s').textContent = pad(Math.floor(t%6e4/1e3));
+  }
+  setInterval(tick,1000); tick();
+
+  // LINE Copy
+  function copyLine() {
+    const text = `🌕 2026 中秋・卅載聚首 漫遊紫森林
+5個家庭＋老戰友 23人｜宜蘭三富農場包棟
+09/25-09/26
+
+📒 全案企劃手冊：https://alger68.github.io/2026FruitTRIP/handbook.html
+🛶 冬山綠舟版：https://alger68.github.io/2026FruitTRIP/dongshan.html
+🌿 主行程版：https://alger68.github.io/2026FruitTRIP/midautumn.html`;
+    navigator.clipboard.writeText(text).then(() => {
+      const m = document.getElementById('cmsg');
+      m.textContent = '✅ 已複製！貼上 LINE 群組傳送給大家';
+      setTimeout(() => m.textContent='', 3000);
+    });
+  }
+
+  // Checklist
+  function toggle(item) {
+    const cb = item.querySelector('input');
+    cb.checked = !cb.checked;
+    item.classList.toggle('done', cb.checked);
+    try {
+      const s = {};
+      document.querySelectorAll('.cl-item input').forEach(c => s[c.id]=c.checked);
+      localStorage.setItem('hub2026cl', JSON.stringify(s));
+    } catch(e) {}
+  }
+  try {
+    const s = JSON.parse(localStorage.getItem('hub2026cl')||'{}');
+    document.querySelectorAll('.cl-item input').forEach(cb => {
+      if (s[cb.id]) { cb.checked=true; cb.closest('.cl-item').classList.add('done'); }
+    });
+  } catch(e) {}
+
+  // QR Codes
+  const base = 'https://alger68.github.io/2026FruitTRIP/';
+  const pages = [
+    {name:'全案企劃手冊', url:'handbook.html'},
+    {name:'冬山綠舟版', url:'dongshan.html'},
+    {name:'主行程圖文版', url:'midautumn.html'},
+    {name:'深度介紹 v26', url:'v26.html'},
+  ];
+  const grid = document.getElementById('qr-grid');
+  pages.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'qr-card';
+    const qd = document.createElement('div');
+    card.appendChild(qd);
+    card.innerHTML += `<div class="qr-name">${p.name}</div><div class="qr-url">${p.url}</div>`;
+    grid.appendChild(card);
+    new QRCode(qd,{text:base+p.url,width:150,height:150,colorDark:'#143621',colorLight:'#fff',correctLevel:QRCode.CorrectLevel.M});
+  });
+</script>
+</body>
+</html>
