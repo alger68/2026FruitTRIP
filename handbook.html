@@ -2,8 +2,8 @@
 <html lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>🌕 2026 中秋・卅載聚首 漫遊紫森林 ｜ 30週年專屬全案企劃手冊 (單一整合檔)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>🌕 2026 中秋・卅載聚首 漫遊紫森林 ｜ 30週年專屬全案企劃手冊 (單一整合旗艦檔)</title>
   
   <!-- Google Fonts (Strict XML Compliant) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,12 +15,12 @@
 
   <style>/*<![CDATA[*/
     :root {
-      /* Warm Cream & Japanese Minimalist Palette */
+      /* Warm Cream & Japanese Minimalist Luxury Palette */
       --bg-body: #FDFBF7;
       --bg-hero: linear-gradient(180deg, #F5EFEB 0%, #FAF6F0 100%);
       --bg-card: #FFFFFF;
       --bg-card-alt: #F7F3EE;
-      --bg-pill: rgba(255, 255, 255, 0.92);
+      --bg-pill: rgba(255, 255, 255, 0.94);
       
       --forest-dark: #143621;
       --forest-med: #205033;
@@ -34,6 +34,8 @@
       
       --coral-accent: #E0533C;
       --coral-soft: #FEE2E2;
+      --blue-maps: #2563EB;
+      --blue-soft: #EFF6FF;
       
       --text-title: #0F172A;
       --text-main: #2D3748;
@@ -102,6 +104,11 @@
       box-shadow: var(--shadow-md);
       overflow-x: auto;
       max-width: 100%;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .nav-pill::-webkit-scrollbar {
+      display: none;
     }
     .nav-pill a {
       color: var(--text-muted);
@@ -122,7 +129,7 @@
       box-shadow: 0 2px 10px rgba(20, 54, 33, 0.25);
     }
 
-    /* Hero Section (Warm Cream Elegant Style) */
+    /* Hero Section (Warm Cream Style) */
     .hero {
       background: var(--bg-hero);
       padding: 120px 20px 65px;
@@ -270,14 +277,15 @@
       color: var(--text-muted);
     }
 
-    /* Day Tab Selector */
-    .day-selector {
+    /* Tab Selector (Universal) */
+    .tab-selector {
       display: flex;
       justify-content: center;
       gap: 14px;
       margin-bottom: 38px;
+      flex-wrap: wrap;
     }
-    .day-btn {
+    .tab-btn {
       background: #FFFFFF;
       border: 1px solid var(--border-warm);
       color: var(--text-muted);
@@ -292,11 +300,107 @@
       gap: 8px;
       box-shadow: var(--shadow-sm);
     }
-    .day-btn.active, .day-btn:hover {
+    .tab-btn.active, .tab-btn:hover {
       background: var(--forest-dark);
       border-color: var(--forest-dark);
       color: #FFFFFF;
       box-shadow: var(--shadow-md);
+    }
+
+    /* Maps Route Cards */
+    .maps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 22px;
+      margin-bottom: 35px;
+    }
+    .maps-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-warm);
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+      transition: all 0.3s ease;
+    }
+    .maps-card:hover {
+      border-color: var(--blue-maps);
+      box-shadow: var(--shadow-md);
+    }
+    .maps-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--forest-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .maps-stops {
+      list-style: none;
+      margin: 12px 0;
+    }
+    .maps-stops li {
+      font-size: 13.5px;
+      color: var(--text-main);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .maps-stops li i {
+      color: var(--blue-maps);
+      font-size: 12px;
+    }
+    .maps-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--blue-maps);
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 12px 20px;
+      border-radius: var(--radius-sm);
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+    }
+    .maps-btn:hover {
+      background: #1D4ED8;
+      box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+      transform: translateY(-2px);
+    }
+
+    /* Spot Quick Navigation Pills */
+    .spots-quick-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 15px;
+    }
+    .spot-btn {
+      background: #FFFFFF;
+      border: 1px solid var(--border-warm);
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-sm);
+    }
+    .spot-btn:hover {
+      border-color: var(--blue-maps);
+      color: var(--blue-maps);
+      background: var(--blue-soft);
     }
 
     /* Timeline Styling */
@@ -491,6 +595,7 @@
     .budget-table-responsive {
       overflow-x: auto;
       margin-bottom: 30px;
+      -webkit-overflow-scrolling: touch;
     }
     table.custom-table {
       width: 100%;
@@ -641,23 +746,50 @@
     }
 
     @media (max-width: 768px) {
+      .hero {
+        padding: 100px 16px 50px;
+      }
       .countdown-card {
-        gap: 14px;
-        padding: 16px 20px;
+        gap: 12px;
+        padding: 14px 18px;
+        margin-bottom: 28px;
+      }
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .tab-selector {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .tab-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 18px;
+        font-size: 14px;
       }
       .timeline-container::before {
-        left: 23px;
+        left: 20px;
       }
       .timeline-icon-box {
-        width: 48px;
-        height: 48px;
-        font-size: 18px;
+        width: 42px;
+        height: 42px;
+        font-size: 16px;
       }
       .timeline-node {
-        gap: 16px;
+        gap: 12px;
+      }
+      .timeline-content-card {
+        padding: 18px;
       }
       .budget-wrapper {
-        padding: 20px;
+        padding: 18px 14px;
+      }
+      .rooms-grid {
+        grid-template-columns: 1fr;
+      }
+      .maps-grid {
+        grid-template-columns: 1fr;
       }
     }
   /*]]>*/</style>
@@ -668,8 +800,9 @@
   <div class="nav-wrapper">
     <nav class="nav-pill">
       <a href="#overview" class="active"><i class="fa-solid fa-compass"></i> 總覽</a>
+      <a href="#maps"><i class="fa-solid fa-map-location-dot"></i> 導航地圖</a>
       <a href="#itinerary"><i class="fa-solid fa-clock"></i> 實測行程</a>
-      <a href="#rooms"><i class="fa-solid fa-bed"></i> 包棟分房</a>
+      <a href="#rooms"><i class="fa-solid fa-bed"></i> 雙分房方案</a>
       <a href="#budget"><i class="fa-solid fa-calculator"></i> 預算拆解</a>
       <a href="#convoy"><i class="fa-solid fa-car"></i> 車隊名冊</a>
       <a href="#contacts"><i class="fa-solid fa-phone"></i> 廠商清冊</a>
@@ -684,7 +817,7 @@
       </div>
       <h1 class="hero-title">卅載聚首 漫遊紫森林</h1>
       <p class="hero-subtitle">
-        新北永和 07:00 晨光出發 ➔ 冬山車站巨兔 ➔ 生態綠舟神秘水道 ➔ 員山北后寺 ➔ 
+        新北永和 06:30 晨光出發 ➔ 冬山車站巨兔 ➔ 生態綠舟神秘水道 ➔ 員山北后寺 ➔ 
         <span class="hero-highlight">八甲休閒魚場</span> ➔ 三富包棟露台 BBQ ➔ <span class="hero-highlight">得意樓櫻桃烤鴨</span>
       </p>
 
@@ -713,7 +846,7 @@
         <div class="stat-item">
           <div class="stat-label"><i class="fa-solid fa-calendar-days"></i> 出發日期 ＆ 時間</div>
           <div class="stat-value">2026/09/25 (五)</div>
-          <div class="stat-desc">07:00 新北永和準時出發 (雪隧零塞車)</div>
+          <div class="stat-desc">06:30 新北永和準時出發 (行車45分零塞車)</div>
         </div>
         <div class="stat-item">
           <div class="stat-label"><i class="fa-solid fa-users"></i> 全團人數 ＆ 車隊</div>
@@ -723,16 +856,108 @@
         <div class="stat-item">
           <div class="stat-label"><i class="fa-solid fa-wallet"></i> 全包總預算 ＆ 人均</div>
           <div class="stat-value">NT$ 134,705</div>
-          <div class="stat-desc">每人全包約 NT$ 5,857 元 (含雙午宴+茶酒加菜)</div>
+          <div class="stat-desc">每人全包約 NT$ 5,857 元 (含雙名宴+茶酒加菜)</div>
         </div>
         <div class="stat-item">
           <div class="stat-label"><i class="fa-solid fa-house-chimney"></i> 住宿規格</div>
           <div class="stat-value">獨棟包棟 6 套房</div>
-          <div class="stat-desc">包棟主館 5 間房全配獨立浴缸</div>
+          <div class="stat-desc">包棟主館 5 間房全配獨立大浴缸</div>
         </div>
       </div>
     </div>
   </header>
+
+  <!-- Section: Google Maps Route Maps -->
+  <section id="maps" style="background: var(--bg-card-alt);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-map-location-dot"></i> Navigation &amp; Routes</span>
+        <h2 class="section-title">🗺️ Google 路線地圖 ＆ 一鍵導航</h2>
+        <p class="section-desc">已規劃全團 6 車最佳連續動線，點擊藍色按鈕即可直接在手機開啟 Google Maps 導航！</p>
+      </div>
+
+      <!-- Maps Route Cards -->
+      <div class="maps-grid">
+        <!-- Day 1 Map Route -->
+        <div class="maps-card">
+          <div>
+            <div class="maps-title"><i class="fa-solid fa-route"></i> Day 1 全日精準導航路線</div>
+            <p style="font-size: 13.5px; color: var(--text-muted); margin-top: 6px;">
+              總里程約 82 公里 ｜ 永和出發經國五冬山，順遊綠舟、北后寺、八甲魚場直達三富農場
+            </p>
+            <ul class="maps-stops">
+              <li><i class="fa-solid fa-circle-dot"></i> <b>起點</b>：新北市永和區（06:30 出發）</li>
+              <li><i class="fa-solid fa-location-dot"></i> <b>第 1 站</b>：冬山火車站（巨型月兔大合照）</li>
+              <li><i class="fa-solid fa-location-dot"></i> <b>第 2 站</b>：冬山河生態綠舟（09:00 神秘水道首班船）</li>
+              <li><i class="fa-solid fa-location-dot"></i> <b>第 3 站</b>：員山【北后寺】（禪風落羽松庭園）</li>
+              <li><i class="fa-solid fa-location-dot"></i> <b>第 4 站</b>：員山【八甲休閒魚場】（12:00 午宴）</li>
+              <li><i class="fa-solid fa-flag-checkered"></i> <b>終點</b>：冬山【三富休閒農場・紫森林】（入住包棟）</li>
+            </ul>
+          </div>
+          <a href="https://www.google.com/maps/dir/%E6%96%B0%E5%8C%97%E5%B8%82%E6%B0%B8%E5%92%8C%E5%8D%80/%E5%86%AC%E5%B1%B1%E7%81%AB%E8%BB%8A%E7%AB%99/%E5%86%AC%E5%B1%B1%E6%B2%B3%E7%94%9F%E6%85%8B%E7%B6%A0%E8%88%9F/%E5%8C%97%E5%90%8E%E5%AF%BA/%E5%85%AB%E7%94%B2%E4%BC%91%E9%96%92%E9%AD%9A%E5%A0%B4/%E4%B8%89%E5%AF%8C%E4%BC%91%E9%96%92%E8%BE%B2%E5%A0%B4" target="_blank" class="maps-btn">
+            <i class="fa-solid fa-location-arrow"></i> 開啟 Day 1 Google Maps 連續導航
+          </a>
+        </div>
+
+        <!-- Day 2 Map Route -->
+        <div class="maps-card">
+          <div>
+            <div class="maps-title"><i class="fa-solid fa-route"></i> Day 2 全日精準導航路線</div>
+            <p style="font-size: 13.5px; color: var(--text-muted); margin-top: 6px;">
+              總里程約 95 公里 ｜ 三富農場出發經台7丙線至清水地熱，下山至得意樓烤鴨與奕順軒，返抵永和
+            </p>
+            <ul class="maps-stops">
+              <li><i class="fa-solid fa-circle-dot"></i> <b>起點</b>：冬山【三富休閒農場】（09:00 退房出發）</li>
+              <li><i class="fa-solid fa-location-dot"></i> <b>第 1 站</b>：大同【清水地熱公園】（野炊溫泉蛋玉米 ＆ 足湯）</li>
+              <li><i class="fa-solid fa-location-dot"></i> <b>第 2 站</b>：宜蘭市【得意樓餐廳】（12:30 櫻桃烤鴨四吃午宴）</li>
+              <li><i class="fa-solid fa-location-dot"></i> <b>第 3 站</b>：宜蘭市【奕順軒 宜蘭店】（伴手禮採買）</li>
+              <li><i class="fa-solid fa-flag-checkered"></i> <b>終點</b>：新北市永和區（16:30 平安返抵賦歸）</li>
+            </ul>
+          </div>
+          <a href="https://www.google.com/maps/dir/%E4%B8%89%E5%AF%8C%E4%BC%91%E9%96%92%E8%BE%B2%E5%A0%B4/%E6%B8%85%E6%B0%B4%E5%9C%B0%E7%86%B1%E5%85%AC%E5%9C%92/%E5%BE%97%E6%84%8F%E6%A8%93%E9%A4%90%E5%BB%B3/%E5%A5%95%E9%A0%86%E8%BB%92+%E5%AE%9C%E8%98%AD%E5%BA%97/%E6%96%B0%E5%8C%97%E5%B8%82%E6%B0%B8%E5%92%8C%E5%8D%80" target="_blank" class="maps-btn">
+            <i class="fa-solid fa-location-arrow"></i> 開啟 Day 2 Google Maps 連續導航
+          </a>
+        </div>
+      </div>
+
+      <!-- Single Spot Quick Navigation -->
+      <h3 style="font-size: 1.15rem; color: var(--forest-dark); margin-bottom: 10px;">📍 個別景點快速單點導航：</h3>
+      <div class="spots-quick-grid">
+        <a href="https://maps.google.com/?q=冬山火車站" target="_blank" class="spot-btn">
+          <span><i class="fa-solid fa-train"></i> 冬山火車站</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+        <a href="https://maps.google.com/?q=冬山河生態綠舟" target="_blank" class="spot-btn">
+          <span><i class="fa-solid fa-ship"></i> 冬山河生態綠舟</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+        <a href="https://maps.google.com/?q=員山北后寺" target="_blank" class="spot-btn">
+          <span><i class="fa-solid fa-place-of-worship"></i> 員山北后寺</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+        <a href="https://maps.google.com/?q=八甲休閒魚場" target="_blank" class="spot-btn">
+          <span><i class="fa-solid fa-fish"></i> 八甲休閒魚場</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+        <a href="https://maps.google.com/?q=三富休閒農場" target="_blank" class="spot-btn">
+          <span><i class="fa-solid fa-tree"></i> 三富休閒農場</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+        <a href="https://maps.google.com/?q=清水地熱公園" target="_blank" class="spot-btn">
+          <span><i class="fa-solid fa-hot-tub-person"></i> 清水地熱公園</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+        <a href="https://maps.google.com/?q=得意樓餐廳" target="_blank" class="spot-btn">
+          <span><i class="fa-solid fa-utensils"></i> 得意樓餐廳</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+        <a href="https://maps.google.com/?q=奕順軒宜蘭店" target="_blank" class="spot-btn">
+          <span><i class="fa-solid fa-cake-candles"></i> 奕順軒宜蘭店</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- Section: Itinerary -->
   <section id="itinerary">
@@ -740,19 +965,13 @@
       <div class="section-header">
         <span class="section-tag"><i class="fa-solid fa-route"></i> Timeline Schedule</span>
         <h2 class="section-title">⏱️ 2 天 1 夜實測精準行程</h2>
-        <p class="section-desc">07:00 永和晨光出發，完美避開國五連假車潮，順遊最美景點與雙旗艦名宴！</p>
-      </div>
-
-            <!-- Google Maps Quick Route Buttons -->
-      <div style="display: flex; justify-content: center; gap: 14px; margin-bottom: 30px; flex-wrap: wrap;">
-        <a href="https://www.google.com/maps/dir/%E6%96%B0%E5%8C%97%E5%B8%82%E6%B0%B8%E5%92%8C%E5%8D%80/%E5%86%AC%E5%B1%B1%E7%81%AB%E8%BB%8A%E7%AB%99/%E5%86%AC%E5%B1%B1%E6%B2%B3%E7%94%9F%E6%85%8B%E7%B6%A0%E8%88%9F/%E5%8C%97%E5%90%8E%E5%AF%BA/%E5%85%AB%E7%94%B2%E4%BC%91%E9%96%92%E9%AD%9A%E5%A0%B4/%E7%B4%AB%E6%A3%AE%E6%9E%97-%E4%B8%89%E5%AF%8C%E4%BC%91%E9%96%92%E8%BE%B2%E5%A0%B4" target="_blank" class="contact-phone-btn" style="background: var(--forest-dark);"><i class="fa-solid fa-map-location-dot"></i> 開啟 Day 1 Google 地圖全日車隊導航路線</a>
-        <a href="https://www.google.com/maps/dir/%E7%B4%AB%E6%A3%AE%E6%9E%97-%E4%B8%89%E5%AF%8C%E4%BC%91%E9%96%92%E8%BE%B2%E5%A0%B4/%E6%B8%85%E6%B0%B4%E5%9C%B0%E7%86%B1%E5%85%AC%E5%9C%92/%E5%BE%97%E6%84%8F%E6%A8%93%E9%A4%90%E5%BB%B3/%E5%A5%95%E9%A0%86%E8%BB%92+%E5%AE%9C%E8%98%AD%E5%BA%97/%E6%96%B0%E5%8C%97%E5%B8%82%E6%B0%B8%E5%92%8C%E5%8D%80" target="_blank" class="contact-phone-btn" style="background: var(--gold-dark);"><i class="fa-solid fa-map-location-dot"></i> 開啟 Day 2 Google 地圖全日車隊導航路線</a>
+        <p class="section-desc">06:30 永和晨光出發，行車 45~50 分鐘直達宜蘭，雪隧零塞車！</p>
       </div>
 
       <!-- Day Tabs -->
-      <div class="day-selector">
-        <button class="day-btn active" onclick="switchDay(1)"><i class="fa-solid fa-sun"></i> Day 1：冬山月兔・綠舟水道・北后寺・八甲魚場・三富包棟 BBQ</button>
-        <button class="day-btn" onclick="switchDay(2)"><i class="fa-solid fa-mountain-sun"></i> Day 2：清水地熱・得意樓烤鴨・奕順軒・平安返抵永和</button>
+      <div class="tab-selector">
+        <button class="tab-btn active" id="btn-day1" onclick="switchDay(1)"><i class="fa-solid fa-sun"></i> Day 1：冬山月兔・綠舟水道・北后寺・八甲魚場・三富包棟 BBQ</button>
+        <button class="tab-btn" id="btn-day2" onclick="switchDay(2)"><i class="fa-solid fa-mountain-sun"></i> Day 2：清水地熱・得意樓烤鴨・奕順軒・平安返抵永和</button>
       </div>
 
       <!-- Day 1 Timeline -->
@@ -761,11 +980,11 @@
           <div class="timeline-icon-box"><i class="fa-solid fa-car-side"></i></div>
           <div class="timeline-content-card">
             <div class="timeline-meta">
-              <span class="timeline-time"><i class="fa-regular fa-clock"></i> 07:00 - 08:00</span>
+              <span class="timeline-time"><i class="fa-regular fa-clock"></i> 06:30 - 07:20</span>
               <span class="timeline-tag">順暢無比</span>
             </div>
             <h3 class="timeline-title">新北永和車隊集合出發 ➔ 國五直達冬山交流道</h3>
-            <p class="timeline-desc">全團 6 車於 07:00 新北永和出發，經秀朗橋/福和橋接國三轉國五，完美避開連假雪隧塞車潮，50 分鐘順暢直達冬山！</p>
+            <p class="timeline-desc">全團 6 車於 06:30 新北永和準時出發，經秀朗橋/福和橋接國三轉國五，行車僅 45~50 分鐘直達冬山交流道，完全零塞車！</p>
             <div class="timeline-features">
               <span class="feature-pill"><i class="fa-solid fa-location-dot"></i> 新北市永和區</span>
               <span class="feature-pill"><i class="fa-solid fa-gauge-high"></i> 50分鐘直達宜蘭</span>
@@ -777,11 +996,11 @@
           <div class="timeline-icon-box"><i class="fa-solid fa-camera-retro"></i></div>
           <div class="timeline-content-card">
             <div class="timeline-meta">
-              <span class="timeline-time"><i class="fa-regular fa-clock"></i> 08:15 - 08:45</span>
-              <span class="timeline-tag">中秋限定美拍</span>
+              <span class="timeline-time"><i class="fa-regular fa-clock"></i> 07:30 - 08:30</span>
+              <span class="timeline-tag">晨光包場美拍</span>
             </div>
-            <h3 class="timeline-title">冬山火車站廣場【中秋 11 米巨型月亮與萌兔】</h3>
-            <p class="timeline-desc">清晨無人包場！全團 23 人在 11 米超巨型 Q 版月球與月兔裝置藝術前拍攝 30 週年全員大合照，晨光柔和最唯美！</p>
+            <h3 class="timeline-title">冬山火車站廣場【中秋 11 米巨兔】＆ 冬山老街早餐</h3>
+            <p class="timeline-desc">清晨無人包場！全團在 11 米超巨型 Q 版月球與月兔前拍攝 30 週年大合照，悠閒漫步冬山老街享用在地元氣早餐。</p>
             <div class="timeline-features">
               <span class="feature-pill"><i class="fa-solid fa-moon"></i> 11米巨型月球</span>
               <span class="feature-pill"><i class="fa-solid fa-people-group"></i> 30週年大合照</span>
@@ -793,11 +1012,11 @@
           <div class="timeline-icon-box"><i class="fa-solid fa-ship"></i></div>
           <div class="timeline-content-card">
             <div class="timeline-meta">
-              <span class="timeline-time"><i class="fa-regular fa-clock"></i> 08:50 - 10:30</span>
+              <span class="timeline-time"><i class="fa-regular fa-clock"></i> 08:30 - 10:15</span>
               <span class="timeline-tag">首班船免排隊</span>
             </div>
-            <h3 class="timeline-title">冬山河生態綠舟【09:00 首班電動小船遊魔戒神秘水道】</h3>
-            <p class="timeline-desc">搭乘電動小船穿梭魔戒神秘水道（天然洞窟藍眼淚光影），漫步希望之丘、大草坪眺望火車奔馳。</p>
+            <h3 class="timeline-title">冬山河生態綠舟【搭乘 09:00 首班電動小船遊神秘水道】</h3>
+            <p class="timeline-desc">搭乘首班船免排隊！穿梭於魔戒神秘水道（天然洞窟藍眼淚光影），漫步希望之丘、眺望鐵道火車奔馳。</p>
             <div class="timeline-features">
               <span class="feature-pill"><i class="fa-solid fa-ticket"></i> 門票$30+船票$75</span>
               <span class="feature-pill"><i class="fa-solid fa-water"></i> 神秘水道洞窟</span>
@@ -809,11 +1028,11 @@
           <div class="timeline-icon-box"><i class="fa-solid fa-tree"></i></div>
           <div class="timeline-content-card">
             <div class="timeline-meta">
-              <span class="timeline-time"><i class="fa-regular fa-clock"></i> 10:45 - 11:45</span>
+              <span class="timeline-time"><i class="fa-regular fa-clock"></i> 10:35 - 11:45</span>
               <span class="timeline-tag">新增順遊精華</span>
             </div>
-            <h3 class="timeline-title">員山【北后寺】日式禪風落羽松水上庭園</h3>
-            <p class="timeline-desc">前往八甲魚場途中順遊（車程僅 1 分鐘）！漫步全宜蘭最美日式禪風落羽松水上步道、參拜泥塑大佛與聽水咖啡，極度幽靜療癒。</p>
+            <h3 class="timeline-title">員山【北后寺】日式禪風落羽松水上庭園 ＆ 聽水咖啡</h3>
+            <p class="timeline-desc">前往八甲魚場途中順遊（車程僅 1 分鐘）！漫步全宜蘭最美日系落羽松水上木棧道、參拜泥塑大佛與聽水咖啡，幽靜清心。</p>
             <div class="timeline-features">
               <span class="feature-pill"><i class="fa-solid fa-gift"></i> 免門票・好停車</span>
               <span class="feature-pill"><i class="fa-solid fa-spa"></i> 八甲魚場正隔壁</span>
@@ -943,16 +1162,27 @@
     </div>
   </section>
 
-  <!-- Section: Rooms -->
+  <!-- Section: Rooms (Two Options: Option A vs Option B) -->
   <section id="rooms" style="background: var(--bg-card-alt);">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag"><i class="fa-solid fa-bed"></i> Accommodation</span>
-        <h2 class="section-title">🛏️ 6 間專屬套房規格與分房名冊</h2>
-        <p class="section-desc">包棟主館 4 間四人房 ＋ 1 間二人房（全配獨立衛浴與浴缸），加訂獨立客房 1 間，戶戶隱私舒適！</p>
+        <span class="section-tag"><i class="fa-solid fa-bed"></i> Accommodation Options</span>
+        <h2 class="section-title">🛏️ 雙版本分房方案（點擊切換決策）</h2>
+        <p class="section-desc">提供【方案 A：家庭獨立套房】與【方案 B：男女老少大分流派對】兩種模式，依全團喜好自由選擇！</p>
       </div>
 
-      <div class="rooms-grid">
+      <!-- Room Option Switcher -->
+      <div class="tab-selector">
+        <button class="tab-btn active" id="btn-room-a" onclick="switchRoomPlan('A')">
+          <i class="fa-solid fa-house-user"></i> 方案 A【家庭獨立套房方案】（家庭各自獨立隱私）
+        </button>
+        <button class="tab-btn" id="btn-room-b" onclick="switchRoomPlan('B')">
+          <i class="fa-solid fa-people-arrows"></i> 方案 B【男女老少大分流方案】（同儕狂歡・青春派對）
+        </button>
+      </div>
+
+      <!-- Plan A Grid -->
+      <div class="rooms-grid" id="room-plan-a">
         <!-- Room A -->
         <div class="room-card">
           <div class="room-header">
@@ -1063,6 +1293,123 @@
               <li><i class="fa-solid fa-check"></i> <b>成員</b>：3～4 位老友死黨專屬</li>
               <li><i class="fa-solid fa-check"></i> <b>床位</b>：2 大床 / 通鋪</li>
               <li><i class="fa-solid fa-check"></i> <b>特色</b>：加訂獨立客房，享專屬私密空間，盡情品酒暢聊 30 年！</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Plan B Grid -->
+      <div class="rooms-grid" id="room-plan-b" style="display: none;">
+        <!-- Room A (B) -->
+        <div class="room-card" style="border-color: var(--coral-accent);">
+          <div class="room-header" style="background: rgba(224, 83, 60, 0.08);">
+            <div class="room-badge-row">
+              <span class="room-code" style="color: var(--coral-accent);">包棟主館 4 人房 A</span>
+              <span class="room-bathtub-badge"><i class="fa-solid fa-bath"></i> 附專屬浴缸</span>
+            </div>
+            <div class="room-title">👩‍🦰 大人媽媽貴婦舒壓房</div>
+            <div class="room-assignee">水果媽、阿伯媽、阿冠媽、余老闆媽 (4~5人)</div>
+          </div>
+          <div class="room-body">
+            <ul class="room-specs">
+              <li><i class="fa-solid fa-star" style="color: var(--coral-accent);"></i> <b>特色</b>：媽媽貴婦專屬！享受大浴缸泡澡、敷面膜、喝茶聊八卦，完全無男士打擾。</li>
+              <li><i class="fa-solid fa-check"></i> <b>床位</b>：2 張標準大床</li>
+              <li><i class="fa-solid fa-check"></i> <b>設備</b>：獨立衛浴、觀景浴缸、大片採光、55吋電視</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Room B (B) -->
+        <div class="room-card" style="border-color: #3B82F6;">
+          <div class="room-header" style="background: rgba(59, 130, 246, 0.08);">
+            <div class="room-badge-row">
+              <span class="room-code" style="color: #2563EB;">包棟主館 4 人房 B</span>
+              <span class="room-bathtub-badge"><i class="fa-solid fa-bath"></i> 附專屬浴缸</span>
+            </div>
+            <div class="room-title">🧑‍🎓 男青年/學生熱血電競房</div>
+            <div class="room-assignee">水果家兒子、阿伯家大學生、阿冠家兒子、余家兒子 (4人)</div>
+          </div>
+          <div class="room-body">
+            <ul class="room-specs">
+              <li><i class="fa-solid fa-gamepad" style="color: #2563EB;"></i> <b>特色</b>：男孩們的遊戲天堂！自帶 Switch、筆電開黑打遊戲、通宵暢聊。</li>
+              <li><i class="fa-solid fa-check"></i> <b>床位</b>：2 張標準大床</li>
+              <li><i class="fa-solid fa-check"></i> <b>設備</b>：獨立衛浴、專屬大浴缸、近交誼大客廳</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Room C (B) -->
+        <div class="room-card" style="border-color: #EC4899;">
+          <div class="room-header" style="background: rgba(236, 72, 153, 0.08);">
+            <div class="room-badge-row">
+              <span class="room-code" style="color: #DB2777;">包棟主館 4 人房 C</span>
+              <span class="room-bathtub-badge"><i class="fa-solid fa-bath"></i> 附專屬浴缸</span>
+            </div>
+            <div class="room-title">👩‍🎓 女青年/學生閨蜜星空房</div>
+            <div class="room-assignee">各家國高中、大學女兒與女孩們 (3~4人)</div>
+          </div>
+          <div class="room-body">
+            <ul class="room-specs">
+              <li><i class="fa-solid fa-heart" style="color: #DB2777;"></i> <b>特色</b>：女孩們專屬秘密基地！一起拍照打卡、看星空、睡前夜話。</li>
+              <li><i class="fa-solid fa-check"></i> <b>床位</b>：2 張標準大床</li>
+              <li><i class="fa-solid fa-check"></i> <b>設備</b>：獨立衛浴、專屬浴缸、清幽採光極佳</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Room D (B) -->
+        <div class="room-card" style="border-color: var(--forest-med);">
+          <div class="room-header">
+            <div class="room-badge-row">
+              <span class="room-code">包棟主館 4 人房 D</span>
+              <span class="room-bathtub-badge"><i class="fa-solid fa-bath"></i> 附專屬浴缸</span>
+            </div>
+            <div class="room-title">👨 好爸爸經典兄弟房</div>
+            <div class="room-assignee">辛苦開車的爸爸們 (水果爸、阿伯爸、阿冠爸、余老闆等 4人)</div>
+          </div>
+          <div class="room-body">
+            <ul class="room-specs">
+              <li><i class="fa-solid fa-car"></i> <b>特色</b>：辛苦開車的駕駛爸爸專屬！泡大浴缸放鬆肌肉、安靜好眠補體力。</li>
+              <li><i class="fa-solid fa-check"></i> <b>床位</b>：2 張標準大床</li>
+              <li><i class="fa-solid fa-check"></i> <b>設備</b>：獨立衛浴、專屬大浴缸、安靜舒適</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Room E (B) -->
+        <div class="room-card">
+          <div class="room-header">
+            <div class="room-badge-row">
+              <span class="room-code">包棟主館 2 人房 E</span>
+              <span class="room-bathtub-badge"><i class="fa-solid fa-bath"></i> 附專屬浴缸</span>
+            </div>
+            <div class="room-title">💑 老呂家清幽家庭房</div>
+            <div class="room-assignee">老呂家 (家長 2 人 ＋ 孩子 1 人)</div>
+          </div>
+          <div class="room-body">
+            <ul class="room-specs">
+              <li><i class="fa-solid fa-shield"></i> <b>特色</b>：獨立安靜空間，特大床 210×200cm ＋ 加軟墊，專屬舒適。</li>
+              <li><i class="fa-solid fa-check"></i> <b>床位</b>：1 特大床 ＋ 1 加墊</li>
+              <li><i class="fa-solid fa-check"></i> <b>設備</b>：獨立衛浴、專屬大浴缸</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Room F (B) -->
+        <div class="room-card" style="border-color: var(--gold-primary);">
+          <div class="room-header" style="background: var(--gold-soft);">
+            <div class="room-badge-row">
+              <span class="room-code" style="color: var(--gold-dark);">加訂獨立客房 F</span>
+              <span class="room-bathtub-badge" style="color: var(--forest-dark); background: #FFFFFF;"><i class="fa-solid fa-shower"></i> 乾濕分離</span>
+            </div>
+            <div class="room-title">🍻 30 週年老戰友通宵茶酒房</div>
+            <div class="room-assignee">老戰友死黨們 (3~4人)</div>
+          </div>
+          <div class="room-body">
+            <ul class="room-specs">
+              <li><i class="fa-solid fa-wine-glass" style="color: var(--gold-dark);"></i> <b>特色</b>：老友基地！徹夜品茗高山茶、小酌威士忌、暢聊30年青春，不吵到其他人！</li>
+              <li><i class="fa-solid fa-check"></i> <b>床位</b>：2 大床 / 通鋪</li>
+              <li><i class="fa-solid fa-check"></i> <b>設備</b>：獨立出入、私密隔音極佳</li>
             </ul>
           </div>
         </div>
@@ -1244,13 +1591,13 @@
     </div>
   </section>
 
-  <!-- Section: Convoy & Contacts -->
+  <!-- Section: Convoy -->
   <section id="convoy" style="background: var(--bg-card-alt);">
     <div class="container">
       <div class="section-header">
         <span class="section-tag"><i class="fa-solid fa-car"></i> Convoy &amp; Lineup</span>
         <h2 class="section-title">🚗 新北永和 6 車自駕共乘編組名冊</h2>
-        <p class="section-desc">07:00 統一於新北市永和區出發，車隊乘員名冊與分工。</p>
+        <p class="section-desc">06:30 統一於新北市永和區出發，車隊乘員名冊與分工。</p>
       </div>
 
       <div class="contact-grid">
@@ -1328,8 +1675,8 @@
     <div class="container">
       <div class="section-header">
         <span class="section-tag"><i class="fa-solid fa-phone"></i> Official Contacts</span>
-        <h2 class="section-title">📞 廠商官方預約電話 ＆ 導航清冊</h2>
-        <p class="section-desc">點擊按鈕即可直接撥打電話或開啟 Google Maps 導航！</p>
+        <h2 class="section-title">📞 廠商官方預約電話 ＆ 快速撥號</h2>
+        <p class="section-desc">點擊按鈕即可直接在手機撥打電話！</p>
       </div>
 
       <div class="contact-grid">
@@ -1380,39 +1727,55 @@
         2026 中秋 5 大家庭 ＆ 老戰友 30 週年專屬紀念行 ｜ 預祝全員歡聚圓滿、情誼長存！
       </p>
       <div style="font-size: 12px; color: #94A3B8;">
-        © 2026 宜蘭紫森林紀念行籌備會 ｜ 專屬日系暖白奶油風互動企劃手冊
+        © 2026 宜蘭紫森林紀念行籌備會 ｜ 專屬日系暖白奶油風互動企劃手冊 (單一整合檔)
       </div>
     </div>
   </footer>
 
-  <script>
-    //<![CDATA[
+  <script>//<![CDATA[
     // Day Tab Switcher
     function switchDay(dayNum) {
       var d1 = document.getElementById('day1-timeline');
       var d2 = document.getElementById('day2-timeline');
-      var btns = document.querySelectorAll('.day-btn');
+      var b1 = document.getElementById('btn-day1');
+      var b2 = document.getElementById('btn-day2');
       
-      for (var i = 0; i < btns.length; i++) {
-        if (i === dayNum - 1) {
-          btns[i].classList.add('active');
-        } else {
-          btns[i].classList.remove('active');
-        }
-      }
-
       if (dayNum === 1) {
+        b1.classList.add('active');
+        b2.classList.remove('active');
         d1.style.display = 'block';
         d2.style.display = 'none';
       } else {
+        b2.classList.add('active');
+        b1.classList.remove('active');
         d1.style.display = 'none';
         d2.style.display = 'block';
       }
     }
 
-    // Countdown Timer to 2026-09-25 07:00:00
+    // Room Plan Switcher (Plan A vs Plan B)
+    function switchRoomPlan(planType) {
+      var rA = document.getElementById('room-plan-a');
+      var rB = document.getElementById('room-plan-b');
+      var bA = document.getElementById('btn-room-a');
+      var bB = document.getElementById('btn-room-b');
+
+      if (planType === 'A') {
+        bA.classList.add('active');
+        bB.classList.remove('active');
+        rA.style.display = 'grid';
+        rB.style.display = 'none';
+      } else {
+        bB.classList.add('active');
+        bA.classList.remove('active');
+        rA.style.display = 'none';
+        rB.style.display = 'grid';
+      }
+    }
+
+    // Countdown Timer to 2026-09-25 06:30:00
     function updateCountdown() {
-      var target = new Date('2026-09-25T07:00:00+08:00').getTime();
+      var target = new Date('2026-09-25T06:30:00+08:00').getTime();
       var now = new Date().getTime();
       var diff = target - now;
 
@@ -1458,7 +1821,6 @@
         }
       });
     });
-    //]]>
-  </script>
+  //]]></script>
 </body>
 </html>
