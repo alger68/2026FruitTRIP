@@ -47,6 +47,9 @@ nav a.on{background:var(--navy);color:#fff;border-color:var(--navy)}
 .f{border-radius:11px;padding:9px 11px;font-size:13px} .f b{display:block;margin-bottom:2px} .f span{color:#334155}
 .f.stay{background:#fff3e6;border:1px solid #f6d3a8} .f.go2{background:var(--teal-s);border:1px solid #bde0de}
 .chips2{font-size:12.5px;margin-top:8px;color:#334155}
+.cd{margin-top:16px;background:rgba(0,0,0,.18);border-radius:14px;padding:10px 12px;text-align:center}
+.cdl{font-size:12.5px;opacity:.9} .cdn{display:flex;justify-content:center;gap:10px;margin-top:6px}
+.cdn div{min-width:58px;background:rgba(255,255,255,.16);border-radius:10px;padding:6px 4px} .cdn b{display:block;font-size:26px;line-height:1.1;font-variant-numeric:tabular-nums} .cdn small{font-size:11px;opacity:.85} .cdn .msg{background:none;font-size:17px;font-weight:700}
 h2.sec{margin:30px 0 10px;font-size:19px;font-weight:900;color:var(--navy)}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .lk,.spot{display:block;background:#fff;border:1px solid var(--bd);border-radius:14px;padding:11px 13px}
@@ -66,6 +69,7 @@ footer{text-align:center;color:var(--mut);font-size:12px;margin:30px 0 40px;line
 <h1>香港 ・ 澳門　旅遊行程</h1>
 <div class="d">2026 / 10 / 9（五）— 10 / 12（一）　四天三夜</div>
 <div class="p">桃園出發（3 位）：陳良杰（水果）· 張綾芝（櫻桃）· 林宗穎（威哥）<br>香港會合：穎弟　｜　共 4 位</div>
+<div class="cd" id="cd"><div class="cdl" id="cdl">✈ 距離出發（10/9 11:00 桃園起飛）</div><div class="cdn" id="cdn"></div></div>
 <div class="sum">
 <div><small>✈ 去程</small><b>CI909　10/9</b><span>桃園 11:00 → 香港 13:05</span></div>
 <div><small>✈ 回程</small><b>CI916　10/12</b><span>香港 17:35 → 桃園 19:25</span></div>
@@ -101,6 +105,13 @@ footer{text-align:center;color:var(--mut);font-size:12px;margin:30px 0 40px;line
 </main>
 <footer>本行程表由 Gmail 訂位資料整理製作 · 僅供參考<br>實際航班與營業時間以官方公告為準</footer>
 <script>
+(function(){const T=new Date('2026-10-09T11:00:00+08:00'),E=new Date('2026-10-12T19:25:00+08:00'),n=document.getElementById('cdn'),l=document.getElementById('cdl');
+function tick(){const now=new Date();
+if(now>=E){l.textContent='';n.innerHTML='<div class="msg">旅程圓滿結束，平安到家 🏡</div>';return}
+if(now>=T){l.textContent='';n.innerHTML='<div class="msg">🎉 旅程進行中！玩得開心</div>';return}
+let d=Math.floor((T-now)/1000);const D=Math.floor(d/86400),H=Math.floor(d%86400/3600),M=Math.floor(d%3600/60),S=d%60;
+n.innerHTML=[[D,'天'],[H,'時'],[M,'分'],[S,'秒']].map(x=>'<div><b>'+x[0]+'</b><small>'+x[1]+'</small></div>').join('')}
+tick();setInterval(tick,1000)})();
 const links=[...document.querySelectorAll('nav a')],secs=links.slice(0,4).map(a=>document.querySelector(a.hash));
 addEventListener('scroll',()=>{let c=0;secs.forEach((s,i)=>{if(s.getBoundingClientRect().top<120)c=i});links.forEach((a,i)=>a.classList.toggle('on',i===c&&scrollY<document.body.scrollHeight))},{passive:true});
 </script>
