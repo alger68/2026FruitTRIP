@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🏡 水果家新家聚會（10/31）</title>
+<meta name="description" content="水果家新家聚會：時間流程、餐點份量、備品清單與採買分工">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#16345a;--navy2:#1e4a73;--teal:#2a8a8c;--teal-s:#e3f3f2;--gold:#f5c451;--bg:#f4f6f9;--card:#fff;--text:#1a2433;--mut:#64748b;--bd:#e2e8f0;--orange:#fde7cf;--orange-t:#b45309;--green:#e7f6ec;--green-t:#1f7a46;--blue:#e8f0fb}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:62px}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans TC',-apple-system,sans-serif;line-height:1.6;font-size:15px}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:760px;margin:0 auto;padding:0 14px}
+.hero{background:linear-gradient(135deg,var(--navy),var(--teal));color:#fff;padding:34px 0 26px;border-radius:0 0 28px 28px}
+.hero h1{font-size:28px;font-weight:900;letter-spacing:.04em}
+.hero .d{margin-top:6px;opacity:.9} .hero .p{opacity:.8;font-size:13px;margin-top:2px}
+.sum{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.sum div{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:14px;padding:10px 12px}
+.sum small{display:block;font-size:11.5px;opacity:.85} .sum b{display:block;font-size:16px;line-height:1.3;margin:2px 0} .sum span{font-size:12px;opacity:.85}
+.cd{margin-top:16px;background:rgba(0,0,0,.18);border-radius:14px;padding:10px 12px;text-align:center}
+.cdl{font-size:12.5px;opacity:.9} .cdn{display:flex;justify-content:center;gap:10px;margin-top:6px}
+.cdn div{min-width:58px;background:rgba(255,255,255,.16);border-radius:10px;padding:6px 4px} .cdn b{display:block;font-size:26px;line-height:1.1;font-variant-numeric:tabular-nums} .cdn small{font-size:11px;opacity:.85} .cdn .msg{background:none;font-size:17px;font-weight:700}
+nav{position:sticky;top:0;z-index:50;background:rgba(244,246,249,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--bd)}
+nav .wrap{display:flex;gap:6px;overflow-x:auto;padding:9px 14px;scrollbar-width:none}
+nav a{white-space:nowrap;font-size:13.5px;font-weight:700;padding:6px 13px;border-radius:99px;background:#fff;border:1px solid var(--bd);color:var(--mut)}
+nav a.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.day{margin-top:20px;background:var(--card);border-radius:18px;box-shadow:0 2px 14px rgba(22,52,90,.07);overflow:hidden;border:1px solid var(--bd)}
+.dayhead{background:linear-gradient(90deg,var(--navy),var(--navy2));color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.dn{color:var(--gold);font-weight:900;font-size:22px;margin-right:10px} .dd{font-weight:700}
+.dr{text-align:right;font-size:13px;font-weight:700}
+.daynote{background:#fff7e0;color:#8a5a00;font-size:13px;padding:9px 16px;border-bottom:1px solid #f3e2b0}
+.tl{padding:14px 12px 10px}
+.row{display:flex;gap:8px;margin-bottom:9px}
+.time{flex:0 0 46px;text-align:right;font-weight:800;font-size:13px;color:var(--navy);padding-top:9px}
+.card{flex:1;min-width:0;border:1px solid var(--bd);border-radius:12px;padding:9px 12px;background:#fff;position:relative}
+.card::before{content:"";position:absolute;left:-9px;top:15px;width:7px;height:7px;border-radius:50%;background:var(--teal)}
+.card.hl{background:var(--green);border-color:#bfe6cd} .card.eat{background:#fffaf0;border-color:#f4dfb0}
+.ttl{font-weight:700} .sub{font-size:12.5px;color:var(--mut);margin-top:2px}
+.meal{display:inline-block;background:var(--orange);color:var(--orange-t);font-size:12px;font-weight:700;border-radius:99px;padding:1px 11px}
+h2.sec{margin:30px 0 10px;font-size:19px;font-weight:900;color:var(--navy)}
+.box{background:#fff;border:1px solid var(--bd);border-radius:14px;padding:12px 14px;margin-bottom:10px;font-size:13.5px}
+.box h3{font-size:14.5px;margin-bottom:4px}
+.go{display:inline-block;margin-top:8px;font-size:12.5px;font-weight:700;color:#fff;background:var(--teal);border-radius:99px;padding:3px 12px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;background:#fff;border-radius:12px;overflow:hidden;border:1px solid var(--bd)}
+th,td{padding:8px 9px;text-align:left;border-bottom:1px solid var(--bd);vertical-align:top} th{background:var(--navy);color:#fff;font-weight:700}
+.tw{overflow-x:auto} .tw table{min-width:480px}
+.ck{display:flex;gap:8px;align-items:flex-start;padding:6px 0;border-bottom:1px dashed var(--bd);font-size:13.5px}
+.ck:last-child{border-bottom:0} .ck input{margin-top:5px;width:17px;height:17px;accent-color:var(--teal);flex:0 0 auto}
+.ck input:checked+span{text-decoration:line-through;color:var(--mut)}
+.ck em{font-style:normal;font-size:12px;color:var(--mut)}
+footer{text-align:center;color:var(--mut);font-size:12px;margin:30px 0 40px;line-height:1.7}
+@media(max-width:420px){.hero h1{font-size:24px}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<h1>🏡 水果家　新家聚會</h1>
+<div class="d">2026 / 10 / 31（六）16:00 開始</div>
+<div class="p">景新街 210 巷 15 號 3 樓　｜　共 18 位</div>
+<div class="cd" id="cd"><div class="cdl" id="cdl">距離聚會開始</div><div class="cdn" id="cdn"></div></div>
+<div class="sum">
+<div><small>👨‍👩‍👧 大人</small><b>11 位</b><span>主人夫妻另計在內</span></div>
+<div><small>🎒 學生</small><b>7 位</b><span>國中 4 · 高中 2 · 大學 1</span></div>
+<div><small>🎯 重點</small><b>參觀新家</b><span>自己動手、輕鬆自在</span></div>
+<div><small>📍 地點</small><b>景新街 210 巷 15 號 3 樓</b><span>3 樓，請預留爬樓時間</span></div>
+</div></div></header>
+<nav><div class="wrap"><a href="#flow" class="on">流程</a><a href="#food">餐點</a><a href="#todo">備品清單</a><a href="#split">採買分工</a><a href="#tips">小提醒</a></div></nav>
+<main class="wrap">
+
+<section class="day" id="flow"><div class="dayhead"><div><span class="dn">流程</span><span class="dd">10/31（六）</span></div><div class="dr">16:00 – 21:00 · 約 5 小時</div></div>
+<div class="daynote">★ 時間為建議值，現場可彈性調整；重點是大家看得開心、吃得飽</div>
+<div class="tl">
+<div class="row"><div class="time">14:30</div><div class="card"><div class="ttl">主人佈置、備料</div><div class="sub">玄關鞋架、飲料冰鎮、餐桌擺好、音樂開起來</div></div></div>
+<div class="row"><div class="time">16:00</div><div class="card hl"><div class="ttl">客人陸續到　🏠 迎賓</div><div class="sub">飲料＋小點心先上；鞋子脫在門外／玄關</div></div></div>
+<div class="row"><div class="time">16:30</div><div class="card hl"><div class="ttl">🔑 新家導覽（主角）</div><div class="sub">分兩批帶：大人一批、學生一批；每個房間留 3–5 分鐘，順便拍合照</div></div></div>
+<div class="row"><div class="time">17:30</div><div class="card"><div class="ttl">自由活動</div><div class="sub">大人客廳／陽台聊天；學生一區玩（桌遊、switch、手機合照）</div></div></div>
+<div class="row"><div class="time">18:00</div><div class="card eat"><div class="ttl"><span class="meal">晚餐開動</span></div><div class="sub">自助式取餐，分兩桌：大人桌 / 學生桌</div></div></div>
+<div class="row"><div class="time">19:30</div><div class="card"><div class="ttl">全員合照 ＋ 小小分享</div><div class="sub">主人說幾句、大家說祝福話；萬聖節可請學生帶個小道具</div></div></div>
+<div class="row"><div class="time">20:00</div><div class="card eat"><div class="ttl"><span class="meal">飯後甜點</span>　水果拼盤 / 蛋糕</div></div></div>
+<div class="row"><div class="time">20:30</div><div class="card"><div class="ttl">整理、分送剩食</div><div class="sub">垃圾分類、帶走自己的盤子杯子；順便合力把桌面清一輪</div></div></div>
+<div class="row"><div class="time">21:00</div><div class="card"><div class="ttl">散會，平安回家 🌙</div></div></div>
+</div></section>
+
+<h2 class="sec" id="food">🍽 餐點份量（18 人）</h2>
+<div class="box"><h3>估算方式</h3>以「大人 11 人 + 學生 7 人（食量視同大人）」＝ <b>18 份成人量</b> 計算；學生食量大，寧多勿少。</div>
+<div class="tw"><table>
+<tr><th>類別</th><th>內容建議</th><th>份量</th></tr>
+<tr><td>主食</td><td>炒飯 / 義大利麵 / 炒麵（擇 2 種）</td><td>共約 18 份</td></tr>
+<tr><td>主菜</td><td>烤雞腿 / 滷肉 / 排餐類</td><td>約 18–20 份，每人 1 塊以上</td></tr>
+<tr><td>配菜</td><td>燙青菜、涼拌、炸物拼盤</td><td>3–4 道，每道 6–8 人份</td></tr>
+<tr><td>點心</td><td>洋芋片、餅乾、糖果（萬聖節氣氛）</td><td>約 6–8 大包</td></tr>
+<tr><td>甜點</td><td>水果拼盤 / 蛋糕</td><td>水果約 4–5 斤；蛋糕 8 吋 ×2</td></tr>
+<tr><td>飲料</td><td>汽水、茶飲、氣泡水、白開水</td><td>約 36 瓶（人均 2 瓶）＋ 家中白開水</td></tr>
+</table></div>
+<div class="box" style="margin-top:10px"><h3>⚠ 開餐前先問清楚</h3>有沒有人過敏、吃素、不吃牛 / 海鮮？小朋友 / 學生是否有特別偏好？先在群組統一詢問。</div>
+
+<h2 class="sec" id="todo">📋 備品清單（勾選可記憶）</h2>
+<div class="box"><h3>🍴 餐具與器材</h3>
+<label class="ck"><input type="checkbox"><span>免洗碗盤 / 或自家餐具 × 20 組　<em>（含備用）</em></span></label>
+<label class="ck"><input type="checkbox"><span>杯子 × 25（可寫名字的馬克筆一支）</span></label>
+<label class="ck"><input type="checkbox"><span>筷子、湯匙、叉子 × 20 組</span></label>
+<label class="ck"><input type="checkbox"><span>餐桌 / 折疊桌、椅子（共 18 個座位）</span></label>
+<label class="ck"><input type="checkbox"><span>保溫鍋 / 電磁爐 / 保鮮盒（熱食保溫）</span></label>
+<label class="ck"><input type="checkbox"><span>飲料冰桶、冰塊 × 4 包</span></label>
+</div>
+<div class="box"><h3>🧻 清潔與雜物</h3>
+<label class="ck"><input type="checkbox"><span>衛生紙 / 廚房紙巾 / 濕紙巾</span></label>
+<label class="ck"><input type="checkbox"><span>垃圾袋（分類：回收 / 廚餘 / 一般）</span></label>
+<label class="ck"><input type="checkbox"><span>玄關拖鞋 × 20 或鞋套</span></label>
+<label class="ck"><input type="checkbox"><span>洗手乳、廁所備用衛生紙</span></label>
+<label class="ck"><input type="checkbox"><span>免洗打包盒 × 10（分送剩食）</span></label>
+</div>
+<div class="box"><h3>🎉 氣氛與活動</h3>
+<label class="ck"><input type="checkbox"><span>藍牙喇叭 / 播放清單</span></label>
+<label class="ck"><input type="checkbox"><span>桌遊 / 撲克牌 / 遊戲機（學生區）</span></label>
+<label class="ck"><input type="checkbox"><span>拍立得或手機三腳架（合照）</span></label>
+<label class="ck"><input type="checkbox"><span>簡單佈置：氣球、拉旗、萬聖節小飾品</span></label>
+<label class="ck"><input type="checkbox"><span>新家留言本 / 卡片（請大家寫祝福）</span></label>
+</div>
+
+<h2 class="sec" id="split">🛒 採買分工（可自行認領）</h2>
+<div class="tw"><table>
+<tr><th>項目</th><th>負責人</th><th>備註</th></tr>
+<tr><td>主食 2 種</td><td>＿＿＿＿</td><td>約 18 份</td></tr>
+<tr><td>主菜</td><td>＿＿＿＿</td><td>烤雞腿 / 滷肉等</td></tr>
+<tr><td>配菜 3–4 道</td><td>＿＿＿＿</td><td>可大人各帶一道</td></tr>
+<tr><td>飲料 ＋ 冰塊</td><td>＿＿＿＿</td><td>汽水 / 茶飲 / 氣泡水</td></tr>
+<tr><td>零食與糖果</td><td>學生組</td><td>由學生自選，預算上限先講好</td></tr>
+<tr><td>水果拼盤</td><td>＿＿＿＿</td><td>當天下午現切較新鮮</td></tr>
+<tr><td>蛋糕</td><td>＿＿＿＿</td><td>8 吋 ×2，可預訂</td></tr>
+<tr><td>拖鞋 / 鞋套、衛生紙、垃圾袋</td><td>主人（水果家）</td><td>家中已有可略</td></tr>
+<tr><td>餐後整理</td><td>全員</td><td>各自帶走盤杯垃圾，主人就不累</td></tr>
+</table></div>
+<p style="font-size:12px;color:var(--mut);margin-top:8px">※ 負責人欄請在 LINE 群組中討論認領，之後我再幫你更新本頁。</p>
+
+<h2 class="sec" id="tips">💡 小提醒</h2>
+<div class="box"><h3>🚪 3 樓動線</h3>無電梯的話，重物（飲料、保溫鍋、蛋糕）建議先放樓下，分批搬運；停車位請提前確認並於群組公告。</div>
+<div class="box"><h3>🤫 鄰居友善</h3>晚上 20:00 後降低音量；上下樓、玄關聊天請小聲。</div>
+<div class="box"><h3>🎃 萬聖節</h3>10/31 是萬聖節，可請學生帶簡單小道具（面具、帽子）合照，氣氛更好。</div>
+<div class="box"><h3>🌧 天氣備案</h3>活動全程在室內，天氣影響不大；若下雨請提醒大家帶傘、鞋套放玄關。</div>
+</main>
+<footer>水果家新家聚會 · 流程僅供參考<br>實際時間與分工以群組討論為準</footer>
+<script>
+(function(){const T=new Date('2026-10-31T16:00:00+08:00'),E=new Date('2026-10-31T21:00:00+08:00'),n=document.getElementById('cdn'),l=document.getElementById('cdl');
+function tick(){const now=new Date();
+if(now>=E){l.textContent='';n.innerHTML='<div class="msg">聚會圓滿結束，感謝大家 🏡</div>';return}
+if(now>=T){l.textContent='';n.innerHTML='<div class="msg">🎉 聚會進行中！玩得開心</div>';return}
+let d=Math.floor((T-now)/1000);const D=Math.floor(d/86400),H=Math.floor(d%86400/3600),M=Math.floor(d%3600/60),S=d%60;
+n.innerHTML=[[D,'天'],[H,'時'],[M,'分'],[S,'秒']].map(x=>'<div><b>'+x[0]+'</b><small>'+x[1]+'</small></div>').join('')}
+tick();setInterval(tick,1000)})();
+const links=[...document.querySelectorAll('nav a')],secs=links.map(a=>document.querySelector(a.hash));
+addEventListener('scroll',()=>{let c=0;secs.forEach((s,i)=>{if(s.getBoundingClientRect().top<120)c=i});links.forEach((a,i)=>a.classList.toggle('on',i===c))},{passive:true});
+try{const k='newhome-ck',boxes=[...document.querySelectorAll('.ck input')],s=JSON.parse(localStorage.getItem(k)||'[]');
+boxes.forEach((b,i)=>{b.checked=s.includes(i);b.addEventListener('change',()=>localStorage.setItem(k,JSON.stringify(boxes.map((x,j)=>x.checked?j:-1).filter(j=>j>=0))))})}catch(e){}
+</script>
+</body></html>
