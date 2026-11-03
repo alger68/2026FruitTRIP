@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>動一下啦！30 分鐘運動冒險島｜手機專屬旗艦版</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --holo-grad: linear-gradient(125deg, rgba(255,255,255,0) 30%, rgba(255,255,255,0.55) 48%, rgba(253,224,71,0.4) 52%, rgba(255,255,255,0) 70%);
+    }
+    * {
+      -webkit-tap-highlight-color: transparent;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', 'Noto Sans TC', sans-serif;
+      background-color: #0f172a;
+      color: #0f172a;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    /* Mobile App Shell Container */
+    .mobile-shell {
+      max-width: 430px;
+      margin: 0 auto;
+      min-height: 100vh;
+      background: radial-gradient(circle at 20% 10%, #d1fae5 0%, #ecfeff 45%, #fce7f3 100%);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      box-shadow: 0 8px 24px -6px rgba(16, 185, 129, 0.12), 0 2px 8px -2px rgba(15, 23, 42, 0.05);
+    }
+    @keyframes sheenSweep {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .holo-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .holo-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--holo-grad);
+      background-size: 200% 100%;
+      animation: sheenSweep 4s infinite linear;
+      pointer-events: none;
+    }
+    @keyframes liquidShimmer {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+    .liquid-bar {
+      background: linear-gradient(90deg, #10b981, #14b8a6, #f59e0b, #ec4899, #8b5cf6, #10b981);
+      background-size: 200% 100%;
+      animation: liquidShimmer 3s linear infinite;
+      box-shadow: 0 0 12px rgba(236, 72, 153, 0.45);
+    }
+    @keyframes bobbing {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+    }
+    @keyframes spinSlow {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes floatUpFade {
+      0% { transform: translateY(0) scale(0.85); opacity: 1; }
+      100% { transform: translateY(-55px) scale(1.35); opacity: 0; }
+    }
+    @keyframes swingPolaroid {
+      0%, 100% { transform: rotate(2.5deg); }
+      50% { transform: rotate(-3.5deg); }
+    }
+    @keyframes slideUpSheet {
+      0% { transform: translateY(100%); }
+      100% { transform: translateY(0); }
+    }
+    .animate-bob { animation: bobbing 2.6s ease-in-out infinite; }
+    .animate-spin-slow { animation: spinSlow 14s linear infinite; transform-origin: center; }
+    .animate-swing { animation: swingPolaroid 4s ease-in-out infinite; transform-origin: top center; }
+    .animate-sheet { animation: slideUpSheet 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .emoji-particle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      animation: floatUpFade 0.9s ease-out forwards;
+    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body>
+
+  <div class="mobile-shell pb-24">
+
+    <!-- Mobile Status & App Header -->
+    <header class="sticky top-0 z-30 bg-white/92 backdrop-blur-xl border-b border-emerald-200/80 shadow-xs">
+      <!-- Top Bar -->
+      <div class="px-3.5 py-2.5 flex items-center justify-between gap-2">
+        <div class="flex items-center gap-2 min-w-0">
+          <div class="w-9 h-9 rounded-2xl bg-gradient-to-br from-emerald-400 via-pink-500 to-amber-400 flex items-center justify-center text-xl shadow-sm shrink-0">
+            🏝️
+          </div>
+          <div class="min-w-0">
+            <h1 class="text-sm font-black text-slate-900 truncate">動一下啦！30 分鐘運動冒險島</h1>
+            <p class="text-[11px] text-emerald-700 font-bold truncate">頂溪十二神仙・手機單手觸控版</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-1.5 shrink-0">
+          <button id="btnQuickCamera" type="button" class="px-2.5 py-1.5 rounded-xl bg-gradient-to-r from-pink-500 to-rose-500 active:scale-95 text-white text-xs font-black flex items-center gap-1 shadow-xs transition">
+            <span>📸</span>
+            <span>拍小卡</span>
+          </button>
+          <button id="btnOpen20Upgrades" type="button" class="p-1.5 rounded-xl bg-amber-400 active:scale-95 text-slate-950 text-xs font-black shadow-xs transition" title="視覺與模式調控台">
+            ✨
+          </button>
+        </div>
+      </div>
+
+      <!-- Current Character & Lightstick Pill Strip -->
+      <div class="bg-gradient-to-r from-slate-900 via-fuchsia-950 to-emerald-950 text-white px-3.5 py-2 flex items-center justify-between gap-2 text-xs">
+        <button id="btnOpenImmortalDeck" type="button" class="flex items-center gap-1.5 min-w-0 flex-1 text-left active:opacity-80">
+          <span class="px-2 py-0.5 rounded-md bg-amber-400 text-slate-950 text-[10px] font-black shrink-0">換人物 ▾</span>
+          <span id="activeImmortalPill" class="font-black text-amber-200 truncate text-xs">
+            🧋 買手搖多走半小時仙・阿明
+          </span>
+        </button>
+        <button id="btnHeaderLightstick" type="button" class="shrink-0 px-2.5 py-0.5 rounded-full bg-pink-500/30 border border-pink-400 text-pink-200 text-[11px] font-black">
+          🪄 15 票
+        </button>
+      </div>
+    </header>
+
+    <!-- Floating Toast Notification -->
+    <div id="toastLayer" class="fixed top-24 left-1/2 -translate-x-1/2 z-50 pointer-events-none flex flex-col items-center gap-2 w-full max-w-[390px] px-4"></div>
+
+    <!-- Full-Screen Summon Cutscene Overlay -->
+    <div id="summonCutsceneOverlay" class="hidden fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center text-white">
+      <div class="relative w-36 h-36 flex items-center justify-center">
+        <div class="absolute inset-0 rounded-full border-4 border-dashed border-pink-400/80 animate-spin-slow"></div>
+        <div class="absolute inset-3 rounded-full bg-gradient-to-tr from-emerald-500/40 via-pink-500/40 to-amber-400/40 blur-xl"></div>
+        <div id="cutsceneAvatar" class="text-6xl animate-bob">🧋</div>
+      </div>
+      <div class="mt-4 space-y-1.5">
+        <div class="text-[11px] font-black uppercase tracking-widest text-pink-300">✨ Comeback Stage & Island Charged ✨</div>
+        <h2 id="cutsceneTitle" class="text-xl font-black text-white">買手搖仙・阿明 登島成功！</h2>
+        <p id="cutsceneReward" class="text-xs font-bold text-emerald-300">小島能量 +8.3% ⚡ 獲贈 🪄 應援手燈 +5 張</p>
+        <div id="cutsceneTop20Note" class="mt-2 inline-block px-3.5 py-2 rounded-2xl bg-white/10 border border-pink-300 text-amber-200 text-xs font-black">
+          🏆 今日運動小卡已入圍《TOP 20 名場面應援榜》！
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Mobile Content Area -->
+    <main class="px-3.5 pt-3 space-y-3.5 flex-1">
+
+      <!-- ================= TAB 1: 手機首頁（完全對齊首頁黃金規格） ================= -->
+      <section id="tab-home" class="space-y-3.5">
+
+        <!-- Hero Progress Card -->
+        <div class="glass-card rounded-3xl p-3.5 space-y-2.5">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="flex items-center gap-1.5">
+                <span id="skyThemeBadge" class="text-[10px] font-black px-2 py-0.5 rounded-full bg-emerald-600 text-white">
+                  🌅 紫金中正橋夕陽
+                </span>
+                <button id="btnGoTop20Banner" type="button" class="text-[10px] font-black px-2 py-0.5 rounded-full bg-pink-600 text-white">
+                  👑 TOP 20 燈箱 ▸
+                </button>
+              </div>
+              <h2 id="islandQuotaTitle" class="text-base font-black text-slate-900 mt-1">
+                這週，我們一起動了 8 / 12 人
+              </h2>
+            </div>
+            <div class="text-right">
+              <div id="islandPctNumber" class="text-2xl font-black bg-gradient-to-r from-emerald-600 via-pink-600 to-amber-500 bg-clip-text text-transparent">
+                67%
+              </div>
+              <div class="text-[10px] font-bold text-slate-500">小島能量</div>
+            </div>
+          </div>
+
+          <!-- Liquid Progress Bar -->
+          <div class="w-full h-4 bg-slate-900/10 rounded-full overflow-hidden p-0.5 border border-white">
+            <div id="liquidProgressFill" class="h-full liquid-bar rounded-full transition-all duration-700" style="width: 67%;"></div>
+          </div>
+
+          <!-- 4 Stage Pills -->
+          <div class="grid grid-cols-4 gap-1 text-[10px] font-black text-center">
+            <div class="py-1 rounded-xl bg-emerald-100 text-emerald-950 border border-emerald-300">25%發芽🌱</div>
+            <div class="py-1 rounded-xl bg-emerald-100 text-emerald-950 border border-emerald-300">50%公園🛝</div>
+            <div class="py-1 rounded-xl bg-white text-slate-500 border border-slate-200">75%步道✨</div>
+            <div class="py-1 rounded-xl bg-white text-slate-500 border border-slate-200">100%派對🎉</div>
+          </div>
+
+          <div class="pt-1.5 border-t border-slate-200/60 flex items-center justify-between gap-2 text-xs">
+            <p id="nextStagePrompt" class="font-extrabold text-amber-900 truncate">
+              🔥 距離解鎖「河岸步道亮起來 ✨」，還差 1 人！
+            </p>
+            <button id="btnSimFriend" type="button" class="shrink-0 px-2.5 py-1 rounded-xl bg-indigo-600 active:scale-95 text-white text-[11px] font-black">
+              +1 模擬打卡
+            </button>
+          </div>
+        </div>
+
+        <!-- Interactive Mobile Island Visual Stage -->
+        <div id="parallaxIslandStage" class="relative rounded-3xl overflow-hidden shadow-lg border-2 border-white h-64 select-none bg-gradient-to-b from-indigo-950 via-purple-900 to-amber-500">
+          <canvas id="deluxeParticleCanvas" class="absolute inset-0 w-full h-full pointer-events-none z-20"></canvas>
+
+          <!-- Top-Right Polaroid Widget -->
+          <div id="polaroidGalleryWidget" class="absolute top-2.5 right-2.5 z-30 bg-amber-50/95 p-1.5 rounded-2xl shadow-lg border-2 border-amber-300 animate-swing cursor-pointer">
+            <div class="text-[8px] font-black text-amber-900 text-center">📸 頂溪拍立得</div>
+            <div id="polaroidThumbBox" class="w-20 h-13 bg-gradient-to-br from-sky-200 to-emerald-200 rounded-lg flex flex-col items-center justify-center border border-amber-200 overflow-hidden mt-0.5">
+              <div class="text-base">👟👟🌉</div>
+              <div class="text-[8px] font-black text-slate-900">點此換合照</div>
+            </div>
+          </div>
+
+          <!-- SVG Island -->
+          <svg viewBox="0 0 540 300" class="w-full h-full object-cover">
+            <defs>
+              <linearGradient id="deluxeWater" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.65" />
+                <stop offset="50%" stop-color="#0369a1" stop-opacity="0.85" />
+                <stop offset="100%" stop-color="#0f172a" stop-opacity="0.98" />
+              </linearGradient>
+              <linearGradient id="lushIsland" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#a7f3d0" />
+                <stop offset="35%" stop-color="#34d399" />
+                <stop offset="85%" stop-color="#059669" />
+                <stop offset="100%" stop-color="#064e3b" />
+              </linearGradient>
+            </defs>
+
+            <circle cx="85" cy="48" r="20" fill="#fde047" opacity="0.85" />
+            <path d="M 0 145 L 95 95 L 195 135 L 320 90 L 445 130 L 540 105 L 540 155 L 0 155 Z" fill="#1e1b4b" opacity="0.45" />
+
+            <!-- Zhongzheng Bridge -->
+            <path d="M 10 148 Q 145 88 280 148 T 530 148" fill="none" stroke="#fbbf24" stroke-width="3.5" opacity="0.75" />
+            <rect x="0" y="146" width="540" height="4" fill="#cbd5e1" opacity="0.65" />
+
+            <!-- River -->
+            <rect x="0" y="150" width="540" height="150" fill="url(#deluxeWater)" />
+            <g id="svgWaterReflections" opacity="0.2">
+              <ellipse cx="115" cy="225" rx="18" ry="5" fill="#fde047" opacity="0.7" />
+              <ellipse cx="205" cy="238" rx="22" ry="6" fill="#fde047" opacity="0.7" />
+              <ellipse cx="335" cy="238" rx="22" ry="6" fill="#fde047" opacity="0.7" />
+              <ellipse cx="425" cy="225" rx="18" ry="5" fill="#fde047" opacity="0.7" />
+            </g>
+
+            <!-- Island -->
+            <ellipse cx="270" cy="198" rx="215" ry="54" fill="#fde68a" />
+            <ellipse cx="270" cy="190" rx="204" ry="49" fill="url(#lushIsland)" />
+            <ellipse cx="270" cy="160" rx="135" ry="33" fill="#34d399" />
+
+            <!-- Central Crystal -->
+            <g transform="translate(270, 98)">
+              <ellipse cx="0" cy="4" rx="28" ry="10" fill="none" stroke="#fde047" stroke-width="1.8" stroke-dasharray="6 4" />
+              <polygon points="0,-20 13,0 0,20 -13,0" fill="#fef08a" stroke="#f59e0b" stroke-width="2" />
+            </g>
+
+            <g id="deluxeStage25">
+              <text x="82" y="195" font-size="22">🌱</text>
+              <text x="132" y="172" font-size="20">🌸</text>
+              <text x="368" y="175" font-size="20">🌷</text>
+              <text x="415" y="195" font-size="22">🌱</text>
+            </g>
+
+            <g id="deluxeStage50">
+              <rect x="148" y="128" width="4" height="30" fill="#d97706" />
+              <rect x="178" y="128" width="4" height="30" fill="#d97706" />
+              <rect x="145" y="126" width="40" height="4" rx="2" fill="#fde047" />
+              <text x="325" y="162" font-size="26">🛝</text>
+            </g>
+
+            <g id="deluxeStage75" opacity="0.2">
+              <path d="M 88 202 Q 270 234 452 202" fill="none" stroke="#fde047" stroke-width="4.5" stroke-dasharray="8 6" />
+              <circle cx="115" cy="176" r="8" fill="#fef08a" stroke="#f59e0b" stroke-width="2" />
+              <circle cx="205" cy="190" r="8" fill="#fef08a" stroke="#f59e0b" stroke-width="2" />
+              <circle cx="335" cy="190" r="8" fill="#fef08a" stroke="#f59e0b" stroke-width="2" />
+              <circle cx="425" cy="176" r="8" fill="#fef08a" stroke="#f59e0b" stroke-width="2" />
+            </g>
+
+            <g id="deluxeStage100" opacity="0.12">
+              <g transform="translate(82, 105)">
+                <rect x="0" y="0" width="88" height="24" rx="7" fill="#be123c" stroke="#fde047" stroke-width="2" />
+                <text x="44" y="16" text-anchor="middle" font-size="11" fill="#fef08a" font-weight="900">🏮 樂華夜市</text>
+              </g>
+              <g transform="translate(362, 105)">
+                <rect x="0" y="0" width="94" height="24" rx="7" fill="#db2777" stroke="#fef08a" stroke-width="2" />
+                <text x="47" y="16" text-anchor="middle" font-size="11" fill="#ffffff" font-weight="900">🚚 豆漿應援車</text>
+              </g>
+              <text x="258" y="185" font-size="26">🔥</text>
+            </g>
+          </svg>
+
+          <!-- Horizontal Scrollable Chibi Dock for Mobile -->
+          <div id="islandChibiDock" class="absolute inset-x-2.5 bottom-2 z-30 flex items-center gap-1.5 overflow-x-auto no-scrollbar bg-slate-950/70 backdrop-blur-md px-2.5 py-1.5 rounded-2xl border border-white/20"></div>
+        </div>
+
+        <!-- Mobile Dual Big Thumb Buttons (Exact Match to Prompt Spec) -->
+        <div class="space-y-2">
+          <button id="btnOpenCheckin" type="button" class="w-full py-4 px-4 rounded-2xl bg-gradient-to-r from-emerald-500 via-teal-500 to-amber-500 active:scale-[0.98] text-white font-black text-base shadow-lg shadow-emerald-600/25 flex items-center justify-center gap-2 transition">
+            <span>［我運動完了 ✨ 拍韓系小卡］</span>
+          </button>
+          <div class="grid grid-cols-2 gap-2">
+            <button id="btnHomeFindFriend" type="button" class="py-3 px-3 rounded-2xl glass-card active:scale-95 text-emerald-950 font-black text-xs flex items-center justify-center gap-1 border border-emerald-200">
+              <span>🤝 找朋友一起動</span>
+            </button>
+            <button id="btnHomeGoTop20" type="button" class="py-3 px-3 rounded-2xl glass-card active:scale-95 text-pink-950 font-black text-xs flex items-center justify-center gap-1 border border-pink-200">
+              <span>🪄 韓系 TOP 20 榜</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Live Info Tickers (Exact Match to Prompt Spec) -->
+        <div class="space-y-2">
+          <button id="btnTickerDingxi" type="button" class="w-full text-left glass-card rounded-2xl px-3.5 py-2.5 flex items-center justify-between gap-2 active:scale-[0.99]">
+            <span id="txtTickerDingxi" class="text-xs font-extrabold text-amber-950 truncate">
+              📍 週日頂溪集合｜已有 4 人報名（含 3 位陪動天使）
+            </span>
+            <span class="text-xs font-black text-amber-700 shrink-0">報名 ▸</span>
+          </button>
+          <button id="btnTickerFeed" type="button" class="w-full text-left glass-card rounded-2xl px-3.5 py-2.5 flex items-center justify-between gap-2 active:scale-[0.99]">
+            <span id="txtTickerFeed" class="text-xs font-bold text-slate-700 truncate">
+              💬 最新動態｜水果完成了快走散步 30 分鐘
+            </span>
+            <span class="text-xs font-black text-emerald-700 shrink-0">看小卡 ▸</span>
+          </button>
+        </div>
+
+      </section>
+
+      <!-- ================= TAB 2: 韓系追星 TOP 20 應援榜（手機單欄大卡最佳化） ================= -->
+      <section id="tab-top20" class="hidden space-y-3.5">
+
+        <!-- Subway Lightbox C-Position (#1) -->
+        <div class="bg-gradient-to-br from-slate-950 via-fuchsia-950 to-indigo-950 text-white rounded-3xl p-4 shadow-xl border-2 border-pink-400/70 space-y-3">
+          <div class="flex items-center justify-between gap-1">
+            <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-gradient-to-r from-pink-500 to-amber-400 text-slate-950">
+              🚇 頂溪捷運站 1 號出口・C 位星光燈箱
+            </span>
+            <label class="inline-flex items-center gap-1 text-[11px] text-pink-200 cursor-pointer">
+              <input id="chkHideVotesModerate" type="checkbox" class="rounded text-pink-500" />
+              <span>隱藏票數</span>
+            </label>
+          </div>
+
+          <div id="top1LightboxStage" class="p-3.5 rounded-2xl bg-white/10 backdrop-blur-md border-2 border-amber-300/80 space-y-2.5 holo-card"></div>
+
+          <!-- Coffee Truck Crowdfunding -->
+          <div class="bg-slate-900/90 rounded-2xl p-3 border border-pink-400/30 space-y-1.5">
+            <div class="flex items-center justify-between text-xs font-black">
+              <span class="text-pink-300">🚚 永和豆漿偶像應援車集資</span>
+              <span id="coffeeTruckProgressText" class="text-amber-300">245 / 300 票</span>
+            </div>
+            <div class="w-full h-2.5 bg-white/10 rounded-full overflow-hidden">
+              <div id="coffeeTruckBar" class="h-full liquid-bar rounded-full transition-all duration-500" style="width: 82%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-2xl p-3 flex items-center justify-between gap-2">
+          <span class="text-xs font-black text-slate-800">🏆 運動名場面 TOP 20（單手點手燈投票）</span>
+          <button id="btnClaimFreeLightsticks" type="button" class="shrink-0 px-3 py-1.5 rounded-xl bg-gradient-to-r from-pink-500 to-fuchsia-600 active:scale-95 text-white text-xs font-black">
+            🎁 領手燈 +10
+          </button>
+        </div>
+
+        <!-- Mobile Single-Column Full Cards for TOP 20 -->
+        <div id="top20ChartContainer" class="space-y-2.5"></div>
+
+      </section>
+
+      <!-- ================= TAB 3: 手機小卡動態牆 ================= -->
+      <section id="tab-feed" class="hidden space-y-3.5">
+        <div class="glass-card rounded-2xl p-3.5 flex items-center justify-between">
+          <div>
+            <h2 class="text-sm font-black text-slate-900">💬 運動朋友圈・小卡動態牆</h2>
+            <p class="text-[11px] text-slate-500">點 ❤️ / 👏 噴發粒子泉；點「下次揪我」約散步</p>
+          </div>
+          <button id="btnOpenCameraFromFeed" type="button" class="px-3 py-1.5 rounded-xl bg-pink-600 text-white text-xs font-black">
+            📸 拍小卡
+          </button>
+        </div>
+        <div id="deluxeFeedContainer" class="space-y-3"></div>
+      </section>
+
+      <!-- ================= TAB 4: 週日頂溪集合（手機單欄大按鈕） ================= -->
+      <section id="tab-meetup" class="hidden space-y-3.5">
+        <div class="glass-card rounded-3xl p-4 border-2 border-amber-300 space-y-3">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-amber-300 text-slate-950">
+                每週日補能量安全網
+              </span>
+              <h2 class="text-base font-black text-slate-900 mt-1">📍 週日頂溪「冒險集合日」</h2>
+              <p class="text-xs font-bold text-emerald-800 mt-0.5">
+                ☀️ 09:00 頂溪站 1 號出口 → 中正橋河濱散步
+              </p>
+            </div>
+            <label class="shrink-0 px-3 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-rose-500 active:scale-95 text-white text-xs font-black shadow-sm cursor-pointer">
+              <span>📸 拍/傳合照</span>
+              <input id="inpDingxiGroupPhoto" type="file" accept="image/*" capture="environment" class="hidden" />
+            </label>
+          </div>
+
+          <div class="grid grid-cols-1 gap-2">
+            <button id="btnJoinEnergy" type="button" class="w-full py-3 rounded-2xl bg-emerald-600 active:scale-98 text-white font-black text-xs shadow-sm">
+              🟢 我要來補本週能量（出席即完成打卡）
+            </button>
+            <button id="btnJoinAngel" type="button" class="w-full py-3 rounded-2xl bg-gradient-to-r from-amber-400 to-orange-400 active:scale-98 text-slate-950 font-black text-xs shadow-sm">
+              🪽 我已經動完，來當「陪動天使」（領黃金銘牌）
+            </button>
+            <button id="btnJoinRemote" type="button" class="w-full py-2.5 rounded-2xl bg-slate-100 text-slate-700 font-bold text-xs border border-slate-300">
+              🐨 外地遠端同步陪走
+            </button>
+          </div>
+
+          <div id="deluxeRosterBox" class="space-y-2 pt-1"></div>
+        </div>
+      </section>
+
+      <!-- ================= TAB 5: 個人徽章與月底黑金海報 ================= -->
+      <section id="tab-profile" class="hidden space-y-3.5">
+        <div class="bg-gradient-to-b from-slate-950 via-indigo-950 to-slate-900 text-white rounded-3xl p-4 shadow-xl border border-amber-400/30 space-y-3">
+          <div class="flex items-center justify-between">
+            <div>
+              <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-amber-400/20 text-amber-300">中斷不扣章・永久榮譽</span>
+              <h3 class="text-sm font-black mt-1">🏅 故事成就徽章展示櫃</h3>
+            </div>
+            <button id="btnUnlockWelcomeBack" type="button" class="px-2.5 py-1.5 rounded-xl bg-gradient-to-r from-amber-400 to-rose-400 text-slate-950 text-xs font-black">
+              領取「🌈 歡迎回來」
+            </button>
+          </div>
+          <div id="enamelBadgesGrid" class="grid grid-cols-2 gap-2"></div>
+        </div>
+
+        <div class="glass-card rounded-3xl p-4 space-y-3 border-2 border-amber-300">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-black text-slate-900">🖼️ 11 月「我們一起動了」分享海報</h3>
+            <label class="inline-flex items-center gap-1 text-xs font-bold text-slate-700 cursor-pointer">
+              <input id="chkPosterConsent" type="checkbox" checked class="rounded text-emerald-600" />
+              <span>授權照片</span>
+            </label>
+          </div>
+          <canvas id="collectorPosterCanvas" class="w-full rounded-2xl shadow-lg border border-amber-300"></canvas>
+          <button id="btnDownloadDeluxePoster" type="button" class="w-full py-3.5 rounded-2xl bg-slate-900 text-amber-300 font-black text-xs shadow-md">
+            ⬇️ 儲存海報圖片至手機 (PNG)
+          </button>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Mobile Fixed Bottom Tab Bar (Max 430px centered) -->
+    <nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[430px] z-30 bg-white/95 backdrop-blur-xl border-t border-slate-200 shadow-2xl">
+      <div class="grid grid-cols-5 px-1 py-1.5">
+        <button type="button" data-tab="tab-home" class="nav-btn flex flex-col items-center py-1 rounded-xl text-pink-600 font-black">
+          <span class="text-lg leading-none">🏝️</span>
+          <span class="text-[10px] mt-1">運動島</span>
+        </button>
+        <button type="button" data-tab="tab-top20" class="nav-btn flex flex-col items-center py-1 rounded-xl text-slate-500 font-bold">
+          <span class="text-lg leading-none">🪄</span>
+          <span class="text-[10px] mt-1">TOP20榜</span>
+        </button>
+        <button type="button" data-tab="tab-feed" class="nav-btn flex flex-col items-center py-1 rounded-xl text-slate-500 font-bold">
+          <span class="text-lg leading-none">💬</span>
+          <span class="text-[10px] mt-1">朋友圈</span>
+        </button>
+        <button type="button" data-tab="tab-meetup" class="nav-btn flex flex-col items-center py-1 rounded-xl text-slate-500 font-bold">
+          <span class="text-lg leading-none">📍</span>
+          <span class="text-[10px] mt-1">頂溪集合</span>
+        </button>
+        <button type="button" data-tab="tab-profile" class="nav-btn flex flex-col items-center py-1 rounded-xl text-slate-500 font-bold">
+          <span class="text-lg leading-none">👑</span>
+          <span class="text-[10px] mt-1">我的海報</span>
+        </button>
+      </div>
+    </nav>
+
+  </div>
+
+  <!-- ================= MOBILE BOTTOM SHEET 1: 韓系小卡相機＆打卡抽屜 ================= -->
+  <div id="modalDeluxeCheckin" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-xs flex items-end justify-center">
+    <div class="bg-white rounded-t-3xl w-full max-w-[430px] p-4 shadow-2xl border-t-2 border-pink-400 flex flex-col max-h-[92vh] overflow-y-auto space-y-3 animate-sheet">
+      <!-- Drag Handle -->
+      <div class="w-12 h-1.5 bg-slate-300 rounded-full mx-auto"></div>
+
+      <div class="flex items-center justify-between">
+        <div>
+          <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-pink-100 text-pink-800">支援手機相機直拍 ＆ 相簿上傳</span>
+          <h3 class="text-base font-black text-slate-900 mt-0.5">📸 拍下今日韓系運動小卡</h3>
+        </div>
+        <button id="btnCloseCheckin" type="button" class="w-8 h-8 rounded-full bg-slate-100 text-slate-700 font-bold">✕</button>
+      </div>
+
+      <!-- Mobile Camera Action Row -->
+      <div class="grid grid-cols-3 gap-1.5 text-xs">
+        <label class="py-2.5 px-2 rounded-xl bg-gradient-to-r from-pink-600 to-rose-500 text-white font-black text-center cursor-pointer shadow-xs">
+          <span>📱 手機拍照</span>
+          <input id="inpMobileNativeCam" type="file" accept="image/*" capture="environment" class="hidden" />
+        </label>
+        <label class="py-2.5 px-2 rounded-xl bg-emerald-600 text-white font-black text-center cursor-pointer shadow-xs">
+          <span>🖼️ 相簿選圖</span>
+          <input id="inpFilePhoto" type="file" accept="image/*" class="hidden" />
+        </label>
+        <button id="btnStartWebCam" type="button" class="py-2.5 px-2 rounded-xl bg-slate-800 text-white font-bold text-center">
+          📷 視訊自拍
+        </button>
+      </div>
+
+      <!-- 3 Frame Styles -->
+      <div class="grid grid-cols-3 gap-1.5 text-[11px]">
+        <button type="button" data-frame="ssr" class="frame-style-btn py-1.5 rounded-xl bg-pink-100 border-2 border-pink-500 text-pink-950 font-black">✨ SSR簽名框</button>
+        <button type="button" data-frame="boba" class="frame-style-btn py-1.5 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 font-bold">🧋 微糖手搖框</button>
+        <button type="button" data-frame="neon" class="frame-style-btn py-1.5 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 font-bold">🏮 樂華霓虹框</button>
+      </div>
+
+      <!-- Photocard Preview Box -->
+      <div class="relative rounded-2xl overflow-hidden bg-slate-950 border-2 border-pink-300 flex flex-col items-center justify-center min-h-48">
+        <video id="webcamVideoEl" autoplay playsinline muted class="hidden w-full max-h-56 object-cover"></video>
+        <canvas id="photocardCanvas" width="440" height="330" class="w-full max-h-56 object-contain"></canvas>
+        <button id="btnSnapShutter" type="button" class="hidden absolute bottom-3 left-1/2 -translate-x-1/2 px-5 py-2 rounded-full bg-white text-pink-600 font-black text-xs shadow-xl border-4 border-pink-500">
+          📸 按下快門合成小卡！
+        </button>
+      </div>
+
+      <div class="flex items-center justify-between text-xs">
+        <span class="text-slate-500">可先下載保存，再送出登島！</span>
+        <button id="btnDownloadPhotocard" type="button" class="text-pink-600 font-black underline">⬇️ 下載小卡圖檔</button>
+      </div>
+
+      <div class="space-y-2 text-xs">
+        <div>
+          <label for="selSport" class="block font-bold text-slate-700 mb-1">1. 運動項目（30 分鐘）：</label>
+          <select id="selSport" class="w-full rounded-xl border border-slate-300 px-3 py-2.5 font-bold bg-white">
+            <option value="快走散步 30 分鐘">🚶 快走散步 30 分鐘</option>
+            <option value="新店溪河濱慢跑 30 分鐘">🏃 新店溪河濱慢跑 30 分鐘</option>
+            <option value="睡前滾筒與瑜伽伸展 30 分鐘">🧘 睡前滾筒與瑜伽伸展 30 分鐘</option>
+            <option value="YouBike 河濱破風騎行 30 分鐘">🚲 YouBike 河濱破風騎行 30 分鐘</option>
+            <option value="仁愛公園單槓肌力 30 分鐘">💪 仁愛公園單槓肌力 30 分鐘</option>
+          </select>
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between mb-1">
+            <label for="inpMood" class="font-bold text-slate-700">2. 今日一句話心情：</label>
+            <button id="btnSpinMood" type="button" class="text-emerald-700 font-black underline">🎲 隨機換金句</button>
+          </div>
+          <input id="inpMood" type="text" maxlength="60" value="本來只想出門買飲料，結果多走了半小時！" class="w-full rounded-xl border border-slate-300 px-3 py-2.5" />
+        </div>
+      </div>
+
+      <label class="flex items-center gap-2 bg-pink-50 p-2.5 rounded-xl border border-pink-200 cursor-pointer text-xs">
+        <input id="chkEnterTop20" type="checkbox" checked class="rounded text-pink-600 w-4 h-4" />
+        <span class="font-black text-pink-950">🪄 同步投稿至《韓系 TOP 20 名場面榜》讓朋友投票！</span>
+      </label>
+
+      <button id="btnFireCheckin" type="button" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-emerald-500 via-pink-500 to-amber-500 text-white font-black text-base shadow-lg">
+        🚀 送出打卡・登島充能！
+      </button>
+    </div>
+  </div>
+
+  <!-- ================= MOBILE BOTTOM SHEET 2: 頂溪十二神仙選角抽屜（單欄零擠壓） ================= -->
+  <div id="modalHoloDeck" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-xs flex items-end justify-center">
+    <div class="bg-slate-900 text-white rounded-t-3xl w-full max-w-[430px] p-4 shadow-2xl border-t-2 border-amber-400 max-h-[88vh] flex flex-col animate-sheet">
+      <div class="w-12 h-1.5 bg-white/25 rounded-full mx-auto mb-2 shrink-0"></div>
+
+      <div class="flex items-center justify-between shrink-0 pb-2.5 border-b border-white/10">
+        <div>
+          <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-amber-400 text-slate-950">手機單欄滿版閃卡・零重疊</span>
+          <h3 class="text-base font-black mt-1">👑 點選你要扮演的「頂溪十二神仙」</h3>
+        </div>
+        <button id="btnCloseHoloDeck" type="button" class="w-8 h-8 rounded-full bg-white/10 text-white font-bold shrink-0">✕</button>
+      </div>
+
+      <!-- Custom Nickname Input -->
+      <div class="shrink-0 my-2.5 p-2.5 rounded-2xl bg-white/10 border border-amber-400/30 flex items-center gap-2 text-xs">
+        <span class="text-amber-300 font-black shrink-0">✏️ 暱稱：</span>
+        <input id="inpCustomNickname" type="text" maxlength="12" placeholder="輸入你的暱稱" class="flex-1 min-w-0 rounded-xl bg-slate-950 border border-white/20 px-2.5 py-1.5 text-white font-bold" />
+        <button id="btnSaveCustomNickname" type="button" class="shrink-0 px-3 py-1.5 rounded-xl bg-amber-400 text-slate-950 font-black">儲存 ✓</button>
+      </div>
+
+      <!-- Dedicated Scroll Wrapper with Single-Column Spacious Cards -->
+      <div class="flex-1 overflow-y-auto pr-0.5">
+        <div id="holoCardsGrid" class="flex flex-col gap-2.5 pb-4"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MOBILE BOTTOM SHEET 3: 視覺與模式調控台 ================= -->
+  <div id="modal20Upgrades" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-xs flex items-end justify-center">
+    <div class="bg-white rounded-t-3xl w-full max-w-[430px] p-5 shadow-2xl border-t-2 border-amber-400 space-y-3.5 animate-sheet">
+      <div class="w-12 h-1.5 bg-slate-300 rounded-full mx-auto"></div>
+      <div class="flex items-center justify-between">
+        <h3 class="text-base font-black text-slate-900">✨ 視覺主題與慶典調控台</h3>
+        <button id="btnClose20Upgrades" type="button" class="w-8 h-8 rounded-full bg-slate-100 font-bold">✕</button>
+      </div>
+      <div class="space-y-2.5 text-xs">
+        <div class="p-3 rounded-2xl bg-amber-50 border border-amber-200 space-y-1.5">
+          <div class="font-black text-amber-950">🌅 島嶼天幕主題切換</div>
+          <select id="selSkyShader" class="w-full rounded-xl border border-amber-300 bg-white px-2.5 py-2 font-bold">
+            <option value="sunset">🌅 紫金中正橋魔幻夕陽</option>
+            <option value="aurora">🌌 仲夏夜流光極光</option>
+            <option value="sakura">🌸 仁愛公園粉櫻吹雪</option>
+          </select>
+        </div>
+        <button id="btnTrigger100Party" type="button" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-rose-500 to-amber-500 text-white font-black text-xs shadow-md">
+          🏮 一鍵全開 100% 樂華夜市霓虹 ＆ 豆漿應援車派對
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const IMMORTALS_DATA = [
+      { id: 1, title: '買手搖多走半小時仙', name: '阿明', icon: '🧋', sport: '快走散步 30 分鐘', quote: '運動是為了喝更多微糖微冰！', relic: '🛍️ 環保杯提袋', streak: 5, done: true },
+      { id: 2, title: '頂溪河濱追風俠', name: '小傑', icon: '🏃', sport: '新店溪河濱慢跑 30 分鐘', quote: '今晚中正橋下風很涼！', relic: '⚡ 發光運動腰包', streak: 9, done: true },
+      { id: 3, title: '捷運樓梯征服王', name: '冠宇', icon: '🪜', sport: '快走散步 30 分鐘', quote: '出頂溪站的樓梯就是我的登峰路。', relic: '⌚ 計步手環', streak: 4, done: true },
+      { id: 4, title: '追垃圾車短跑冠軍', name: '阿哲', icon: '🚛', sport: '新店溪河濱慢跑 30 分鐘', quote: '給愛麗絲一響就是間歇衝刺！', relic: '👟 藍白慢跑鞋', streak: 3, done: true },
+      { id: 5, title: '樂華夜市消食大師', name: '水果', icon: '🍢', sport: '快走散步 30 分鐘', quote: '多繞兩圈，雞排熱量正式歸零！', relic: '🪭 消食小扇子', streak: 8, done: true },
+      { id: 6, title: '公園單槓隱士', name: '大衛', icon: '💪', sport: '仁愛公園單槓肌力 30 分鐘', quote: '仁愛公園單槓區深藏不露。', relic: '🧤 防滑手套', streak: 4, done: true },
+      { id: 7, title: 'YouBike 破風伯', name: '凱文', icon: '🚲', sport: 'YouBike 河濱破風騎行 30 分鐘', quote: '綠燈一亮只見我的車尾燈。', relic: '🎗️ 反光束褲帶', streak: 3, done: true },
+      { id: 8, title: '週末吸芬多精仙人', name: '雅婷', icon: '🌲', sport: '快走散步 30 分鐘', quote: '週末去烘爐地流汗超痛快！', relic: '🦯 輕量登山杖', streak: 3, done: false },
+      { id: 9, title: '辦公室肩頸自救員', name: '欣怡', icon: '💆', sport: '睡前滾筒與瑜伽伸展 30 分鐘', quote: '每小時起立轉肩膀救五十肩！', relic: '🦯 按摩滾輪棒', streak: 2, done: false },
+      { id: 10, title: '睡前滾筒受難者', name: '小美', icon: '🧘', sport: '睡前滾筒與瑜伽伸展 30 分鐘', quote: '滾的時候哀哀叫，滾完超好睡！', relic: '🪵 狼牙棒滾筒', streak: 6, done: true },
+      { id: 11, title: '頂溪集合召集官', name: '佩珊', icon: '📣', sport: '快走散步 30 分鐘', quote: '週日早 9 點頂溪見，遲到買豆漿！', relic: '📢 復古大聲公', streak: 10, done: false },
+      { id: 12, title: '純精神陪跑啦啦隊', name: '子軒', icon: '🎉', sport: '快走散步 30 分鐘', quote: '你儘管衝，我負責在終點鼓掌！', relic: '🍼 暖心保溫瓶', streak: 2, done: false }
+    ];
+
+    const INITIAL_TOP20 = [
+      { id: 'm1', userId: 5, tag: '👑 吃播消食賞', title: '多繞樂華夜市兩圈，雞排熱量正式歸零！', sport: '快走散步 30 分鐘', votes: 188, photoData: null },
+      { id: 'm2', userId: 1, tag: '🧋 手搖哲學賞', title: '本來只想出門買微糖珍奶，結果多走了半小時！', sport: '快走散步 30 分鐘', votes: 175, photoData: null },
+      { id: 'm3', userId: 10, tag: '🧘 痛並快樂賞', title: '睡前滾筒滾到大腿哀哀叫，滾完秒睡到天亮', sport: '睡前滾筒與瑜伽伸展 30 分鐘', votes: 162, photoData: null },
+      { id: 'm4', userId: 11, tag: '🪽 最佳團魂賞', title: '週日早上 9 點頂溪站 1 號出口準時拎豆漿點名！', sport: '週日頂溪陪動 30 分鐘', votes: 154, photoData: null },
+      { id: 'm5', userId: 2, tag: '🌉 河濱神顏賞', title: '中正橋下晚風超涼，看著夕陽不知不覺跑完半小時', sport: '新店溪河濱慢跑 30 分鐘', votes: 146, photoData: null },
+      { id: 'm6', userId: 4, tag: '🚛 爆發衝刺賞', title: '給愛麗絲音樂一響，拎著兩袋垃圾完成今日高心率間歇！', sport: '追垃圾車衝刺 30 分鐘', votes: 138, photoData: null },
+      { id: 'm7', userId: 3, tag: '🪜 拒搭電梯賞', title: '每天出頂溪捷運站堅持走樓梯，大腿線條養成中', sport: '捷運爬梯快走 30 分鐘', votes: 129, photoData: null },
+      { id: 'm8', userId: 6, tag: '💪 公園宗師賞', title: '在仁愛公園跟阿伯一起拉單槓，阿伯還誇我姿勢標準', sport: '仁愛公園單槓肌力 30 分鐘', votes: 121, photoData: null },
+      { id: 'm9', userId: 7, tag: '🚲 破風騎士賞', title: '騎 YouBike 沿著永和河濱一路吹風到華中橋！', sport: 'YouBike 河濱騎行 30 分鐘', votes: 115, photoData: null },
+      { id: 'm10', userId: 8, tag: '🌲 芬多精仙賞', title: '週末早起爬烘爐地看大土地公，流汗完喝冰豆漿超爽', sport: '郊山步道健行 30 分鐘', votes: 108, photoData: null },
+      { id: 'm11', userId: 9, tag: '💆 五十肩自救賞', title: '邊追韓劇邊做肩頸擴胸伸展 30 分鐘，脖子終於不卡了', sport: '居家肩頸伸展 30 分鐘', votes: 102, photoData: null },
+      { id: 'm12', userId: 12, tag: '🎉 氣氛擔當賞', title: '週日頂溪集合全程幫大家拍照＋買溫豆漿應援！', sport: '頂溪集合陪走 30 分鐘', votes: 96, photoData: null },
+      { id: 'm13', userId: 1, tag: '🌧️ 雨天不滅賞', title: '下雨天改在頂溪捷運川堂拉筋＋原地超慢跑達標', sport: '室內超慢跑 30 分鐘', votes: 91, photoData: null },
+      { id: 'm14', userId: 5, tag: '🐱 街角偶遇賞', title: '永和巷弄散步遇到三隻橘貓討摸，多蹲了二十下', sport: '巷弄尋貓散步 30 分鐘', votes: 87, photoData: null },
+      { id: 'm15', userId: 2, tag: '✨ 點燈關鍵賞', title: '週五晚上壓線打卡，親手點亮 75% 中正橋河岸步道！', sport: '新店溪河濱慢跑 30 分鐘', votes: 83, photoData: null },
+      { id: 'm16', userId: 10, tag: '🌈 感動回歸賞', title: '出差兩週回來第一次動一動，拿到「歡迎回來」章超暖', sport: '睡前滾筒伸展 30 分鐘', votes: 79, photoData: null },
+      { id: 'm17', userId: 3, tag: '👟 球鞋擺拍賞', title: '週日頂溪集合 6 雙慢跑鞋圍成一圈拍立得紀念', sport: '週日頂溪河濱健走 30 分鐘', votes: 75, photoData: null },
+      { id: 'm18', userId: 6, tag: '🔥 核心發抖賞', title: '平板支撐加拉筋滿 30 分鐘，肚子微痠超有成就感', sport: '居家核心與伸展 30 分鐘', votes: 71, photoData: null },
+      { id: 'm19', userId: 4, tag: '🧋 雙人默契賞', title: '透過動態牆「下次揪我」成功約出阿明一起河濱快走', sport: '雙人河濱快走 30 分鐘', votes: 68, photoData: null },
+      { id: 'm20', userId: 7, tag: '🌅 晨光破曉賞', title: '週一早上 7 點搶先登島，種下本週第一株小花芽 🌱', sport: '晨間快走 30 分鐘', votes: 64, photoData: null }
+    ];
+
+    let vState = {
+      currentId: 1,
+      doneIds: new Set(IMMORTALS_DATA.filter(m => m.done).map(m => m.id)),
+      lastCheckinDate: {},
+      lightsticks: 15,
+      totalGroupVotes: 245,
+      hideVotesModerate: false,
+      skyShader: 'sunset',
+      frameStyle: 'ssr',
+      stream: null,
+      capturedImageObj: null,
+      latestPhotocardDataUrl: null,
+      dingxiGroupPhotoUrl: null,
+      top20Moments: INITIAL_TOP20,
+      roster: [
+        { id: 11, role: 'angel' },
+        { id: 2, role: 'angel' },
+        { id: 5, role: 'angel' },
+        { id: 8, role: 'energy' }
+      ],
+      posts: [
+        {
+          id: 'fp1', userId: 5, sport: '快走散步 30 分鐘', time: '12 分鐘前',
+          mood: '多繞樂華夜市外圍兩圈，剛才下肚的香雞排熱量正式歸零！',
+          photoData: null, hearts: 12, claps: 8, coffees: 6, joinIds: [1]
+        },
+        {
+          id: 'fp2', userId: 1, sport: '快走散步 30 分鐘', time: '1 小時前',
+          mood: '本來只想出門買飲料，結果多走了半小時！',
+          photoData: null, hearts: 9, claps: 7, coffees: 4, joinIds: [5, 8]
+        }
+      ],
+      badges: [
+        { id: 'b1', icon: '🌱', name: '踏出第一步', desc: '完成首次登島運動', unlocked: true },
+        { id: 'b2', icon: '🔥', name: '仙風道骨', desc: '連續 4 週完成運動', unlocked: true },
+        { id: 'b3', icon: '🪽', name: '黃金陪動天使', desc: '週日頂溪集合陪伴朋友', unlocked: true },
+        { id: 'b4', icon: '👑', name: '應援一位出道', desc: '小卡登上頂溪站 C 位燈箱', unlocked: true },
+        { id: 'b5', icon: '📸', name: '韓系小卡站姐', desc: '拍下專屬運動小卡', unlocked: true },
+        { id: 'b6', icon: '🪄', name: '暖心應援團長', desc: '揮動手燈為朋友打榜', unlocked: true },
+        { id: 'b7', icon: '☕', name: '永和豆漿見', desc: '參加滿 3 次頂溪集合', unlocked: false },
+        { id: 'b8', icon: '🌈', name: '歡迎回來', desc: '休息後重返小島暖心章', unlocked: false }
+      ]
+    };
+
+    // 防 XSS：所有使用者輸入（暱稱、心情、標題）顯示前都要經過 esc()
+    function esc(v) {
+      return String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    }
+    function isDone(m) { return vState.doneIds.has(m.id); }
+    function todayKey() {
+      const d = new Date();
+      return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+    }
+
+    function getImmortal(id) {
+      return IMMORTALS_DATA.find(x => x.id === id) || IMMORTALS_DATA[0];
+    }
+
+    function formatDisplayTitle(m) {
+      return `${m.title}・${m.name}`;
+    }
+
+    function showToast(msg, icon = '✨') {
+      const box = document.getElementById('toastLayer');
+      const div = document.createElement('div');
+      div.className = 'bg-slate-950/95 text-amber-200 text-xs font-black px-3.5 py-2.5 rounded-2xl shadow-2xl border border-pink-400/60 flex items-center gap-2';
+      const iconEl = document.createElement('span');
+      iconEl.className = 'text-base shrink-0';
+      iconEl.textContent = icon;
+      const msgEl = document.createElement('span');
+      msgEl.textContent = msg;
+      div.append(iconEl, msgEl);
+      box.appendChild(div);
+      setTimeout(() => div.remove(), 2800);
+    }
+
+    function spawnEmojiFountain(x, y, emoji = '🪄') {
+      for (let i = 0; i < 6; i++) {
+        const span = document.createElement('span');
+        span.className = 'emoji-particle text-lg font-black';
+        span.textContent = emoji;
+        span.style.left = `${x + (Math.random() - 0.5) * 44}px`;
+        span.style.top = `${y + (Math.random() - 0.5) * 16}px`;
+        document.body.appendChild(span);
+        setTimeout(() => span.remove(), 900);
+      }
+    }
+
+    // ==================== K-POP PHOTOCARD CANVAS COMPOSITOR ====================
+    function drawPhotocardCanvas() {
+      const canvas = document.getElementById('photocardCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const cur = getImmortal(vState.currentId);
+      const w = canvas.width;
+      const h = canvas.height;
+
+      if (vState.capturedImageObj) {
+        const img = vState.capturedImageObj;
+        const scale = Math.max(w / img.width, h / img.height);
+        const nw = img.width * scale;
+        const nh = img.height * scale;
+        ctx.drawImage(img, (w - nw) / 2, (h - nh) / 2, nw, nh);
+      } else {
+        const bg = ctx.createLinearGradient(0, 0, w, h);
+        if (vState.frameStyle === 'boba') {
+          bg.addColorStop(0, '#065f46');
+          bg.addColorStop(1, '#0f766e');
+        } else if (vState.frameStyle === 'neon') {
+          bg.addColorStop(0, '#4c0519');
+          bg.addColorStop(1, '#1e1b4b');
+        } else {
+          bg.addColorStop(0, '#3b0764');
+          bg.addColorStop(0.5, '#831843');
+          bg.addColorStop(1, '#0f172a');
+        }
+        ctx.fillStyle = bg;
+        ctx.fillRect(0, 0, w, h);
+
+        ctx.font = '76px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(cur.icon, w / 2, h / 2 + 10);
+        ctx.fillStyle = 'rgba(255,255,255,0.8)';
+        ctx.font = 'bold 13px sans-serif';
+        ctx.fillText('點上方「📱 手機拍照」或「🖼️ 相簿選圖」拍出真實小卡', w / 2, h / 2 + 50);
+      }
+
+      const frameColor = vState.frameStyle === 'boba' ? '#34d399' : vState.frameStyle === 'neon' ? '#facc15' : '#f472b6';
+      ctx.strokeStyle = frameColor;
+      ctx.lineWidth = 10;
+      ctx.strokeRect(5, 5, w - 10, h - 10);
+
+      ctx.fillStyle = 'rgba(15, 23, 42, 0.8)';
+      ctx.fillRect(12, 12, w - 24, 32);
+      ctx.fillStyle = '#fde047';
+      ctx.font = '900 12px sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText(`✨ K-FANDOM SSR PHOTOCARD ｜ ${cur.relic}`, 20, 32);
+
+      ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
+      ctx.fillRect(12, h - 60, w - 24, 48);
+
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '900 15px sans-serif';
+      ctx.fillText(`${cur.icon} ${formatDisplayTitle(cur)}`, 20, h - 36);
+
+      ctx.fillStyle = '#f9a8d4';
+      ctx.font = 'bold 11px sans-serif';
+      const sportText = document.getElementById('selSport')?.value || cur.sport;
+      ctx.fillText(`✓ 30分鐘達標：${sportText}`, 20, h - 18);
+
+      vState.latestPhotocardDataUrl = canvas.toDataURL('image/png');
+    }
+
+    function handleImageFileUpload(file) {
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        const img = new Image();
+        img.onload = () => {
+          vState.capturedImageObj = img;
+          stopLiveWebcam();
+          drawPhotocardCanvas();
+          showToast('📸 照片已合成韓系 SSR 簽名小卡！', '✨');
+        };
+        img.src = ev.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    async function startLiveWebcam() {
+      const video = document.getElementById('webcamVideoEl');
+      const snapBtn = document.getElementById('btnSnapShutter');
+      const canvas = document.getElementById('photocardCanvas');
+      stopLiveWebcam();
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' }, audio: false });
+        vState.stream = stream;
+        video.srcObject = stream;
+        video.classList.remove('hidden');
+        snapBtn.classList.remove('hidden');
+        canvas.classList.add('hidden');
+      } catch (err) {
+        showToast('請點左側「📱 手機拍照」或「🖼️ 相簿選圖」選取照片！', '📱');
+      }
+    }
+
+    function stopLiveWebcam() {
+      if (vState.stream) {
+        vState.stream.getTracks().forEach(t => t.stop());
+        vState.stream = null;
+      }
+      document.getElementById('webcamVideoEl')?.classList.add('hidden');
+      document.getElementById('btnSnapShutter')?.classList.add('hidden');
+      document.getElementById('photocardCanvas')?.classList.remove('hidden');
+    }
+
+    // ==================== RENDER TOP 20 CHART ====================
+    function renderTop20Chart() {
+      vState.top20Moments.sort((a, b) => b.votes - a.votes);
+      const list = vState.top20Moments.slice(0, 20);
+      const first = list[0];
+      const fm = getImmortal(first.userId);
+
+      const top1Stage = document.getElementById('top1LightboxStage');
+      const top1Img = first.photoData
+        ? `<img src="${first.photoData}" alt="C位小卡" class="w-full h-40 object-cover rounded-xl border border-amber-300" />`
+        : `<div class="w-full h-24 rounded-xl bg-gradient-to-r from-pink-500/40 to-amber-500/40 flex items-center justify-between px-4 border border-amber-300/50">
+             <div>
+               <div class="text-[10px] font-black text-amber-300">👑 本週一位 C 位出道</div>
+               <div class="text-sm font-black text-white mt-0.5">${fm.icon} ${esc(formatDisplayTitle(fm))}</div>
+             </div>
+             <div class="text-4xl">${fm.icon}</div>
+           </div>`;
+
+      top1Stage.innerHTML = `
+        ${top1Img}
+        <div class="flex items-center justify-between gap-2 pt-1">
+          <div class="min-w-0 flex-1">
+            <div class="text-xs font-black text-amber-200 truncate">「${esc(first.title)}」</div>
+            <div class="text-[11px] text-emerald-300">${esc(first.sport)}</div>
+          </div>
+          <button type="button" data-vote-id="${first.id}" data-vote-amt="10" class="vote-card-btn shrink-0 px-3 py-1.5 rounded-xl bg-gradient-to-r from-pink-500 to-amber-400 text-slate-950 text-xs font-black">
+            ${vState.hideVotesModerate ? '🪄 應援' : `🪄 ${first.votes}票 (+10)`}
+          </button>
+        </div>
+      `;
+
+      const truckPct = Math.min(100, Math.round((vState.totalGroupVotes / 300) * 100));
+      document.getElementById('coffeeTruckProgressText').textContent = `${vState.totalGroupVotes} / 300 票 (${truckPct}%)`;
+      document.getElementById('coffeeTruckBar').style.width = `${truckPct}%`;
+
+      const container = document.getElementById('top20ChartContainer');
+      container.innerHTML = '';
+
+      const buildCard = (item, rank) => {
+        const m = getImmortal(item.userId);
+        const card = document.createElement('div');
+        const isTop = rank !== null;
+        card.className = `glass-card rounded-2xl p-3.5 border-2 space-y-2.5 ${isTop && rank <= 3 ? 'border-pink-400 holo-card' : 'border-white'}`;
+
+        const badgeColor = rank === 1 ? 'bg-amber-400 text-slate-950' : rank === 2 ? 'bg-slate-300 text-slate-950' : rank === 3 ? 'bg-amber-700 text-white' : 'bg-slate-900 text-pink-300';
+        const imgBlock = item.photoData
+          ? `<img src="${item.photoData}" alt="運動小卡" class="w-full h-40 object-cover rounded-xl border border-pink-200" />`
+          : '';
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between gap-2">
+            <div class="flex items-center gap-1.5 min-w-0">
+              <span class="px-2 py-0.5 rounded-full text-[11px] font-black shrink-0 ${badgeColor}">${isTop ? `TOP ${rank}` : '🆕 候選'}</span>
+              <span class="text-xs font-black text-slate-900 truncate">${m.icon} ${esc(formatDisplayTitle(m))}</span>
+            </div>
+            <span class="text-xs font-black text-pink-700 shrink-0">${vState.hideVotesModerate ? '💖 珍藏' : `🪄 ${item.votes} 票`}</span>
+          </div>
+          ${imgBlock}
+          <p class="text-xs font-bold text-slate-700">「${esc(item.title)}」</p>
+          <div class="flex items-center justify-between gap-2 pt-1 border-t border-slate-100">
+            <span class="text-[11px] text-emerald-700 font-bold">${esc(item.tag)} · ${esc(item.sport)}</span>
+            <div class="flex items-center gap-1.5 shrink-0">
+              <button type="button" data-vote-id="${item.id}" data-vote-amt="10" class="vote-card-btn px-2.5 py-1.5 rounded-xl bg-pink-50 active:scale-95 text-pink-700 border border-pink-200 text-xs font-black">
+                🪄 +10
+              </button>
+              <button type="button" data-vote-id="${item.id}" data-vote-amt="25" class="vote-card-btn px-2.5 py-1.5 rounded-xl bg-gradient-to-r from-pink-500 to-amber-500 active:scale-95 text-white text-xs font-black">
+                💖 +25
+              </button>
+            </div>
+          </div>
+        `;
+        return card;
+      };
+
+      list.forEach((item, idx) => container.appendChild(buildCard(item, idx + 1)));
+
+      // 還沒擠進前 20 名的新投稿，另外列在下方，避免投稿後找不到自己的小卡
+      const candidates = vState.top20Moments.slice(20);
+      if (candidates.length > 0) {
+        const head = document.createElement('div');
+        head.className = 'text-xs font-black text-slate-700 px-1 pt-2';
+        head.textContent = '🆕 新投稿候選（拿到足夠應援票就能衝進 TOP 20）';
+        container.appendChild(head);
+        candidates.forEach(item => container.appendChild(buildCard(item, null)));
+      }
+    }
+
+    // ==================== RENDER ALL ====================
+    function renderAllMobile() {
+      const cur = getImmortal(vState.currentId);
+      document.getElementById('activeImmortalPill').textContent = `${cur.icon} ${formatDisplayTitle(cur)}`;
+      document.getElementById('btnHeaderLightstick').textContent = `🪄 ${vState.lightsticks} 票`;
+
+      const doneCount = IMMORTALS_DATA.filter(isDone).length;
+      const pct = Math.round((doneCount / 12) * 100);
+      document.getElementById('islandQuotaTitle').textContent = `這週，我們一起動了 ${doneCount} / 12 人`;
+      document.getElementById('islandPctNumber').textContent = `${pct}%`;
+      document.getElementById('liquidProgressFill').style.width = `${pct}%`;
+
+      document.getElementById('deluxeStage25').style.opacity = pct >= 25 ? '1' : '0.15';
+      document.getElementById('deluxeStage50').style.opacity = pct >= 50 ? '1' : '0.15';
+      document.getElementById('deluxeStage75').style.opacity = pct >= 75 ? '1' : '0.15';
+      document.getElementById('svgWaterReflections').style.opacity = pct >= 75 ? '1' : '0.12';
+      document.getElementById('deluxeStage100').style.opacity = (pct >= 100 || vState.totalGroupVotes >= 300) ? '1' : '0.12';
+
+      const promptEl = document.getElementById('nextStagePrompt');
+      if (pct < 75) promptEl.textContent = `🔥 距離解鎖「河岸步道亮起來 ✨」，還差 ${Math.max(1, 9 - doneCount)} 人！`;
+      else if (pct < 100) promptEl.textContent = `🏮 步道已點亮！再 ${Math.max(1, 12 - doneCount)} 人開啟「樂華夜市＆豆漿車派對」！`;
+      else promptEl.textContent = `🎆 100% 全員達標！樂華夜市＆豆漿應援車派對全開中！`;
+
+      if (vState.dingxiGroupPhotoUrl) {
+        document.getElementById('polaroidThumbBox').innerHTML = `<img src="${vState.dingxiGroupPhotoUrl}" alt="頂溪合照" class="w-full h-full object-cover" />`;
+      }
+
+      // Chibi Dock
+      const dock = document.getElementById('islandChibiDock');
+      dock.innerHTML = '';
+      IMMORTALS_DATA.forEach(m => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = isDone(m)
+          ? 'shrink-0 px-2.5 py-1 rounded-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-[11px] font-black flex items-center gap-1 shadow-sm'
+          : 'shrink-0 px-2 py-0.5 rounded-full bg-white/15 text-slate-300 text-[11px] font-medium flex items-center gap-1 opacity-65';
+        btn.innerHTML = `<span>${m.icon}</span><span>${esc(m.name)}</span>`;
+        btn.addEventListener('click', () => showToast(`${formatDisplayTitle(m)}：「${m.quote}」`, m.icon));
+        dock.appendChild(btn);
+      });
+
+      // Tickers
+      const angelCount = vState.roster.filter(r => r.role === 'angel').length;
+      document.getElementById('txtTickerDingxi').textContent = `📍 週日頂溪集合｜已有 ${vState.roster.length} 人報名（含 ${angelCount} 位陪動天使）`;
+      if (vState.posts.length > 0) {
+        const latest = vState.posts[0];
+        const la = getImmortal(latest.userId);
+        document.getElementById('txtTickerFeed').textContent = `💬 最新動態｜${la.name}完成了${latest.sport}`;
+      }
+
+      // Feed
+      const fBox = document.getElementById('deluxeFeedContainer');
+      fBox.innerHTML = '';
+      vState.posts.forEach(p => {
+        const author = getImmortal(p.userId);
+        const card = document.createElement('article');
+        card.className = 'glass-card rounded-3xl p-3.5 space-y-2.5';
+        const imgHtml = p.photoData
+          ? `<img src="${p.photoData}" alt="運動小卡" class="w-full max-h-64 object-contain rounded-2xl border-2 border-pink-300 bg-slate-950" />`
+          : '';
+        card.innerHTML = `
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-emerald-400 to-pink-500 text-white flex items-center justify-center text-xl">${author.icon}</div>
+              <div>
+                <div class="text-xs font-black text-slate-900">${esc(formatDisplayTitle(author))}</div>
+                <div class="text-[11px] font-bold text-emerald-700">${esc(p.sport)} · ${esc(p.time)}</div>
+              </div>
+            </div>
+            <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-amber-100 text-amber-900">${author.relic}</span>
+          </div>
+          ${imgHtml}
+          <blockquote class="bg-emerald-50/80 border-l-4 border-pink-500 rounded-r-xl px-3 py-2 text-xs font-bold text-slate-800">
+            「${esc(p.mood)}」
+          </blockquote>
+          <div class="flex items-center gap-1.5 pt-1">
+            <button type="button" data-fountain="❤️" data-id="${p.id}" data-field="hearts" class="fountain-btn px-2.5 py-1.5 rounded-xl bg-rose-50 text-rose-700 text-xs font-black border border-rose-200">
+              ❤️ ${p.hearts}
+            </button>
+            <button type="button" data-fountain="👏" data-id="${p.id}" data-field="claps" class="fountain-btn px-2.5 py-1.5 rounded-xl bg-amber-50 text-amber-900 text-xs font-black border border-amber-200">
+              👏 ${p.claps}
+            </button>
+            <button type="button" data-fountain="🙋" data-id="${p.id}" data-field="coffees" class="fountain-btn ml-auto px-3 py-1.5 rounded-xl bg-emerald-600 text-white text-xs font-black">
+              🙋 下次揪我 (${p.coffees})
+            </button>
+          </div>
+        `;
+        fBox.appendChild(card);
+      });
+
+      // Meetup Roster
+      const rBox = document.getElementById('deluxeRosterBox');
+      rBox.innerHTML = '';
+      vState.roster.forEach(item => {
+        const m = getImmortal(item.id);
+        const div = document.createElement('div');
+        div.className = item.role === 'angel'
+          ? 'p-3 rounded-2xl bg-gradient-to-r from-slate-900 via-amber-950 to-slate-900 text-amber-300 border border-amber-400 flex items-center justify-between holo-card'
+          : 'p-3 rounded-2xl bg-emerald-50 border border-emerald-300 text-emerald-950 flex items-center justify-between';
+        div.innerHTML = `<div class="text-xs font-black">${item.role === 'angel' ? '🪽 黃金陪動天使' : item.role === 'remote' ? '🐨 遠端陪走' : '🟢 補能量'}：${m.icon} ${esc(m.name)}</div><span>👑</span>`;
+        rBox.appendChild(div);
+      });
+
+      // Badges
+      const bGrid = document.getElementById('enamelBadgesGrid');
+      bGrid.innerHTML = '';
+      vState.badges.forEach(b => {
+        const el = document.createElement('div');
+        el.className = b.unlocked
+          ? 'p-3 rounded-2xl bg-gradient-to-br from-amber-500/25 via-slate-900 to-pink-500/25 border border-amber-400 text-center space-y-1 holo-card'
+          : 'p-3 rounded-2xl bg-white/5 border border-white/10 text-center space-y-1 opacity-45';
+        el.innerHTML = `<div class="text-2xl">${b.icon}</div><div class="text-xs font-black text-amber-200">${b.name}</div><div class="text-[10px] text-slate-300">${b.desc}</div>`;
+        bGrid.appendChild(el);
+      });
+
+      renderTop20Chart();
+      renderCollectorPoster();
+    }
+
+    function renderCollectorPoster() {
+      const canvas = document.getElementById('collectorPosterCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      canvas.width = 480;
+      canvas.height = 620;
+
+      const bg = ctx.createLinearGradient(0, 0, 0, canvas.height);
+      bg.addColorStop(0, '#090d16');
+      bg.addColorStop(0.5, '#3b0764');
+      bg.addColorStop(1, '#0f172a');
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.strokeStyle = '#f59e0b';
+      ctx.lineWidth = 3;
+      ctx.strokeRect(12, 12, canvas.width - 24, canvas.height - 24);
+
+      ctx.fillStyle = '#fde047';
+      ctx.font = '900 19px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('👑 11 月運動冒險島・我們一起動了', canvas.width / 2, 48);
+
+      const consent = document.getElementById('chkPosterConsent').checked;
+      IMMORTALS_DATA.forEach((m, idx) => {
+        const col = idx % 4;
+        const row = Math.floor(idx / 4);
+        const x = 24 + col * 110;
+        const y = 78 + row * 168;
+
+        ctx.fillStyle = isDone(m) ? 'rgba(244, 114, 182, 0.16)' : 'rgba(255, 255, 255, 0.05)';
+        ctx.fillRect(x, y, 100, 152);
+        ctx.strokeStyle = isDone(m) ? '#f472b6' : '#475569';
+        ctx.strokeRect(x, y, 100, 152);
+
+        ctx.font = '30px sans-serif';
+        ctx.fillText(consent ? m.icon : '🛡️', x + 50, y + 48);
+
+        ctx.fillStyle = '#ffffff';
+        ctx.font = '900 13px sans-serif';
+        ctx.fillText(m.name, x + 50, y + 84);
+
+        ctx.fillStyle = '#fbcfe8';
+        ctx.font = '10px sans-serif';
+        ctx.fillText(m.relic, x + 50, y + 108);
+
+        ctx.fillStyle = '#fde047';
+        ctx.fillText(`連 ${m.streak} 週 ✓`, x + 50, y + 132);
+      });
+    }
+
+    // ==================== INITIALIZE & LISTENERS ====================
+    window.addEventListener('DOMContentLoaded', () => {
+      renderAllMobile();
+      drawPhotocardCanvas();
+
+      // Tab Switching
+      const navBtns = document.querySelectorAll('.nav-btn');
+      function switchTab(target) {
+        ['tab-home', 'tab-top20', 'tab-feed', 'tab-meetup', 'tab-profile'].forEach(id => {
+          document.getElementById(id).classList.toggle('hidden', id !== target);
+        });
+        navBtns.forEach(btn => {
+          const active = btn.getAttribute('data-tab') === target;
+          btn.className = active
+            ? 'nav-btn flex flex-col items-center py-1 rounded-xl text-pink-600 font-black'
+            : 'nav-btn flex flex-col items-center py-1 rounded-xl text-slate-500 font-bold';
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      navBtns.forEach(b => b.addEventListener('click', () => switchTab(b.getAttribute('data-tab'))));
+      document.getElementById('btnHomeFindFriend').addEventListener('click', () => switchTab('tab-meetup'));
+      document.getElementById('btnHomeGoTop20').addEventListener('click', () => switchTab('tab-top20'));
+      document.getElementById('btnGoTop20Banner').addEventListener('click', () => switchTab('tab-top20'));
+      document.getElementById('btnHeaderLightstick').addEventListener('click', () => switchTab('tab-top20'));
+      document.getElementById('btnTickerDingxi').addEventListener('click', () => switchTab('tab-meetup'));
+      document.getElementById('btnTickerFeed').addEventListener('click', () => switchTab('tab-feed'));
+
+      // Open Photocard Checkin Sheet
+      function openCheckinSheet() {
+        const cur = getImmortal(vState.currentId);
+        document.getElementById('selSport').value = cur.sport;
+        document.getElementById('inpMood').value = cur.quote;
+        drawPhotocardCanvas();
+        document.getElementById('modalDeluxeCheckin').classList.remove('hidden');
+      }
+      document.getElementById('btnOpenCheckin').addEventListener('click', openCheckinSheet);
+      document.getElementById('btnQuickCamera').addEventListener('click', openCheckinSheet);
+      document.getElementById('btnOpenCameraFromFeed').addEventListener('click', openCheckinSheet);
+      document.getElementById('btnCloseCheckin').addEventListener('click', () => {
+        stopLiveWebcam();
+        document.getElementById('modalDeluxeCheckin').classList.add('hidden');
+      });
+
+      // Mobile Native Camera & Album File Inputs
+      document.getElementById('inpMobileNativeCam').addEventListener('change', (e) => handleImageFileUpload(e.target.files[0]));
+      document.getElementById('inpFilePhoto').addEventListener('change', (e) => handleImageFileUpload(e.target.files[0]));
+      document.getElementById('btnStartWebCam').addEventListener('click', startLiveWebcam);
+
+      document.getElementById('btnSnapShutter').addEventListener('click', () => {
+        const video = document.getElementById('webcamVideoEl');
+        if (!video || !vState.stream) return;
+        const off = document.createElement('canvas');
+        off.width = video.videoWidth || 480;
+        off.height = video.videoHeight || 360;
+        off.getContext('2d').drawImage(video, 0, 0, off.width, off.height);
+        const img = new Image();
+        img.onload = () => {
+          vState.capturedImageObj = img;
+          stopLiveWebcam();
+          drawPhotocardCanvas();
+          showToast('📸 拍照完成！已自動套用韓系 SSR 簽名框！', '✨');
+        };
+        img.src = off.toDataURL('image/png');
+      });
+
+      document.querySelectorAll('.frame-style-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          vState.frameStyle = btn.getAttribute('data-frame');
+          document.querySelectorAll('.frame-style-btn').forEach(b => {
+            b.className = 'frame-style-btn py-1.5 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 font-bold';
+          });
+          btn.className = 'frame-style-btn py-1.5 rounded-xl bg-pink-100 border-2 border-pink-500 text-pink-950 font-black';
+          drawPhotocardCanvas();
+        });
+      });
+
+      document.getElementById('selSport').addEventListener('change', drawPhotocardCanvas);
+      document.getElementById('btnDownloadPhotocard').addEventListener('click', () => {
+        drawPhotocardCanvas();
+        const a = document.createElement('a');
+        a.download = '運動冒險島_韓系SSR小卡.png';
+        a.href = vState.latestPhotocardDataUrl;
+        a.click();
+        showToast('⬇️ 小卡已下載！', '📸');
+      });
+
+      document.getElementById('btnSpinMood').addEventListener('click', () => {
+        const pool = IMMORTALS_DATA.map(m => m.quote);
+        document.getElementById('inpMood').value = pool[Math.floor(Math.random() * pool.length)];
+      });
+
+      // Submit Checkin
+      document.getElementById('btnFireCheckin').addEventListener('click', () => {
+        const cur = getImmortal(vState.currentId);
+        const today = todayKey();
+        // 每人每天限打卡一次
+        if (vState.lastCheckinDate[cur.id] === today) {
+          showToast(`${cur.name} 今天已經打卡過囉，明天再來！`, '⏳');
+          return;
+        }
+        stopLiveWebcam();
+        drawPhotocardCanvas();
+        vState.lastCheckinDate[cur.id] = today;
+
+        const wasDone = isDone(cur);
+        vState.doneIds.add(cur.id);
+        vState.lightsticks += 5;
+        const sport = document.getElementById('selSport').value;
+        const mood = document.getElementById('inpMood').value.trim().slice(0, 60) || cur.quote;
+        const enterTop20 = document.getElementById('chkEnterTop20').checked;
+
+        vState.posts.unshift({
+          id: 'fp-' + Date.now(),
+          userId: cur.id,
+          sport,
+          time: '剛剛',
+          mood,
+          photoData: vState.latestPhotocardDataUrl,
+          hearts: 1, claps: 1, coffees: 1
+        });
+
+        if (enterTop20) {
+          // 新投稿從 0 票起跳，靠朋友應援衝榜
+          vState.top20Moments.unshift({
+            id: 'm-' + Date.now(),
+            userId: cur.id,
+            tag: '📸 手機小卡出道賞',
+            title: mood,
+            sport,
+            votes: 0,
+            isNew: true,
+            photoData: vState.latestPhotocardDataUrl
+          });
+        }
+
+        document.getElementById('modalDeluxeCheckin').classList.add('hidden');
+        renderAllMobile();
+
+        // 小島能量依實際增加的人數計算（本週首次達標才會增加）
+        const gain = wasDone ? 0 : (100 / IMMORTALS_DATA.length);
+        const overlay = document.getElementById('summonCutsceneOverlay');
+        document.getElementById('cutsceneAvatar').textContent = cur.icon;
+        document.getElementById('cutsceneTitle').textContent = `${formatDisplayTitle(cur)} 登島成功！`;
+        document.getElementById('cutsceneReward').textContent = gain > 0
+          ? `小島能量 +${gain.toFixed(1)}% ⚡ 獲贈 🪄 應援手燈 +5 張`
+          : `本週已達標，繼續保持 💪 獲贈 🪄 應援手燈 +5 張`;
+        document.getElementById('cutsceneTop20Note').textContent = enterTop20
+          ? '🏆 今日運動小卡已投稿《TOP 20 名場面應援榜》，快找朋友投票！'
+          : '📸 小卡已發佈到朋友圈動態牆！';
+        overlay.classList.remove('hidden');
+        setTimeout(() => {
+          overlay.classList.add('hidden');
+          switchTab(enterTop20 ? 'tab-top20' : 'tab-feed');
+        }, 1700);
+      });
+
+      // TOP 20 Voting
+      document.getElementById('tab-top20').addEventListener('click', (e) => {
+        const btn = e.target.closest('.vote-card-btn');
+        if (!btn) return;
+        const id = btn.getAttribute('data-vote-id');
+        const amt = parseInt(btn.getAttribute('data-vote-amt'), 10) || 10;
+        const item = vState.top20Moments.find(x => x.id === id);
+        if (item) {
+          item.votes += amt;
+          vState.totalGroupVotes += amt;
+          spawnEmojiFountain(e.clientX, e.clientY, amt > 10 ? '💖' : '🪄');
+          renderAllMobile();
+          showToast(`🪄 應援成功 (+${amt}票)！名次已即時更新！`, '💖');
+        }
+      });
+
+      document.getElementById('btnClaimFreeLightsticks').addEventListener('click', (e) => {
+        vState.lightsticks += 10;
+        spawnEmojiFountain(e.clientX, e.clientY, '🪄');
+        renderAllMobile();
+        showToast('🎁 已領取 +10 張免費應援手燈票！', '🪄');
+      });
+
+      document.getElementById('chkHideVotesModerate').addEventListener('change', (e) => {
+        vState.hideVotesModerate = e.target.checked;
+        renderTop20Chart();
+      });
+
+      // Feed Reactions
+      document.getElementById('deluxeFeedContainer').addEventListener('click', (e) => {
+        const fBtn = e.target.closest('.fountain-btn');
+        if (!fBtn) return;
+        const id = fBtn.getAttribute('data-id');
+        const field = fBtn.getAttribute('data-field');
+        const emoji = fBtn.getAttribute('data-fountain');
+        const post = vState.posts.find(x => x.id === id);
+        if (post) {
+          post[field] += 1;
+          spawnEmojiFountain(e.clientX, e.clientY, emoji);
+          renderAllMobile();
+        }
+      });
+
+      // Dingxi Group Photo Upload
+      document.getElementById('inpDingxiGroupPhoto').addEventListener('change', (e) => {
+        const file = e.target.files && e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          vState.dingxiGroupPhotoUrl = ev.target.result;
+          renderAllMobile();
+          switchTab('tab-home');
+          showToast('📸 頂溪集合合照已掛上首頁右上角拍立得！', '🎉');
+        };
+        reader.readAsDataURL(file);
+      });
+      document.getElementById('polaroidGalleryWidget').addEventListener('click', () => {
+        document.getElementById('inpDingxiGroupPhoto').click();
+      });
+
+      // Dingxi RSVP
+      const joinDingxi = (role) => {
+        const ex = vState.roster.find(r => r.id === vState.currentId);
+        if (ex) ex.role = role;
+        else vState.roster.push({ id: vState.currentId, role });
+        renderAllMobile();
+        showToast(role === 'angel' ? '🪽 已裝備「黃金陪動天使」銘牌！' : '🟢 已報名週日頂溪集合！', '📍');
+      };
+      document.getElementById('btnJoinEnergy').addEventListener('click', () => joinDingxi('energy'));
+      document.getElementById('btnJoinAngel').addEventListener('click', () => joinDingxi('angel'));
+      document.getElementById('btnJoinRemote').addEventListener('click', () => joinDingxi('remote'));
+
+      // Character Selector Bottom Sheet (Single-Column Spacious Cards - Zero Overlap)
+      function populateHoloDeck() {
+        const cur = getImmortal(vState.currentId);
+        document.getElementById('inpCustomNickname').value = cur.name;
+        const grid = document.getElementById('holoCardsGrid');
+        grid.innerHTML = '';
+        IMMORTALS_DATA.forEach(m => {
+          const isSelected = m.id === vState.currentId;
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = `w-full p-3.5 rounded-2xl border-2 text-left flex items-center justify-between gap-3 transition shrink-0 ${
+            isSelected ? 'border-amber-400 bg-amber-500/20 ring-2 ring-amber-300' : 'border-white/15 bg-white/10'
+          }`;
+          btn.innerHTML = `
+            <div class="flex items-center gap-3 min-w-0 flex-1">
+              <span class="text-3xl shrink-0">${m.icon}</span>
+              <div class="min-w-0 flex-1">
+                <div class="text-sm font-black text-white truncate">${String(m.id).padStart(2, '0')} ${esc(m.title)}・${esc(m.name)}</div>
+                <div class="text-xs text-amber-300 font-bold mt-0.5 truncate">${m.relic} ｜ 連 ${m.streak} 週達標</div>
+              </div>
+            </div>
+            <div class="flex flex-col items-end gap-1 shrink-0">
+              ${isSelected ? '<span class="whitespace-nowrap text-[10px] font-black px-2 py-0.5 rounded-full bg-amber-400 text-slate-950">✨ 當前人物</span>' : ''}
+              <span class="whitespace-nowrap text-[11px] font-black px-2.5 py-0.5 rounded-full ${isDone(m) ? 'bg-emerald-400 text-slate-950' : 'bg-white/15 text-slate-200'}">${isDone(m) ? '✓ 已登島' : '待出發'}</span>
+            </div>
+          `;
+          btn.addEventListener('click', () => {
+            vState.currentId = m.id;
+            document.getElementById('modalHoloDeck').classList.add('hidden');
+            renderAllMobile();
+            drawPhotocardCanvas();
+            showToast(`已切換人物為：${formatDisplayTitle(m)}`, m.icon);
+          });
+          grid.appendChild(btn);
+        });
+      }
+
+      document.getElementById('btnOpenImmortalDeck').addEventListener('click', () => {
+        populateHoloDeck();
+        document.getElementById('modalHoloDeck').classList.remove('hidden');
+      });
+      document.getElementById('btnSaveCustomNickname').addEventListener('click', () => {
+        const val = document.getElementById('inpCustomNickname').value.trim();
+        if (val) {
+          getImmortal(vState.currentId).name = val;
+          populateHoloDeck();
+          renderAllMobile();
+          showToast(`已更新暱稱為：${val}`, '✨');
+        }
+      });
+      document.getElementById('btnCloseHoloDeck').addEventListener('click', () => document.getElementById('modalHoloDeck').classList.add('hidden'));
+
+      // Visual Console
+      document.getElementById('btnOpen20Upgrades').addEventListener('click', () => document.getElementById('modal20Upgrades').classList.remove('hidden'));
+      document.getElementById('btnClose20Upgrades').addEventListener('click', () => document.getElementById('modal20Upgrades').classList.add('hidden'));
+      document.getElementById('selSkyShader').addEventListener('change', (e) => {
+        vState.skyShader = e.target.value;
+        const stageBox = document.getElementById('parallaxIslandStage');
+        if (vState.skyShader === 'aurora') {
+          stageBox.className = 'relative rounded-3xl overflow-hidden shadow-lg border-2 border-teal-300 h-64 select-none bg-gradient-to-b from-slate-950 via-teal-950 to-emerald-900';
+          document.getElementById('skyThemeBadge').textContent = '🌌 仲夏夜流光極光';
+        } else if (vState.skyShader === 'sakura') {
+          stageBox.className = 'relative rounded-3xl overflow-hidden shadow-lg border-2 border-pink-300 h-64 select-none bg-gradient-to-b from-rose-300 via-pink-200 to-amber-100';
+          document.getElementById('skyThemeBadge').textContent = '🌸 仁愛公園粉櫻季';
+        } else {
+          stageBox.className = 'relative rounded-3xl overflow-hidden shadow-lg border-2 border-white h-64 select-none bg-gradient-to-b from-indigo-950 via-purple-900 to-amber-500';
+          document.getElementById('skyThemeBadge').textContent = '🌅 紫金中正橋夕陽';
+        }
+      });
+      document.getElementById('btnTrigger100Party').addEventListener('click', () => {
+        IMMORTALS_DATA.forEach(m => vState.doneIds.add(m.id));
+        vState.totalGroupVotes = 320;
+        document.getElementById('modal20Upgrades').classList.add('hidden');
+        renderAllMobile();
+        showToast('🏮 100% 樂華夜市霓虹 ＆ 豆漿應援車全開！', '🎆');
+      });
+
+      document.getElementById('btnSimFriend').addEventListener('click', () => {
+        const next = IMMORTALS_DATA.find(m => !isDone(m));
+        if (next) {
+          vState.doneIds.add(next.id);
+          renderAllMobile();
+          showToast(`${formatDisplayTitle(next)} 打卡登島！`, next.icon);
+        } else {
+          showToast('全員 12 人皆已達標 100% 囉！🎉', '🎆');
+        }
+      });
+
+      document.getElementById('btnUnlockWelcomeBack').addEventListener('click', () => {
+        const wb = vState.badges.find(x => x.id === 'b8');
+        if (wb) wb.unlocked = true;
+        renderAllMobile();
+        showToast('🌈 已點亮「歡迎回來」暖心紀念章！', '🌈');
+      });
+      document.getElementById('chkPosterConsent').addEventListener('change', renderCollectorPoster);
+      document.getElementById('btnDownloadDeluxePoster').addEventListener('click', () => {
+        const c = document.getElementById('collectorPosterCanvas');
+        const a = document.createElement('a');
+        a.download = '11月運動冒險島_手機分享海報.png';
+        a.href = c.toDataURL('image/png');
+        a.click();
+      });
+    });
+  </script>
+</body>
+</html>
