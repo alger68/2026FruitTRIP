@@ -118,7 +118,7 @@
           </div>
           <div class="min-w-0">
             <h1 class="text-sm font-black text-slate-900 truncate">動一下啦！30 分鐘運動冒險島</h1>
-            <p class="text-[11px] text-emerald-700 font-bold truncate">頂溪十二神仙・手機單手觸控版</p>
+            <p class="text-[11px] text-emerald-700 font-bold truncate">頂溪十二神仙・<span id="syncBadge">⚪ 單機模式</span></p>
           </div>
         </div>
 
@@ -674,6 +674,8 @@
       currentId: 1,
       doneIds: new Set(IMMORTALS_DATA.filter(m => m.done).map(m => m.id)),
       lastCheckinDate: {},
+      doneDates: {},
+      claims: {},
       lightsticks: 15,
       totalGroupVotes: 245,
       hideVotesModerate: false,
@@ -692,12 +694,12 @@
       ],
       posts: [
         {
-          id: 'fp1', userId: 5, sport: '快走散步 30 分鐘', time: '12 分鐘前',
+          id: 'fp1', userId: 5, sport: '快走散步 30 分鐘', time: '12 分鐘前', ts: Date.now() - 12 * 60000,
           mood: '多繞樂華夜市外圍兩圈，剛才下肚的香雞排熱量正式歸零！',
           photoData: null, hearts: 12, claps: 8, coffees: 6, joinIds: [1]
         },
         {
-          id: 'fp2', userId: 1, sport: '快走散步 30 分鐘', time: '1 小時前',
+          id: 'fp2', userId: 1, sport: '快走散步 30 分鐘', time: '1 小時前', ts: Date.now() - 60 * 60000,
           mood: '本來只想出門買飲料，結果多走了半小時！',
           photoData: null, hearts: 9, claps: 7, coffees: 4, joinIds: [5, 8]
         }
@@ -892,7 +894,7 @@
             <div class="text-xs font-black text-amber-200 truncate">「${esc(first.title)}」</div>
             <div class="text-[11px] text-emerald-300">${esc(first.sport)}</div>
           </div>
-          <button type="button" data-vote-id="${first.id}" data-vote-amt="10" class="vote-card-btn shrink-0 px-3 py-1.5 rounded-xl bg-gradient-to-r from-pink-500 to-amber-400 text-slate-950 text-xs font-black">
+          <button type="button" data-vote-id="${esc(first.id)}" data-vote-amt="10" class="vote-card-btn shrink-0 px-3 py-1.5 rounded-xl bg-gradient-to-r from-pink-500 to-amber-400 text-slate-950 text-xs font-black">
             ${vState.hideVotesModerate ? '🪄 應援' : `🪄 ${first.votes}票 (+10)`}
           </button>
         </div>
@@ -929,10 +931,10 @@
           <div class="flex items-center justify-between gap-2 pt-1 border-t border-slate-100">
             <span class="text-[11px] text-emerald-700 font-bold">${esc(item.tag)} · ${esc(item.sport)}</span>
             <div class="flex items-center gap-1.5 shrink-0">
-              <button type="button" data-vote-id="${item.id}" data-vote-amt="10" class="vote-card-btn px-2.5 py-1.5 rounded-xl bg-pink-50 active:scale-95 text-pink-700 border border-pink-200 text-xs font-black">
+              <button type="button" data-vote-id="${esc(item.id)}" data-vote-amt="10" class="vote-card-btn px-2.5 py-1.5 rounded-xl bg-pink-50 active:scale-95 text-pink-700 border border-pink-200 text-xs font-black">
                 🪄 +10
               </button>
-              <button type="button" data-vote-id="${item.id}" data-vote-amt="25" class="vote-card-btn px-2.5 py-1.5 rounded-xl bg-gradient-to-r from-pink-500 to-amber-500 active:scale-95 text-white text-xs font-black">
+              <button type="button" data-vote-id="${esc(item.id)}" data-vote-amt="25" class="vote-card-btn px-2.5 py-1.5 rounded-xl bg-gradient-to-r from-pink-500 to-amber-500 active:scale-95 text-white text-xs font-black">
                 💖 +25
               </button>
             </div>
@@ -956,6 +958,10 @@
 
     // ==================== RENDER ALL ====================
     function renderAllMobile() {
+      try {
+        localStorage.setItem('move30_ls', String(vState.lightsticks));
+        localStorage.setItem('move30_char', String(vState.currentId));
+      } catch (_) {}
       const cur = getImmortal(vState.currentId);
       document.getElementById('activeImmortalPill').textContent = `${cur.icon} ${formatDisplayTitle(cur)}`;
       document.getElementById('btnHeaderLightstick').textContent = `🪄 ${vState.lightsticks} 票`;
@@ -1020,7 +1026,7 @@
               <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-emerald-400 to-pink-500 text-white flex items-center justify-center text-xl">${author.icon}</div>
               <div>
                 <div class="text-xs font-black text-slate-900">${esc(formatDisplayTitle(author))}</div>
-                <div class="text-[11px] font-bold text-emerald-700">${esc(p.sport)} · ${esc(p.time)}</div>
+                <div class="text-[11px] font-bold text-emerald-700">${esc(p.sport)} · ${esc(p.ts ? timeAgo(p.ts) : p.time)}</div>
               </div>
             </div>
             <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-amber-100 text-amber-900">${author.relic}</span>
@@ -1030,13 +1036,13 @@
             「${esc(p.mood)}」
           </blockquote>
           <div class="flex items-center gap-1.5 pt-1">
-            <button type="button" data-fountain="❤️" data-id="${p.id}" data-field="hearts" class="fountain-btn px-2.5 py-1.5 rounded-xl bg-rose-50 text-rose-700 text-xs font-black border border-rose-200">
+            <button type="button" data-fountain="❤️" data-id="${esc(p.id)}" data-field="hearts" class="fountain-btn px-2.5 py-1.5 rounded-xl bg-rose-50 text-rose-700 text-xs font-black border border-rose-200">
               ❤️ ${p.hearts}
             </button>
-            <button type="button" data-fountain="👏" data-id="${p.id}" data-field="claps" class="fountain-btn px-2.5 py-1.5 rounded-xl bg-amber-50 text-amber-900 text-xs font-black border border-amber-200">
+            <button type="button" data-fountain="👏" data-id="${esc(p.id)}" data-field="claps" class="fountain-btn px-2.5 py-1.5 rounded-xl bg-amber-50 text-amber-900 text-xs font-black border border-amber-200">
               👏 ${p.claps}
             </button>
-            <button type="button" data-fountain="🙋" data-id="${p.id}" data-field="coffees" class="fountain-btn ml-auto px-3 py-1.5 rounded-xl bg-emerald-600 text-white text-xs font-black">
+            <button type="button" data-fountain="🙋" data-id="${esc(p.id)}" data-field="coffees" class="fountain-btn ml-auto px-3 py-1.5 rounded-xl bg-emerald-600 text-white text-xs font-black">
               🙋 下次揪我 (${p.coffees})
             </button>
           </div>
@@ -1124,10 +1130,218 @@
       });
     }
 
+
+    // ==================== 即時同步（Firebase Realtime Database REST）====================
+    // 使用方式：把 Firebase Realtime Database 網址貼到下面 dbUrl，或在網址後加 ?db=網址
+    // 沒設定時為「單機模式」，行為與之前完全相同。
+    const SYNC_CONFIG = {
+      dbUrl: '',          // 例如 'https://你的專案-default-rtdb.asia-southeast1.firebasedatabase.app'
+      room: 'main'        // 房間代號，可用 ?room=xxx 開不同場次
+    };
+    const _qs = new URLSearchParams(location.search);
+    const DB_URL = (_qs.get('db') || SYNC_CONFIG.dbUrl || '').trim().replace(/\/+$/, '');
+    const ROOM = ((_qs.get('room') || SYNC_CONFIG.room || 'main').replace(/[^\w-]/g, '').slice(0, 32)) || 'main';
+    const CLIENT_ID = (() => {
+      try {
+        let c = localStorage.getItem('move30_cid');
+        if (!c) { c = Math.random().toString(36).slice(2, 10); localStorage.setItem('move30_cid', c); }
+        return c;
+      } catch (_) { return Math.random().toString(36).slice(2, 10); }
+    })();
+
+    // 以下取代 localStorage 中記住的手燈數與角色
+    try {
+      const ls = parseInt(localStorage.getItem('move30_ls'), 10);
+      if (!isNaN(ls) && ls >= 0) vState.lightsticks = ls;
+    } catch (_) {}
+
+    function timeAgo(ts) {
+      const sec = Math.max(0, Math.round((Date.now() - ts) / 1000));
+      if (sec < 60) return '剛剛';
+      if (sec < 3600) return `${Math.floor(sec / 60)} 分鐘前`;
+      if (sec < 86400) return `${Math.floor(sec / 3600)} 小時前`;
+      return `${Math.floor(sec / 86400)} 天前`;
+    }
+    // 遠端資料一律視為不可信：圖片只接受 data:image，其餘欄位轉型/截長
+    function safeImg(u) {
+      return (typeof u === 'string' && u.length < 600000 && /^data:image\/(jpeg|png);base64,[A-Za-z0-9+/=]+$/.test(u)) ? u : null;
+    }
+    function cut(v, n) { return String(v ?? '').slice(0, n); }
+    function validUid(v) { const n = Number(v); return Number.isInteger(n) && n >= 1 && n <= 12 ? n : null; }
+
+    const photoCache = new Map();
+    const photoTries = new Map();
+    const photoInflight = new Set();
+
+    const sync = {
+      enabled: !!DB_URL,
+      ok: false,
+      pending: 0,
+      lastJson: '',
+      lastData: null,
+      booted: false,
+      warned: false,
+      url(path) { return `${DB_URL}/rooms/${ROOM}${path ? '/' + path : ''}.json`; },
+      async req(method, path, body) {
+        const r = await fetch(this.url(path), {
+          method,
+          headers: { 'Content-Type': 'application/json' },
+          body: body === undefined ? undefined : JSON.stringify(body)
+        });
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      },
+      // 寫入：失敗時提示一次，不影響本機操作
+      async write(fn) {
+        if (!this.enabled) return;
+        this.pending++;
+        try { await fn(); this.ok = true; }
+        catch (_) {
+          this.ok = false;
+          if (!this.warned) { this.warned = true; showToast('同步失敗，請檢查網路（稍後會自動重試讀取）', '⚠️'); }
+        } finally { this.pending--; this.updateBadge(); }
+      },
+      put(path, val) { return this.write(() => this.req('PUT', path, val)); },
+      del(path) { return this.write(() => this.req('DELETE', path)); },
+      inc(path, n) { return this.write(() => this.req('PUT', path, { '.sv': { increment: n } })); },
+      updateBadge() {
+        const el = document.getElementById('syncBadge');
+        if (!el) return;
+        el.textContent = !this.enabled ? '⚪ 單機模式' : this.ok ? `🟢 即時同步・${ROOM}` : '🟠 連線中…';
+      },
+      seedData() {
+        const done = {}; IMMORTALS_DATA.forEach(m => { if (m.done) done[m.id] = 'seed'; });
+        const posts = {}; vState.posts.forEach(x => {
+          posts[x.id] = { userId: x.userId, sport: x.sport, mood: x.mood, ts: x.ts, hearts: x.hearts, claps: x.claps, coffees: x.coffees };
+        });
+        const top20 = {}; INITIAL_TOP20.forEach(x => {
+          top20[x.id] = { userId: x.userId, tag: x.tag, title: x.title, sport: x.sport, votes: x.votes };
+        });
+        const roster = {}; vState.roster.forEach(r => { roster[r.id] = r.role; });
+        return { done, posts, top20, roster, groupVotes: vState.totalGroupVotes };
+      },
+      applyRemote(d) {
+        d = d || {};
+        const today = todayKey();
+        const done = d.done || {};
+        vState.doneIds = new Set(); vState.doneDates = {};
+        Object.keys(done).forEach(k => {
+          const id = validUid(k); if (!id) return;
+          vState.doneIds.add(id); vState.doneDates[id] = cut(done[k], 12);
+          if (vState.doneDates[id] === today) vState.lastCheckinDate[id] = today;
+        });
+        Object.entries(d.names || {}).forEach(([k, v]) => {
+          const id = validUid(k); const m = id && IMMORTALS_DATA.find(x => x.id === id);
+          if (m && typeof v === 'string' && v.trim()) m.name = cut(v, 12);
+        });
+        vState.posts = Object.entries(d.posts || {}).map(([id, x]) => {
+          const uid = validUid(x && x.userId); if (!uid) return null;
+          const hasPhoto = x.hasPhoto === true;
+          if (hasPhoto) ensurePhoto(id);
+          return { id: cut(id, 60), userId: uid, sport: cut(x.sport, 40), mood: cut(x.mood, 60), ts: Number(x.ts) || 0,
+            hearts: Number(x.hearts) || 0, claps: Number(x.claps) || 0, coffees: Number(x.coffees) || 0,
+            photoData: hasPhoto ? (photoCache.get(id) || null) : null };
+        }).filter(Boolean).sort((a, b) => b.ts - a.ts).slice(0, 50);
+        vState.top20Moments = Object.entries(d.top20 || {}).map(([id, x]) => {
+          const uid = validUid(x && x.userId); if (!uid) return null;
+          const ref = x.photoRef ? cut(x.photoRef, 60) : null;
+          if (ref) ensurePhoto(ref);
+          return { id: cut(id, 60), userId: uid, tag: cut(x.tag, 30), title: cut(x.title, 60), sport: cut(x.sport, 40),
+            votes: Number(x.votes) || 0, isNew: x.isNew === true, photoData: ref ? (photoCache.get(ref) || null) : null };
+        }).filter(Boolean);
+        if (vState.top20Moments.length === 0) vState.top20Moments = INITIAL_TOP20.map(x => ({ ...x }));
+        vState.roster = Object.entries(d.roster || {}).map(([k, role]) => {
+          const id = validUid(k); return id && ['energy', 'angel', 'remote'].includes(role) ? { id, role } : null;
+        }).filter(Boolean);
+        vState.totalGroupVotes = Number(d.groupVotes) || 0;
+        vState.claims = {};
+        Object.entries(d.claims || {}).forEach(([k, c]) => {
+          const id = validUid(k);
+          if (id && c && typeof c.cid === 'string') vState.claims[id] = { cid: c.cid, t: Number(c.t) || 0 };
+        });
+      },
+      async poll() {
+        if (this.pending > 0) return;           // 自己的寫入還沒完成時不覆蓋畫面
+        try {
+          const d = await this.req('GET', '');
+          if (this.pending > 0) return;
+          this.ok = true; this.lastData = d;
+          this.applyRemote(d);
+          if (!this.booted) { this.booted = true; ensureMyCharacter(); }
+          else ensureMyCharacter(true);
+          const j = JSON.stringify([vState.doneIds && [...vState.doneIds], vState.posts.map(x => [x.id, x.hearts, x.claps, x.coffees, !!x.photoData]),
+            vState.top20Moments.map(x => [x.id, x.votes, !!x.photoData]), vState.roster, vState.totalGroupVotes, vState.claims, vState.currentId,
+            IMMORTALS_DATA.map(m => m.name)]);
+          if (j !== this.lastJson) { this.lastJson = j; renderAllMobile(); }
+        } catch (_) { this.ok = false; }
+        this.updateBadge();
+      },
+      async start() {
+        this.updateBadge();
+        if (!this.enabled) return;
+        document.getElementById('btnSimFriend')?.classList.add('hidden');
+        document.getElementById('btnTrigger100Party')?.classList.add('hidden');
+        try {
+          const d = await this.req('GET', '');
+          if (d === null) await this.req('PUT', '', this.seedData());   // 房間第一次開啟：寫入初始資料
+        } catch (_) {}
+        await this.poll();
+        setInterval(() => this.poll(), 3000);
+        document.addEventListener('visibilitychange', () => { if (!document.hidden) this.poll(); });
+      }
+    };
+
+    function ensurePhoto(id) {
+      if (!sync.enabled || photoCache.has(id) || photoInflight.has(id) || (photoTries.get(id) || 0) >= 3) return;
+      photoInflight.add(id);
+      photoTries.set(id, (photoTries.get(id) || 0) + 1);
+      sync.req('GET', `photos/${id}`).then(v => {
+        const img = safeImg(v);
+        if (img) {
+          photoCache.set(id, img);
+          if (sync.lastData) { sync.applyRemote(sync.lastData); renderAllMobile(); }
+        }
+      }).catch(() => {}).finally(() => photoInflight.delete(id));
+    }
+
+    // ---- 角色鎖定：每支手機各自扮演一位神仙，避免大家都是阿明 ----
+    function claimTakenByOther(id) {
+      const c = vState.claims[id];
+      return !!c && c.cid !== CLIENT_ID && (Date.now() - c.t) < 6 * 3600 * 1000;
+    }
+    function claimCharacter(id, prevId) {
+      if (!sync.enabled) return;
+      vState.claims[id] = { cid: CLIENT_ID, t: Date.now() };
+      sync.put(`claims/${id}`, { cid: CLIENT_ID, t: Date.now() });
+      if (prevId && prevId !== id && vState.claims[prevId] && vState.claims[prevId].cid === CLIENT_ID) {
+        delete vState.claims[prevId];
+        sync.del(`claims/${prevId}`);
+      }
+    }
+    function ensureMyCharacter(isRecheck) {
+      if (!sync.enabled) return;
+      let saved = null;
+      try { saved = parseInt(localStorage.getItem('move30_char'), 10); } catch (_) {}
+      const prev = vState.currentId;
+      if (!isRecheck && validUid(saved)) vState.currentId = saved;
+      if (claimTakenByOther(vState.currentId)) {
+        const free = IMMORTALS_DATA.map(m => m.id).find(i => !claimTakenByOther(i));
+        if (free) {
+          vState.currentId = free;
+          showToast(`原本的角色已被選走，已幫你換成 ${formatDisplayTitle(getImmortal(free))}`, '🔄');
+        } else {
+          showToast('12 位神仙都有人了，你先以觀察員身分逛逛吧', '👀');
+        }
+      }
+      const c = vState.claims[vState.currentId];
+      if (!c || c.cid !== CLIENT_ID || Date.now() - c.t > 30 * 60 * 1000) claimCharacter(vState.currentId, prev);
+    }
+
     // ==================== INITIALIZE & LISTENERS ====================
     window.addEventListener('DOMContentLoaded', () => {
       renderAllMobile();
       drawPhotocardCanvas();
+      sync.start();
 
       // Tab Switching
       const navBtns = document.querySelectorAll('.nav-btn');
@@ -1235,27 +1449,43 @@
         const mood = document.getElementById('inpMood').value.trim().slice(0, 60) || cur.quote;
         const enterTop20 = document.getElementById('chkEnterTop20').checked;
 
+        // 同步用的小卡改存 JPEG，檔案小很多
+        const photoJpeg = document.getElementById('photocardCanvas').toDataURL('image/jpeg', 0.72);
+        const postId = `fp-${Date.now()}-${CLIENT_ID.slice(0, 4)}`;
+        const top20Id = `m-${Date.now()}-${CLIENT_ID.slice(0, 4)}`;
+        photoCache.set(postId, photoJpeg);
+
         vState.posts.unshift({
-          id: 'fp-' + Date.now(),
+          id: postId,
           userId: cur.id,
           sport,
           time: '剛剛',
+          ts: Date.now(),
           mood,
-          photoData: vState.latestPhotocardDataUrl,
+          photoData: photoJpeg,
           hearts: 1, claps: 1, coffees: 1
         });
 
         if (enterTop20) {
           // 新投稿從 0 票起跳，靠朋友應援衝榜
           vState.top20Moments.unshift({
-            id: 'm-' + Date.now(),
+            id: top20Id,
             userId: cur.id,
             tag: '📸 手機小卡出道賞',
             title: mood,
             sport,
             votes: 0,
             isNew: true,
-            photoData: vState.latestPhotocardDataUrl
+            photoData: photoJpeg
+          });
+        }
+
+        if (sync.enabled) {
+          sync.write(async () => {
+            await sync.req('PUT', `photos/${postId}`, photoJpeg);
+            await sync.req('PUT', `posts/${postId}`, { userId: cur.id, sport, mood, ts: Date.now(), hasPhoto: true, hearts: 1, claps: 1, coffees: 1 });
+            if (enterTop20) await sync.req('PUT', `top20/${top20Id}`, { userId: cur.id, tag: '📸 手機小卡出道賞', title: mood, sport, votes: 0, isNew: true, photoRef: postId });
+            await sync.req('PUT', `done/${cur.id}`, today);
           });
         }
 
@@ -1288,8 +1518,17 @@
         const amt = parseInt(btn.getAttribute('data-vote-amt'), 10) || 10;
         const item = vState.top20Moments.find(x => x.id === id);
         if (item) {
+          if (vState.lightsticks < amt) {
+            showToast('手燈票不夠囉，先到上方領手燈或去運動打卡！', '🪄');
+            return;
+          }
+          vState.lightsticks -= amt;
           item.votes += amt;
           vState.totalGroupVotes += amt;
+          if (sync.enabled) {
+            sync.inc(`top20/${id}/votes`, amt);
+            sync.inc('groupVotes', amt);
+          }
           spawnEmojiFountain(e.clientX, e.clientY, amt > 10 ? '💖' : '🪄');
           renderAllMobile();
           showToast(`🪄 應援成功 (+${amt}票)！名次已即時更新！`, '💖');
@@ -1297,6 +1536,13 @@
       });
 
       document.getElementById('btnClaimFreeLightsticks').addEventListener('click', (e) => {
+        try {
+          if (localStorage.getItem('move30_claim_date') === todayKey()) {
+            showToast('今天已經領過手燈囉，明天再來！', '🎁');
+            return;
+          }
+          localStorage.setItem('move30_claim_date', todayKey());
+        } catch (_) {}
         vState.lightsticks += 10;
         spawnEmojiFountain(e.clientX, e.clientY, '🪄');
         renderAllMobile();
@@ -1316,8 +1562,9 @@
         const field = fBtn.getAttribute('data-field');
         const emoji = fBtn.getAttribute('data-fountain');
         const post = vState.posts.find(x => x.id === id);
-        if (post) {
+        if (post && ['hearts', 'claps', 'coffees'].includes(field)) {
           post[field] += 1;
+          if (sync.enabled) sync.inc(`posts/${id}/${field}`, 1);
           spawnEmojiFountain(e.clientX, e.clientY, emoji);
           renderAllMobile();
         }
@@ -1345,6 +1592,7 @@
         const ex = vState.roster.find(r => r.id === vState.currentId);
         if (ex) ex.role = role;
         else vState.roster.push({ id: vState.currentId, role });
+        if (sync.enabled) sync.put(`roster/${vState.currentId}`, role);
         renderAllMobile();
         showToast(role === 'angel' ? '🪽 已裝備「黃金陪動天使」銘牌！' : '🟢 已報名週日頂溪集合！', '📍');
       };
@@ -1375,11 +1623,18 @@
             </div>
             <div class="flex flex-col items-end gap-1 shrink-0">
               ${isSelected ? '<span class="whitespace-nowrap text-[10px] font-black px-2 py-0.5 rounded-full bg-amber-400 text-slate-950">✨ 當前人物</span>' : ''}
+              ${claimTakenByOther(m.id) ? '<span class="whitespace-nowrap text-[10px] font-black px-2 py-0.5 rounded-full bg-rose-500 text-white">🔒 已被選走</span>' : ''}
               <span class="whitespace-nowrap text-[11px] font-black px-2.5 py-0.5 rounded-full ${isDone(m) ? 'bg-emerald-400 text-slate-950' : 'bg-white/15 text-slate-200'}">${isDone(m) ? '✓ 已登島' : '待出發'}</span>
             </div>
           `;
           btn.addEventListener('click', () => {
+            if (claimTakenByOther(m.id)) {
+              showToast(`${m.name} 已經被別人選走了，換一位吧！`, '🔒');
+              return;
+            }
+            const prevId = vState.currentId;
             vState.currentId = m.id;
+            claimCharacter(m.id, prevId);
             document.getElementById('modalHoloDeck').classList.add('hidden');
             renderAllMobile();
             drawPhotocardCanvas();
@@ -1396,7 +1651,8 @@
       document.getElementById('btnSaveCustomNickname').addEventListener('click', () => {
         const val = document.getElementById('inpCustomNickname').value.trim();
         if (val) {
-          getImmortal(vState.currentId).name = val;
+          getImmortal(vState.currentId).name = val.slice(0, 12);
+          if (sync.enabled) sync.put(`names/${vState.currentId}`, val.slice(0, 12));
           populateHoloDeck();
           renderAllMobile();
           showToast(`已更新暱稱為：${val}`, '✨');
